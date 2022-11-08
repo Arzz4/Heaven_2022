@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9c109cbebb29c4faac5451bd0774d8, type: 3}
+  m_Name: GeneralGameAudio
+  m_EditorClassIdentifier: 
+  m_DefaultMainMenuAudio: {fileID: 8300000, guid: ef88375c1bfb2d8499e8659122f2de0b, type: 3}
+  m_DefaultLevelsAudio: {fileID: 8300000, guid: 0cf0b19df3dbfe247bf60b3ede8466c2, type: 3}
+  m_ScenesAudioClips:
+  - {fileID: 8300000, guid: f94e7ac62030eb04986e72c9a7fb63f1, type: 3}
+  - {fileID: 8300000, guid: ef88375c1bfb2d8499e8659122f2de0b, type: 3}
+  - {fileID: 8300000, guid: 0cf0b19df3dbfe247bf60b3ede8466c2, type: 3}
+  - {fileID: 8300000, guid: f94e7ac62030eb04986e72c9a7fb63f1, type: 3}
+  - {fileID: 8300000, guid: 0cf0b19df3dbfe247bf60b3ede8466c2, type: 3}
+  - {fileID: 8300000, guid: ef88375c1bfb2d8499e8659122f2de0b, type: 3}
+  m_OnTileClicked: {fileID: 8300000, guid: 6635656b10d337e449a1135507080f7a, type: 3}
+  m_OnLevelCompleted: {fileID: 0}
