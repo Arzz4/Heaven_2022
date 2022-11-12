@@ -6,6 +6,7 @@ namespace PlayerPlatformer2D
 	{
 		public PhysicsContextType controllerContextType = PhysicsContextType.Main;
 		public Vector2 velocity;
+		public float speed;
 	}
 
 	public class PlayerPhysics : MonoBehaviour
@@ -84,6 +85,7 @@ namespace PlayerPlatformer2D
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 		
 			data.velocity = rigidbody.velocity;
+			data.speed = data.velocity.magnitude;
 		}
 	}
 
