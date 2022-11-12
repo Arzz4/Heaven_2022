@@ -18,11 +18,27 @@ public class TileLogic : MonoBehaviour
     private GooLogic gooLogic;
     public GameObject explosionPrefab;
     private Vector3 prefabOffset = new Vector3(0.5f, 0.5f, 0.5f);
+
+    public float explosionRadius = 2.5f;
+    public List<int> destructableLayers = new List<int>();
+    public float gooRadius = 2.5f;
+    public Color gooTint = Color.green;
+
+    private List<Tilemap> mapsToCleanOnExplosion;
     // Start is called before the first frame update
     void Start()
     {
         tiles = GetComponent<Tilemap>();
         gooLogic = GameObject.FindObjectOfType<GooLogic>();
+
+        mapsToCleanOnExplosion = new List<Tilemap>();
+        foreach (var tilemap in GameObject.FindObjectsOfType<Tilemap>())
+        {
+            if (destructableLayers.Contains(tilemap.GetComponent<TilemapRenderer>().sortingOrder))
+            {
+                mapsToCleanOnExplosion.Add(tilemap);
+            }
+        }
 
     }
         // Update is called once per frame
@@ -31,14 +47,14 @@ public class TileLogic : MonoBehaviour
         
     }
 
-    public void RemoveTiles(float r, Vector3 pos)
+    public void RemoveTiles(Vector3 pos)
     {
-        StartCoroutine(removeTiles(getTiles(r, pos, 0.25f)));
+        StartCoroutine(removeTiles(getTiles(explosionRadius, pos, 0.25f)));
     }
 
-    public void TintTiles(float r, Vector3 pos, Color color)
+    public void TintTiles(Vector3 pos)
     {
-        var possibleTiles = getTiles(r, pos, 0.4f);
+        var possibleTiles = getTiles(gooRadius, pos, 0.4f);
         Vector3Int local = this.tiles.WorldToCell(pos);
         var toColor = new List<Tuple<float, Vector3Int>>();
 
@@ -51,7 +67,7 @@ public class TileLogic : MonoBehaviour
                 toColor.Add(tile);
             }
         }
-        StartCoroutine(tintTiles(toColor, color));
+        StartCoroutine(tintTiles(toColor, gooTint));
     }
 
     private bool hasFacingAirContact(Vector3Int p, Vector3Int origin)
@@ -74,7 +90,6 @@ public class TileLogic : MonoBehaviour
 
     private IEnumerator removeTiles(List<Tuple<float, Vector3Int>> toDelete)
     {
-        
         float prevDelay = 0;
         foreach (var item in toDelete)
         {
@@ -85,7 +100,15 @@ public class TileLogic : MonoBehaviour
             if (tiles.HasTile(pos))
             {
                 ObjectPoolSystem.Instance.InstantiatePrefabWith(explosionPrefab, tiles.CellToWorld(pos) + prefabOffset, Quaternion.identity);
-                tiles.SetTile(pos, null);
+            }
+            Vector3 worldPos = tiles.CellToWorld(pos);
+            foreach (var tileMapToClean in mapsToCleanOnExplosion)
+            {
+                Vector3Int local = tileMapToClean.WorldToCell(worldPos);
+                if (tileMapToClean.HasTile(pos))
+                {
+                    tileMapToClean.SetTile(pos, null);
+                }
             }
             prevDelay = delay;
         }
