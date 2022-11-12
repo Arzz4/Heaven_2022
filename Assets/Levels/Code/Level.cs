@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 public class Level : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float explosionRadius = 2.0f;
+    public float explosionRadius = 2.5f;
 
     private Grid grid;
     private PlayerCharacter player;
