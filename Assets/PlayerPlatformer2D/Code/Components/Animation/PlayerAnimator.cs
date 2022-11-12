@@ -16,7 +16,8 @@ namespace PlayerPlatformer2D
 			var animator = m_RuntimeData.PlayerUnityComponentsRuntimeData.animator;
 
 			animator.SetBool("inAir", !collisionData.onGround);
-			animator.SetBool("isMoving", physicsData.speed > 0.01f);
+			animator.SetBool("isSidewaysMoving", Mathf.Abs(physicsData.velocity.x) > 0.01f);
+			animator.SetBool("isOnStickyWall", collisionData.onWall);
 			animator.SetFloat("verticalSpeed", physicsData.velocity.y);
 		}
 	}
