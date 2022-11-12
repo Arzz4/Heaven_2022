@@ -21,6 +21,7 @@ namespace PlayerPlatformer2D
 			animator.SetBool("isOnStickyWall", collisionData.onWall);
 			animator.SetFloat("verticalSpeed", physicsData.velocity.y);
 			animator.SetBool("isCrouching", collisionData.onGround && frameInput.leftJoystickData.rawInput == Vector2.down);
+			animator.SetBool("isLookingUp", collisionData.onGround && frameInput.leftJoystickData.rawInput == Vector2.up);
 		}
 	}
 }
