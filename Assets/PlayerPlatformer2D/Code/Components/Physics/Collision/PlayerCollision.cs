@@ -14,7 +14,7 @@ namespace PlayerPlatformer2D
 		public bool onRightWall = false;
 		public bool onLeftWall = false;
 		public bool onWall = false;
-		public bool onStickyWall = false;
+		public bool onStickySurface = false;
 		public int wallSide = 0;
 		public bool onMovingPlatform = false;
 		public float onGroundTimestamp = 0.0f;
@@ -42,6 +42,7 @@ namespace PlayerPlatformer2D
 			Collider2D groundCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.BottomOffset, collisionSettings.GroundCollisionRadius, collisionSettings.GroundLayer);
 			collisionData.onGround = groundCollider != null;
 			collisionData.groundObject = groundCollider != null ? groundCollider.gameObject : null;
+			collisionData.onStickySurface = groundCollider == null ? false : groundCollider.CompareTag("StickySurface");
 
 			if (!wasOnGround && collisionData.onGround)
 				OnTouchingGroundSurface(groundCollider.gameObject);
@@ -55,7 +56,7 @@ namespace PlayerPlatformer2D
 			collisionData.onLeftWall = leftWallCollider != null;
 			collisionData.onWall = collisionData.onRightWall || collisionData.onLeftWall;
 			collisionData.wallSide = collisionData.onWall ? (collisionData.onRightWall ? -1 : 1) : 0;
-			collisionData.onStickyWall = !collisionData.onWall ? false : (collisionData.onRightWall ? rightWallCollider.CompareTag("StickyWall") : leftWallCollider.CompareTag("StickyWall"));
+			collisionData.onStickySurface = !collisionData.onWall ? collisionData.onStickySurface : (collisionData.onRightWall ? rightWallCollider.CompareTag("StickySurface") : leftWallCollider.CompareTag("StickySurface"));
 
 			if (!wasOnWall && collisionData.onWall)
 				OnTouchingGroundSurface(collisionData.onRightWall ? rightWallCollider.gameObject : leftWallCollider.gameObject);

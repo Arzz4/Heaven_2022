@@ -367,7 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb89e83499ed83147829a40e17959791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DeathPrefab: {fileID: 0}
+  m_RuntimeData: {fileID: 7821152413202273583}
+  m_DeathPrefab: {fileID: 8162970925206297358, guid: 76c6605b35dfebb46a404a01c9022da4, type: 3}
 --- !u!114 &7821152413202273580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,3 +388,4 @@ MonoBehaviour:
   m_Physics: {fileID: 7821152413202273581}
   m_Orientation: {fileID: 7821152413202273554}
   m_Animator: {fileID: 4059925797380020258}
+  m_DeathBehaviour: {fileID: 7624746512337268029}

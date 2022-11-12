@@ -28,6 +28,9 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private PlayerAnimator m_Animator = default;
 
+		[SerializeField]
+		private PlayerDeath m_DeathBehaviour = default;
+
 		#region UNITY METHODS
 
 		private void Awake()
@@ -60,13 +63,22 @@ namespace PlayerPlatformer2D
 		{
 			m_RuntimeData.Initialize();
 			m_UnityComponents.Initialize();
-			m_Input.Initialize();
 			m_Physics.Initialize();
+			m_Input.Initialize();
+			m_Input.EnableInput();
 		}
 
 		private void FramePreUpdate()
 		{
 			m_Input.UpdateFrameInput();
+
+			if(m_DeathBehaviour.UpdateDeathBehaviour())
+			{
+				m_Input.DisableInput();
+				gameObject.SetActive(false);
+				return;
+			}
+
 			m_Collision.UpdateCollisions();
 			m_Physics.PreUpdateController();
 		}

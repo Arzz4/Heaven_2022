@@ -18,7 +18,7 @@ namespace PlayerPlatformer2D
 		public JumpState jumpState = JumpState.None;
 		public bool lowJump = false;
 		public bool queuedJump = false;
-		public bool isWallGripped = false;
+		public bool onStickySurface = false;
 
 		public struct AirAccelerationValues
 		{
@@ -70,7 +70,7 @@ namespace PlayerPlatformer2D
 			data.currentAirAccelerationValues.airAccelerationNoInput = data.mainSettings.AirAcelerationMultiplierNoInput;
 
 			// start jump
-			bool canJump = collisionData.onGround || collisionData.onStickyWall;
+			bool canJump = collisionData.onGround || data.onStickySurface;
 			if (canJump && (frameInput.buttonPress[(int)ButtonInputType.Jump] || data.queuedJump))
 				Jump();
 
@@ -86,9 +86,15 @@ namespace PlayerPlatformer2D
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 
 			// facing dir towards the other side of the wall
-			if (data.isWallGripped)
+			if (data.onStickySurface && collisionData.onWall)
 			{
 				orientationData.facingSign = collisionData.wallSide;
+				return;
+			}
+			else if(data.onStickySurface)
+			{
+				var leftJoystickX = m_RuntimeData.PlayerInputRuntimeData.frameInput.leftJoystickData.rawInput.x;
+				orientationData.facingSign = leftJoystickX > 0 ? 1 : (leftJoystickX < 0.0f ? -1 : orientationData.facingSign);
 				return;
 			}
 
@@ -105,18 +111,18 @@ namespace PlayerPlatformer2D
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 
 			// sticky walls
-			data.isWallGripped = false;
+			data.onStickySurface = false;
 			bool isJumpStateGoingUp = data.jumpState == PhysicsContextMainRuntimeData.JumpState.TakingOff || (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir && rigidbody.velocity.y > 0);
-			bool commonValidationForWallAction = !collisionData.onGround && !frameInput.buttonPress[(int)ButtonInputType.Jump] && !isJumpStateGoingUp;
-			if (collisionData.onStickyWall && commonValidationForWallAction)
+			bool commonValidationForStickySurfaceAction = !frameInput.buttonPress[(int)ButtonInputType.Jump] && !isJumpStateGoingUp;
+			if ((collisionData.onWall || collisionData.onGround) && collisionData.onStickySurface && commonValidationForStickySurfaceAction)
 			{
 				rigidbody.gravityScale = 0.0f;
 				rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
-				data.isWallGripped = true;
+				data.onStickySurface = true;
 			}
 
 			// 2d movement
-			if (data.isWallGripped)
+			if (data.onStickySurface)
 			{
 				rigidbody.velocity = Vector2.zero;
 			}
@@ -156,7 +162,7 @@ namespace PlayerPlatformer2D
 			SetJumpGravityMultiplier(jumpSettings.HighJump.GravityMultiplierUp);
 
 			// wall jump modifier
-			if (collisionData.onStickyWall)
+			if (collisionData.onWall && data.onStickySurface)
 				SetJumpHorizontalVelocity(jumpSettings.HighJump.YVelocityMultiplierUp, collisionData.wallSide);
 
 			data.jumpState = PhysicsContextMainRuntimeData.JumpState.TakingOff;

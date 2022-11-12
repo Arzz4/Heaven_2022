@@ -86,8 +86,6 @@ namespace PlayerPlatformer2D
 			}
 
 			#endregion
-
-			EnableInput();
 		}
 
 		public void UpdateFrameInput()
