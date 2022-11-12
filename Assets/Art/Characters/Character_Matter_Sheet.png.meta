@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,6 +95,30 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -977,7 +1001,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Character_Matter_Sheet_27: 1177514644
-      Character_Matter_Sheet_33: -2112604981
       Character_Matter_Sheet_5: -1079508371
       Character_Matter_Sheet_0: -21243598
       Character_Matter_Sheet_35: -1150525610
@@ -991,6 +1014,7 @@ TextureImporter:
       Character_Matter_Sheet_3: 578932317
       Character_Matter_Sheet_24: 1135766292
       Character_Matter_Sheet_16: 113206752
+      Character_Matter_Sheet_19: -1076387724
       Character_Matter_Sheet_20: 532337316
       Character_Matter_Sheet_29: -2006913351
       Character_Matter_Sheet_38: 576162653
@@ -1016,7 +1040,7 @@ TextureImporter:
       Character_Matter_Sheet_23: -2110048082
       Character_Matter_Sheet_37: -1828842400
       Character_Matter_Sheet_4: -268811415
-      Character_Matter_Sheet_19: -1076387724
+      Character_Matter_Sheet_33: -2112604981
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
