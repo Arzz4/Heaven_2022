@@ -17,6 +17,7 @@ namespace PlayerPlatformer2D
 
 		public JumpState jumpState = JumpState.None;
 		public bool lowJump = false;
+		public bool queuedJump = false;
 
 		public struct AirAccelerationValues
 		{
@@ -68,7 +69,7 @@ namespace PlayerPlatformer2D
 			data.currentAirAccelerationValues.airAccelerationNoInput = data.mainSettings.AirAcelerationMultiplierNoInput;
 
 			// start jump
-			if (collisionData.onGround && frameInput.buttonPress[(int)ButtonInputType.Jump])
+			if (collisionData.onGround && (frameInput.buttonPress[(int)ButtonInputType.Jump] || data.queuedJump))
 				Jump();
 
 			// update jump state
@@ -126,6 +127,7 @@ namespace PlayerPlatformer2D
 
 			data.jumpState = PhysicsContextMainRuntimeData.JumpState.TakingOff;
 			data.lowJump = false;
+			data.queuedJump = false;
 		}
 
 		private void UpdateJumpState()

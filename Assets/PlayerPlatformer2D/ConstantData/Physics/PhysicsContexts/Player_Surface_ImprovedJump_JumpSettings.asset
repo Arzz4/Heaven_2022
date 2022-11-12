@@ -15,10 +15,10 @@ MonoBehaviour:
   m_OverwriteMaxHorizontalSpeed: 1
   m_MaxHorizontalSpeed: 10
   m_HighJump:
-    m_JumpHeight: 3
+    m_JumpHeight: 8
     m_JumpHorizontalRangeUp: 8
-    m_JumpHorizontalRangeDown: 8
+    m_JumpHorizontalRangeDown: 10
   m_LowJump:
-    m_JumpHeight: 1
-    m_JumpHorizontalRangeUp: 3
-    m_JumpHorizontalRangeDown: 3
+    m_JumpHeight: 8
+    m_JumpHorizontalRangeUp: 8
+    m_JumpHorizontalRangeDown: 10

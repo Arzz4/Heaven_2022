@@ -11,6 +11,7 @@ namespace PlayerPlatformer2D
 		public Transform physicsTransform = default;
 		public Transform visualsTransform = default;
 		public Transform physicsContextsRoot = default;
+		public PlayerPhysics physicsController = default;
 	}
 
 	public class PlayerUnityComponents : MonoBehaviour
@@ -38,6 +39,7 @@ namespace PlayerPlatformer2D
 			data.physicsTransform = m_RigidBody.transform;
 			data.visualsTransform = m_VisualsTransform;
 			data.physicsContextsRoot = m_PhysicsContextsRoot;
+			data.physicsController = m_RigidBody.GetComponent<PlayerPhysics>();
 		}
 	}
 }

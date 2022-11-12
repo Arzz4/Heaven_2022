@@ -75,6 +75,12 @@ namespace PlayerPlatformer2D
 			{
 				m_RuntimeData.ResetToDefaultPhysicsContextsSettings();
 			}
+
+			var bounceSurface = aGroundObj.GetComponent<Surface_Bounce>();
+			if(bounceSurface != null)
+			{
+				bounceSurface.OnPlayerTouchesSurface(m_RuntimeData);
+			}
 		}
 
 		public void OnDrawGizmos()
