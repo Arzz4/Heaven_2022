@@ -50,7 +50,7 @@ namespace PlayerPlatformer2D
 
 			// physics initialization
 			rigidbody.drag = mainMotion.DefaultLinearDrag;
-			SetGravityMultiplier(data.jumpSettings.HighJump.GravityMultiplierDown);
+			SetJumpGravityMultiplier(data.jumpSettings.HighJump.GravityMultiplierDown);
 		}
 
 		public override void EndContext()
@@ -150,9 +150,14 @@ namespace PlayerPlatformer2D
 		{
 			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var jumpSettings = data.jumpSettings;
+			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 
-			SetVerticalVelocity(jumpSettings.HighJump.YVelocityMultiplierUp);
-			SetGravityMultiplier(jumpSettings.HighJump.GravityMultiplierUp);
+			SetJumpVerticalVelocity(jumpSettings.HighJump.YVelocityMultiplierUp);
+			SetJumpGravityMultiplier(jumpSettings.HighJump.GravityMultiplierUp);
+
+			// wall jump modifier
+			if (collisionData.onStickyWall)
+				SetJumpHorizontalVelocity(jumpSettings.HighJump.YVelocityMultiplierUp, collisionData.wallSide);
 
 			data.jumpState = PhysicsContextMainRuntimeData.JumpState.TakingOff;
 			data.lowJump = false;
@@ -194,19 +199,19 @@ namespace PlayerPlatformer2D
 					if (!frameInput.buttonHoldRaw[(int)ButtonInputType.Jump] && !data.lowJump)
 					{
 						data.lowJump = true;
-						SetVerticalVelocity(jumpSettings.LowJump.YVelocityMultiplierUp, true);
-						SetGravityMultiplier(jumpSettings.LowJump.GravityMultiplierUp);
+						SetJumpVerticalVelocity(jumpSettings.LowJump.YVelocityMultiplierUp, true);
+						SetJumpGravityMultiplier(jumpSettings.LowJump.GravityMultiplierUp);
 					}
 				}
 				else if (rigidbody.velocity.y < 0)
 				{
 					float gravityMultiplierDown = data.lowJump ? jumpSettings.LowJump.GravityMultiplierDown : jumpSettings.HighJump.GravityMultiplierDown;
-					SetGravityMultiplier(gravityMultiplierDown);
+					SetJumpGravityMultiplier(gravityMultiplierDown);
 				}
 			}
 		}
 
-		private void SetVerticalVelocity(float verticalVelocityMultiplier, bool capToMinimum = false) 
+		private void SetJumpVerticalVelocity(float verticalVelocityMultiplier, bool capToMinimum = false) 
 		{
 			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
@@ -220,7 +225,7 @@ namespace PlayerPlatformer2D
 			rigidbody.velocity = new Vector2(rigidbody.velocity.x, velocityY);
 		}
 
-		private void SetGravityMultiplier(float gravityMultiplier)
+		private void SetJumpGravityMultiplier(float gravityMultiplier)
 		{
 			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
@@ -229,6 +234,17 @@ namespace PlayerPlatformer2D
 			float maxSpeedSqr = maxSpeed * maxSpeed;
 
 			rigidbody.gravityScale = -(gravityMultiplier * maxSpeedSqr) / Physics2D.gravity.y;
+		}
+
+		private void SetJumpHorizontalVelocity(float verticalVelocityMultiplier, float sign)
+		{
+			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
+			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
+
+			float maxSpeed = data.jumpSettings.OverwriteMaxHorizontalSpeed ? data.jumpSettings.MaxHorizontalSpeed : data.mainSettings.MaxSpeed;
+			float velocityX = verticalVelocityMultiplier * maxSpeed;
+
+			rigidbody.velocity = new Vector2(sign * Mathf.Max(Mathf.Abs(rigidbody.velocity.x), velocityX), rigidbody.velocity.y);
 		}
 
 		#endregion
