@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
 using Tile = UnityEngine.Tilemaps.Tile;
 
 public class GooLogic : MonoBehaviour
