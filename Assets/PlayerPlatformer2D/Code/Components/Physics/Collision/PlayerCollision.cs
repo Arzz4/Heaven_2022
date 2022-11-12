@@ -37,13 +37,15 @@ namespace PlayerPlatformer2D
 			var collisionSettings = collisionData.settings;
 
 			// ground
+			bool wasOnGround = collisionData.onGround;
 			Collider2D groundCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.BottomOffset, collisionSettings.GroundCollisionRadius, collisionSettings.GroundLayer);
-			if (groundCollider && !collisionData.onGround)
-				OnLandingOnGround(groundCollider.gameObject);
-
 			collisionData.onGround = groundCollider != null;
 
+			if (!wasOnGround && collisionData.onGround)
+				OnTouchingGroundSurface(groundCollider.gameObject);
+
 			// walls
+			bool wasOnWall = collisionData.onWall;
 			Collider2D rightWallCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.RightOffset, collisionSettings.WallCollisionRadius, collisionSettings.GroundLayer);
 			Collider2D leftWallCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.LeftOffset, collisionSettings.WallCollisionRadius, collisionSettings.GroundLayer);
 
@@ -52,6 +54,9 @@ namespace PlayerPlatformer2D
 			collisionData.onWall = collisionData.onRightWall || collisionData.onLeftWall;
 			collisionData.wallSide = collisionData.onWall ? (collisionData.onRightWall ? -1 : 1) : 0;
 			collisionData.onStickyWall = !collisionData.onWall ? false : (collisionData.onRightWall ? rightWallCollider.CompareTag("StickyWall") : leftWallCollider.CompareTag("StickyWall"));
+
+			if (!wasOnWall && collisionData.onWall)
+				OnTouchingGroundSurface(collisionData.onRightWall ? rightWallCollider.gameObject : leftWallCollider.gameObject);
 
 			// platforms
 			Collider2D platformCollider = groundCollider ? groundCollider : (rightWallCollider ? rightWallCollider : (leftWallCollider ? leftWallCollider : null));
@@ -63,7 +68,7 @@ namespace PlayerPlatformer2D
 				//m_Transform.eulerAngles = new Vector3(m_Transform.eulerAngles.x, m_Transform.eulerAngles.y, 0.0f);
 		}
 
-		private void OnLandingOnGround(GameObject aGroundObj)
+		private void OnTouchingGroundSurface(GameObject aGroundObj)
 		{
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 			collisionData.onGroundTimestamp = Time.time;

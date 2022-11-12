@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 337577087}
   - component: {fileID: 337577086}
   - component: {fileID: 337577085}
-  - component: {fileID: 337577084}
   m_Layer: 6
   m_Name: StickyWall
   m_TagString: StickyWall
@@ -158,18 +157,6 @@ Transform:
   m_Father: {fileID: 1948288811}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &337577084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337577082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f8310491202ff4893d3a79fc14d6dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &337577085
 BoxCollider2D:
   m_ObjectHideFlags: 0
