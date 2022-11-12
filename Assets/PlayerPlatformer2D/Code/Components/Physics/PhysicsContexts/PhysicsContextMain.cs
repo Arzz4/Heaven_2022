@@ -163,7 +163,7 @@ namespace PlayerPlatformer2D
 					if (!frameInput.buttonHoldRaw[(int)ButtonInputType.Jump] && !data.lowJump)
 					{
 						data.lowJump = true;
-						SetVerticalVelocity(jumpSettings.LowJump.YVelocityMultiplierUp);
+						SetVerticalVelocity(jumpSettings.LowJump.YVelocityMultiplierUp, true);
 						SetGravityMultiplier(jumpSettings.LowJump.GravityMultiplierUp);
 					}
 				}
@@ -175,14 +175,18 @@ namespace PlayerPlatformer2D
 			}
 		}
 
-		private void SetVerticalVelocity(float verticalVelocityMultiplier) 
+		private void SetVerticalVelocity(float verticalVelocityMultiplier, bool capToMinimum = false) 
 		{
 			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 
 			float maxSpeed = data.jumpSettings.OverwriteMaxHorizontalSpeed ? data.jumpSettings.MaxHorizontalSpeed : data.mainSettings.MaxSpeed;
+			float velocityY = verticalVelocityMultiplier * maxSpeed;
 			
-			rigidbody.velocity = new Vector2(rigidbody.velocity.x, verticalVelocityMultiplier * maxSpeed);
+			if (capToMinimum)
+				velocityY = Mathf.Min(rigidbody.velocity.y, velocityY);
+
+			rigidbody.velocity = new Vector2(rigidbody.velocity.x, velocityY);
 		}
 
 		private void SetGravityMultiplier(float gravityMultiplier)
