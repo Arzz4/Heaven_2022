@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e073a962e9bd784ba17fd9aedcbc9e8, type: 3}
-  m_Name: Player_Surface_ImprovedJump_JumpSettings
+  m_Name: Player_Surface_StickyWall_JumpSettings
   m_EditorClassIdentifier: 
   m_OverwriteMaxHorizontalSpeed: 1
   m_MaxHorizontalSpeed: 10
+  m_LowJumpDifferentFromHighJump: 0
   m_HighJump:
     m_JumpHeight: 8
-    m_JumpHorizontalRangeUp: 8
+    m_JumpHorizontalRangeUp: 10
     m_JumpHorizontalRangeDown: 10
   m_LowJump:
     m_JumpHeight: 8
