@@ -19,6 +19,7 @@ namespace PlayerPlatformer2D
 		public bool onMovingPlatform = false;
 		public float onGroundTimestamp = 0.0f;
 		public Transform movingPlatform = null;
+		public GameObject groundObject = null;
 
 		public const int maxHits = 1;
 		public Collider[] groundHits = new Collider[maxHits];
@@ -40,6 +41,7 @@ namespace PlayerPlatformer2D
 			bool wasOnGround = collisionData.onGround;
 			Collider2D groundCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.BottomOffset, collisionSettings.GroundCollisionRadius, collisionSettings.GroundLayer);
 			collisionData.onGround = groundCollider != null;
+			collisionData.groundObject = groundCollider != null ? groundCollider.gameObject : null;
 
 			if (!wasOnGround && collisionData.onGround)
 				OnTouchingGroundSurface(groundCollider.gameObject);
@@ -72,6 +74,7 @@ namespace PlayerPlatformer2D
 		{
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 			collisionData.onGroundTimestamp = Time.time;
+			collisionData.groundObject = aGroundObj;
 
 			var modifyPlayerSettings = aGroundObj.GetComponent<Surface_ModifyPlayerPhysicsSettings>();
 			if(modifyPlayerSettings != null)

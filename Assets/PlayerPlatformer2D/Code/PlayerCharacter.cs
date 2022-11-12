@@ -25,6 +25,9 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private PlayerOrientation m_Orientation = default;
 
+		[SerializeField]
+		private PlayerAnimator m_Animator = default;
+
 		#region UNITY METHODS
 
 		private void Awake()
@@ -77,6 +80,7 @@ namespace PlayerPlatformer2D
 		{
 			m_Physics.PostUpdateController();
 			m_Orientation.PostUpdateCharacterOrientation();
+			m_Animator.PostUpdateAnimations();
 		}
 
 		private void FrameLateUpdate()

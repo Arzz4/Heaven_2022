@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7821152412097949079}
   - component: {fileID: 7821152412097949077}
   - component: {fileID: 7821152412097949076}
+  - component: {fileID: 697661034108906379}
   m_Layer: 7
   m_Name: PlayerVisuals
   m_TagString: Untagged
@@ -83,6 +84,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &697661034108906379
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821152412097949078}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69b4373fe901f9d4a80e24546bb8d660, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7821152413126203121
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +180,7 @@ GameObject:
   - component: {fileID: 7821152413202273555}
   - component: {fileID: 7821152413202273554}
   - component: {fileID: 7821152413202273581}
+  - component: {fileID: 4059925797380020258}
   - component: {fileID: 7821152413202273580}
   m_Layer: 7
   m_Name: Player
@@ -265,6 +287,7 @@ MonoBehaviour:
   m_VisualsTransform: {fileID: 7821152412097949079}
   m_RigidBody: {fileID: 7821152413202273577}
   m_Collider: {fileID: 7821152413202273576}
+  m_Animator: {fileID: 697661034108906379}
 --- !u!114 &7821152413202273552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +340,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RuntimeData: {fileID: 7821152413202273583}
+--- !u!114 &4059925797380020258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821152413202273578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4979d83ab2d301d46bd9e6e70056ab3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RuntimeData: {fileID: 7821152413202273583}
 --- !u!114 &7821152413202273580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,3 +371,4 @@ MonoBehaviour:
   m_Collision: {fileID: 7821152413202273552}
   m_Physics: {fileID: 7821152413202273581}
   m_Orientation: {fileID: 7821152413202273554}
+  m_Animator: {fileID: 4059925797380020258}

@@ -4,13 +4,16 @@ using UnityEngine;
 
 namespace PlayerPlatformer2D
 {
-	public class Surface_ModifyPlayerPhysicsSettings : MonoBehaviour
+	public class Surface_ModifyPlayerPhysicsSettings : Surface_Base
 	{
 		[SerializeField]
 		private PhysicsContext_BaseSettings[] m_SettingsToApply = default;
 
 		public void OnPlayerTouchesSurface(PlayerRuntimeData aPlayer)
 		{
+			if (!ValidateSurfaceAbilityActivation(aPlayer))
+				return;
+
 			for (int i = 0; i < m_SettingsToApply.Length; ++i)
 			{
 				var settings = m_SettingsToApply[i];

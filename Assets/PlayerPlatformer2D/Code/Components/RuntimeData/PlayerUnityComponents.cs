@@ -12,6 +12,7 @@ namespace PlayerPlatformer2D
 		public Transform visualsTransform = default;
 		public Transform physicsContextsRoot = default;
 		public PlayerPhysics physicsController = default;
+		public Animator animator = default;
 	}
 
 	public class PlayerUnityComponents : MonoBehaviour
@@ -31,11 +32,15 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private Collider2D m_Collider = default;
 
+		[SerializeField]
+		private Animator m_Animator = default;
+
 		public void Initialize()
 		{
 			var data = m_RuntimeData.PlayerUnityComponentsRuntimeData;
 			data.rigidBody = m_RigidBody;
 			data.collider = m_Collider;
+			data.animator = m_Animator;
 			data.physicsTransform = m_RigidBody.transform;
 			data.visualsTransform = m_VisualsTransform;
 			data.physicsContextsRoot = m_PhysicsContextsRoot;
