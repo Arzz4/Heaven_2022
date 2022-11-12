@@ -65,16 +65,15 @@ namespace PlayerPlatformer2D
 			m_UnityComponents.Initialize();
 			m_Physics.Initialize();
 			m_Input.Initialize();
-			m_Input.EnableInput();
 		}
 
 		private void FramePreUpdate()
 		{
 			m_Input.UpdateFrameInput();
 
-			if(m_DeathBehaviour.UpdateDeathBehaviour())
+			if (m_DeathBehaviour.UpdateDeathBehaviour())
 			{
-				m_Input.DisableInput();
+				StopPlayingWithCharacter();
 				gameObject.SetActive(false);
 				return;
 			}
@@ -106,5 +105,15 @@ namespace PlayerPlatformer2D
 		}
 
 		#endregion
+
+		public void StartPlayingWithCharacter()
+		{
+			this.enabled = true;
+		}
+
+		public void StopPlayingWithCharacter()
+		{
+			this.enabled = false;
+		}
 	}
 }
