@@ -45,7 +45,7 @@ namespace PlayerPlatformer2D
 			collisionData.onStickySurface = groundCollider == null ? false : groundCollider.CompareTag("StickySurface");
 
 			if (!wasOnGround && collisionData.onGround)
-				OnTouchingGroundSurface(groundCollider.gameObject);
+				OnTouchingSurface(groundCollider.gameObject);
 
 			// walls
 			bool wasOnWall = collisionData.onWall;
@@ -59,7 +59,7 @@ namespace PlayerPlatformer2D
 			collisionData.onStickySurface = !collisionData.onWall ? collisionData.onStickySurface : (collisionData.onRightWall ? rightWallCollider.CompareTag("StickySurface") : leftWallCollider.CompareTag("StickySurface"));
 
 			if (!wasOnWall && collisionData.onWall)
-				OnTouchingGroundSurface(collisionData.onRightWall ? rightWallCollider.gameObject : leftWallCollider.gameObject);
+				OnTouchingSurface(collisionData.onRightWall ? rightWallCollider.gameObject : leftWallCollider.gameObject);
 
 			// platforms
 			Collider2D platformCollider = groundCollider ? groundCollider : (rightWallCollider ? rightWallCollider : (leftWallCollider ? leftWallCollider : null));
@@ -71,11 +71,10 @@ namespace PlayerPlatformer2D
 				//m_Transform.eulerAngles = new Vector3(m_Transform.eulerAngles.x, m_Transform.eulerAngles.y, 0.0f);
 		}
 
-		private void OnTouchingGroundSurface(GameObject aGroundObj)
+		private void OnTouchingSurface(GameObject aGroundObj)
 		{
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 			collisionData.onGroundTimestamp = Time.time;
-			collisionData.groundObject = aGroundObj;
 
 			var modifyPlayerSettings = aGroundObj.GetComponent<Surface_ModifyPlayerPhysicsSettings>();
 			if(modifyPlayerSettings != null)
