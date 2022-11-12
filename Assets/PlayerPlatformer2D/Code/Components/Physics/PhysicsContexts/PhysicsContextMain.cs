@@ -18,6 +18,7 @@ namespace PlayerPlatformer2D
 		public JumpState jumpState = JumpState.None;
 		public bool lowJump = false;
 		public bool queuedJump = false;
+		public bool isWallGripped = false;
 
 		public struct AirAccelerationValues
 		{
@@ -69,7 +70,8 @@ namespace PlayerPlatformer2D
 			data.currentAirAccelerationValues.airAccelerationNoInput = data.mainSettings.AirAcelerationMultiplierNoInput;
 
 			// start jump
-			if (collisionData.onGround && (frameInput.buttonPress[(int)ButtonInputType.Jump] || data.queuedJump))
+			bool canJump = collisionData.onGround || collisionData.onStickyWall;
+			if (canJump && (frameInput.buttonPress[(int)ButtonInputType.Jump] || data.queuedJump))
 				Jump();
 
 			// update jump state
@@ -78,8 +80,17 @@ namespace PlayerPlatformer2D
 
 		public override void PostUpdateContext()
 		{
+			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var orientationData = m_RuntimeData.PlayerOrientationRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
+			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
+
+			// facing dir towards the other side of the wall
+			if (data.isWallGripped)
+			{
+				orientationData.facingSign = collisionData.wallSide;
+				return;
+			}
 
 			// facing update based on physics movement
 			orientationData.facingSign = rigidbody.velocity.x > 0 ? 1 : (rigidbody.velocity.x < 0.0f ? -1 : orientationData.facingSign);
@@ -93,21 +104,39 @@ namespace PlayerPlatformer2D
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 
-			// 2d movement
-			Vector2 aJoystickInput = frameInput.leftJoystickData.rawInput;
-			float joystickX_Remapped = System.Math.Sign(aJoystickInput.x) * mainMotion.HorizontalMotionInputRemapping.Evaluate(Mathf.Abs(aJoystickInput.x));
-			float currentSpeedX = rigidbody.velocity.x;
-			float targetSpeedX = joystickX_Remapped * mainMotion.MaxSpeed;
-			float accelerationX = Mathf.Abs(targetSpeedX) > Mathf.Abs(currentSpeedX) ? mainMotion.Acceleration : mainMotion.Deceleration;
-			float airAccelerationMultiplier = targetSpeedX != 0.0f && aJoystickInput.x * rigidbody.velocity.x < 0 ? data.currentAirAccelerationValues.airAccelerationForInput : data.currentAirAccelerationValues.airAccelerationNoInput;
-
-			if (collisionData.onGround)
+			// sticky walls
+			data.isWallGripped = false;
+			bool isJumpStateGoingUp = data.jumpState == PhysicsContextMainRuntimeData.JumpState.TakingOff || (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir && rigidbody.velocity.y > 0);
+			bool commonValidationForWallAction = !collisionData.onGround && !frameInput.buttonPress[(int)ButtonInputType.Jump] && !isJumpStateGoingUp;
+			if (collisionData.onStickyWall && commonValidationForWallAction)
 			{
-				rigidbody.velocity = new Vector2(Mathf.MoveTowards(currentSpeedX, targetSpeedX, Time.fixedDeltaTime * accelerationX), rigidbody.velocity.y);
+				rigidbody.gravityScale = 0.0f;
+				rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
+				data.isWallGripped = true;
+			}
+
+			// 2d movement
+			if (data.isWallGripped)
+			{
+				rigidbody.velocity = Vector2.zero;
 			}
 			else
 			{
-				rigidbody.velocity = new Vector2(Mathf.MoveTowards(currentSpeedX, targetSpeedX, Time.fixedDeltaTime * airAccelerationMultiplier * accelerationX), rigidbody.velocity.y);
+				Vector2 aJoystickInput = frameInput.leftJoystickData.rawInput;
+				float joystickX_Remapped = System.Math.Sign(aJoystickInput.x) * mainMotion.HorizontalMotionInputRemapping.Evaluate(Mathf.Abs(aJoystickInput.x));
+				float currentSpeedX = rigidbody.velocity.x;
+				float targetSpeedX = joystickX_Remapped * mainMotion.MaxSpeed;
+				float accelerationX = Mathf.Abs(targetSpeedX) > Mathf.Abs(currentSpeedX) ? mainMotion.Acceleration : mainMotion.Deceleration;
+				float airAccelerationMultiplier = targetSpeedX != 0.0f && aJoystickInput.x * rigidbody.velocity.x < 0 ? data.currentAirAccelerationValues.airAccelerationForInput : data.currentAirAccelerationValues.airAccelerationNoInput;
+
+				if (collisionData.onGround)
+				{
+					rigidbody.velocity = new Vector2(Mathf.MoveTowards(currentSpeedX, targetSpeedX, Time.fixedDeltaTime * accelerationX), rigidbody.velocity.y);
+				}
+				else
+				{
+					rigidbody.velocity = new Vector2(Mathf.MoveTowards(currentSpeedX, targetSpeedX, Time.fixedDeltaTime * airAccelerationMultiplier * accelerationX), rigidbody.velocity.y);
+				}
 			}
 
 			// cap to max falling speed 

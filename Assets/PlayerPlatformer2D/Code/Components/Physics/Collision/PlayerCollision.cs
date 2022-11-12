@@ -14,6 +14,7 @@ namespace PlayerPlatformer2D
 		public bool onRightWall = false;
 		public bool onLeftWall = false;
 		public bool onWall = false;
+		public bool onStickyWall = false;
 		public int wallSide = 0;
 		public bool onMovingPlatform = false;
 		public float onGroundTimestamp = 0.0f;
@@ -50,6 +51,7 @@ namespace PlayerPlatformer2D
 			collisionData.onLeftWall = leftWallCollider != null;
 			collisionData.onWall = collisionData.onRightWall || collisionData.onLeftWall;
 			collisionData.wallSide = collisionData.onWall ? (collisionData.onRightWall ? -1 : 1) : 0;
+			collisionData.onStickyWall = !collisionData.onWall ? false : (collisionData.onRightWall ? rightWallCollider.CompareTag("StickyWall") : leftWallCollider.CompareTag("StickyWall"));
 
 			// platforms
 			Collider2D platformCollider = groundCollider ? groundCollider : (rightWallCollider ? rightWallCollider : (leftWallCollider ? leftWallCollider : null));
