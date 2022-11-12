@@ -48,12 +48,18 @@ namespace PlayerPlatformer2D
 		public float MaxHorizontalSpeed { get { return m_MaxHorizontalSpeed; } }
 
 		[SerializeField]
+		private bool m_LowJumpDifferentFromHighJump = true;
+		public bool LowJumpDifferentFromHighJump { get { return m_LowJumpDifferentFromHighJump; } }
+
+		[SerializeField]
 		private JumpDefinition m_HighJump = default;
 		public JumpDefinition HighJump { get { return m_HighJump; } }
 
+		[ShowIf("LowJumpDifferentFromHighJump")]
+		[AllowNesting]
 		[SerializeField]
 		private JumpDefinition m_LowJump = default;
-		public JumpDefinition LowJump { get { return m_LowJump; } }
+		public JumpDefinition LowJump { get { return LowJumpDifferentFromHighJump ? m_LowJump : m_HighJump; } }
 
 		public override PhysicsContextSettingsType GetSettingsType()
 		{
