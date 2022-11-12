@@ -17,6 +17,6 @@ MonoBehaviour:
     m_Bits: 64
   m_GroundCollisionRadius: 0.375
   m_WallCollisionRadius: 0.2
-  m_BottomOffset: {x: 0.1, y: -0.25}
+  m_BottomOffset: {x: 0.1, y: -0.3}
   m_RightOffset: {x: 0.65, y: 0.25}
   m_LeftOffset: {x: -0.45, y: 0.25}
