@@ -11,6 +11,7 @@ namespace PlayerPlatformer2D
 	public enum ButtonInputType
 	{
 		Jump = 0,
+		KillCharacter
 	}
 
 	[System.Serializable]

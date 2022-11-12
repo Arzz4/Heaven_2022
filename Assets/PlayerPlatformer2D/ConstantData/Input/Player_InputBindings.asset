@@ -98,4 +98,30 @@ MonoBehaviour:
         m_Action: Input
         m_Flags: 0
       m_Flags: 0
+  - inputType: 1
+    inputAction:
+      m_Name: Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 337b51fc-3027-4dee-9f01-02d43c69a282
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 51fe28c2-e64e-44a2-9a14-9be61e685cd1
+        m_Path: <Gamepad>/buttonEast
+        m_Interactions: Press
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      - m_Name: 
+        m_Id: b178ce3f-4a24-4e7e-a41b-df5e831ad9a9
+        m_Path: <Keyboard>/k
+        m_Interactions: Press
+        m_Processors: 
+        m_Groups: 
+        m_Action: Input
+        m_Flags: 0
+      m_Flags: 0
   buttonHoldThreshold: 0.2
