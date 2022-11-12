@@ -30,13 +30,6 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private PlayerRuntimeData m_RuntimeData = default;
 
-		private Collider2D m_Collider = null;
-
-		private void Awake()
-		{
-			m_Collider = GetComponent<Collider2D>();
-		}
-
 		public void UpdateCollisions()
 		{
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
@@ -75,8 +68,6 @@ namespace PlayerPlatformer2D
 
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 			var collisionSettings = collisionData.settings;
-
-			var positions = new Vector2[] { collisionSettings.BottomOffset, collisionSettings.RightOffset, collisionSettings.LeftOffset };
 
 			Gizmos.color = collisionData.onGround ? Color.green : Color.red;
 			Gizmos.DrawWireSphere((Vector2)transform.position + collisionSettings.BottomOffset, collisionSettings.GroundCollisionRadius);
