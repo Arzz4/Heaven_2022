@@ -125,3 +125,5 @@ MonoBehaviour:
         m_Flags: 0
       m_Flags: 0
   buttonHoldThreshold: 0.2
+  downAngleDeadZone: 30
+  upAngleDeadZone: 30

@@ -104,12 +104,38 @@ namespace PlayerPlatformer2D
 			data.frameInput.leftJoystickData.magnitude = Mathf.Clamp01(data.frameInput.leftJoystickData.rawInput.magnitude);
 			data.frameInput.leftJoystickData.normalizedInput = data.frameInput.leftJoystickData.rawInput.normalized;
 
+			ApplyAngleDeadZones();
+
 			// buttons
 			for (int i = 0, e = data.frameInput.buttonPress.Length; i < e; ++i)
 			{
 				data.frameInput.buttonPress[i] = m_ButtonsProcessor.CheckInputIsTriggered(i);
 				data.frameInput.buttonHoldWithThreshold[i] = m_ButtonsProcessor.CheckForInput(i, InputInteractionState.Hold, data.inputBindings.buttonHoldThreshold);
 				data.frameInput.buttonHoldRaw[i] = m_ButtonsProcessor.CheckForInput(i, InputInteractionState.Hold, 0.0f);
+			}
+		}
+
+		private void ApplyAngleDeadZones()
+		{
+			var leftJoystickData = m_RuntimeData.PlayerInputRuntimeData.frameInput.leftJoystickData;
+			if (leftJoystickData.magnitude < Mathf.Epsilon)
+				return;
+
+			var inputBindings = m_RuntimeData.PlayerInputRuntimeData.inputBindings;
+			if (Vector2.Angle(Vector2.down, leftJoystickData.normalizedInput) < inputBindings.downAngleDeadZone)
+			{
+				leftJoystickData.rawInput = Vector2.down;
+				leftJoystickData.normalizedInput = Vector2.down;
+				leftJoystickData.magnitude = 1.0f;
+				return;
+			}
+
+			if (Vector2.Angle(Vector2.up, leftJoystickData.normalizedInput) < inputBindings.upAngleDeadZone)
+			{
+				leftJoystickData.rawInput = Vector2.up;
+				leftJoystickData.normalizedInput = Vector2.up;
+				leftJoystickData.magnitude = 1.0f;
+				return;
 			}
 		}
 

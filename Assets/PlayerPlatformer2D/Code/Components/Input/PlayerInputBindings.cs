@@ -34,9 +34,17 @@ namespace PlayerPlatformer2D
 		[Header(" --- Axis --- ")]
 		public AxisInputAction[] axisActions = default;
 
-		[Header(" --- Buttons--- ")]
+		[Header(" --- Buttons --- ")]
 		public ButtonInputAction[] buttonActions = default;
 
 		public float buttonHoldThreshold = 0.2f;
+
+		[Header(" --- DeadZones --- ")]
+
+		[Range(0.0f, 359.0f)]
+		public float downAngleDeadZone = 10.0f;
+
+		[Range(0.0f, 359.0f)]
+		public float upAngleDeadZone = 10.0f;
 	}
 }
