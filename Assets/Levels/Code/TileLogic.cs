@@ -7,18 +7,22 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using UnityEngine.WSA;
 using static UnityEditor.PlayerSettings;
+using static UnityEditor.Progress;
 using static UnityEngine.Rendering.DebugUI.Table;
 
 public class TileLogic : MonoBehaviour
 {
     private Tilemap tiles;
+    private GooLogic gooLogic;
     public GameObject explosionPrefab;
     private Vector3 prefabOffset = new Vector3(0.5f, 0.5f, 0.5f);
     // Start is called before the first frame update
     void Start()
     {
         tiles = GetComponent<Tilemap>();
+        gooLogic = GameObject.FindObjectOfType<GooLogic>();
 
     }
         // Update is called once per frame
@@ -29,30 +33,48 @@ public class TileLogic : MonoBehaviour
 
     public void RemoveTiles(float r, Vector3 pos)
     {
-        float cellSizeWorld = tiles.CellToWorld(Vector3Int.right).x;
-        int check = (int)Mathf.Ceil(r/ cellSizeWorld);
-        Vector3Int local = tiles.WorldToCell(pos);
-        var toDelete = new List<Tuple<float, Vector3Int>>();
-        float rsq = r * r;
-        for (int x = -check; x <= check; x++)
+        StartCoroutine(removeTiles(getTiles(r, pos, 0.25f)));
+    }
+
+    public void TintTiles(float r, Vector3 pos, Color color)
+    {
+        var possibleTiles = getTiles(r, pos, 0.4f);
+        Vector3Int local = this.tiles.WorldToCell(pos);
+        var toColor = new List<Tuple<float, Vector3Int>>();
+
+
+        foreach (var tile in possibleTiles)
         {
-            for (int y = -check; y <= check; y++)
+            var tilePos = tile.Item2;
+            if (tiles.HasTile(tilePos) && hasFacingAirContact(tilePos, local))
             {
-                float distSq = x * x + y * y;
-                if (distSq < rsq)
+                toColor.Add(tile);
+            }
+        }
+        StartCoroutine(tintTiles(toColor, color));
+    }
+
+    private bool hasFacingAirContact(Vector3Int p, Vector3Int origin)
+    {
+        for (int i = -1; i <= 1; i++)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                Vector3Int dir = new Vector3Int(i, j);
+                Vector3Int airPos = p + dir;
+                
+                if (!tiles.HasTile(airPos) && Vector3.Dot(dir, origin - p) > 0)
                 {
-                    float delay = 0.25f * distSq / rsq;
-                    toDelete.Add(new Tuple<float, Vector3Int>(delay, local + new Vector3Int(x, y, 0)));
+                    return true;
                 }
             }
         }
-
-        StartCoroutine(removeTiles(toDelete));
+        return false;
     }
 
     private IEnumerator removeTiles(List<Tuple<float, Vector3Int>> toDelete)
     {
-        toDelete.Sort((x, y) => x.Item1.CompareTo(y.Item1));
+        
         float prevDelay = 0;
         foreach (var item in toDelete)
         {
@@ -60,8 +82,7 @@ public class TileLogic : MonoBehaviour
             var pos = item.Item2;
             float wait = delay - prevDelay;
             yield return new WaitForSeconds(wait);
-            var currTile = tiles.GetTile(pos);
-            if ( currTile != null)
+            if (tiles.HasTile(pos))
             {
                 ObjectPoolSystem.Instance.InstantiatePrefabWith(explosionPrefab, tiles.CellToWorld(pos) + prefabOffset, Quaternion.identity);
                 tiles.SetTile(pos, null);
@@ -70,13 +91,45 @@ public class TileLogic : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private IEnumerator tintTiles(List<Tuple<float, Vector3Int>> toTint, Color color)
     {
-        //Vector3Int local = tiles.WorldToCell(collision.contacts[0].point - new Vector2(0,0.3f));
-        //tiles.SetTileFlags(local, TileFlags.None);
-        //tiles.SetColor(local, Color.red);
-        //Debug.Log(local);
+        float prevDelay = 0;
+        foreach (var item in toTint)
+        {
+            var delay = item.Item1;
+            var pos = item.Item2;
+            float wait = delay - prevDelay;
+            yield return new WaitForSeconds(wait);
+            if (tiles.HasTile(pos))
+            {
+                gooLogic.createGoo(tiles.LocalToWorld(pos));
+                tiles.SetTileFlags(pos, TileFlags.None);
+                tiles.SetColor(pos, color);
+            }
+            prevDelay = delay;
+        }
     }
 
-
+    List<Tuple<float, Vector3Int>> getTiles(float r, Vector3 pos, float delayMax)
+    {
+        float cellSizeWorld = this.tiles.CellToWorld(Vector3Int.right).x;
+        int check = (int)Mathf.Ceil(r / cellSizeWorld);
+        Vector3Int local = this.tiles.WorldToCell(pos);
+        var tiles = new List<Tuple<float, Vector3Int>>();
+        float rsq = r * r;
+        for (int x = -check; x <= check; x++)
+        {
+            for (int y = -check; y <= check; y++)
+            {
+                float distSq = x * x + y * y;
+                if (distSq < rsq)
+                {
+                    float delay = delayMax * distSq / rsq;
+                    tiles.Add(new Tuple<float, Vector3Int>(delay, local + new Vector3Int(x, y, 0)));
+                }
+            }
+        }
+        tiles.Sort((x, y) => x.Item1.CompareTo(y.Item1));
+        return tiles;
+    }
 }

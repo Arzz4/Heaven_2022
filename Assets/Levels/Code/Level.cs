@@ -8,6 +8,7 @@ public class Level : MonoBehaviour
 {
     // Start is called before the first frame update
     public float explosionRadius = 2.5f;
+    public float gooRadius = 2.5f;
 
     private Grid grid;
     private PlayerCharacter player;
@@ -29,6 +30,11 @@ public class Level : MonoBehaviour
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             psxTiles.RemoveTiles(explosionRadius,pos);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            psxTiles.TintTiles(gooRadius, pos, Color.green);
         }
     }
 
