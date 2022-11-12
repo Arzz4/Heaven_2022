@@ -37,13 +37,19 @@ namespace PlayerPlatformer2D
 
 			PlayerInputRuntimeData.inputBindings = m_DefaultSettings.defaultInputBindings;
 			PlayerCollisionRuntimeData.settings = m_DefaultSettings.defaultCollisionSettings;
-			PhysicsContextMainRuntimeData.mainSettings = m_DefaultSettings.defaultMainMotionSettings;
-			PhysicsContextMainRuntimeData.jumpSettings = m_DefaultSettings.defaultJumpSettings;
+
+			ResetToDefaultPhysicsContextsSettings();
 		}
 
 		public void OnFrameLateUpdate()
 		{
 			DebugRuntimeData.frameCounter++;
+		}
+
+		public void ResetToDefaultPhysicsContextsSettings()
+		{
+			PhysicsContextMainRuntimeData.mainSettings = m_DefaultSettings.defaultMainMotionSettings;
+			PhysicsContextMainRuntimeData.jumpSettings = m_DefaultSettings.defaultJumpSettings;
 		}
 	}
 }

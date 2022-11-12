@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e073a962e9bd784ba17fd9aedcbc9e8, type: 3}
   m_Name: Player_JumpSettings
   m_EditorClassIdentifier: 
+  m_OverwriteMaxHorizontalSpeed: 1
+  m_MaxHorizontalSpeed: 10
   m_HighJump:
     m_JumpHeight: 3
     m_JumpHorizontalRangeUp: 5

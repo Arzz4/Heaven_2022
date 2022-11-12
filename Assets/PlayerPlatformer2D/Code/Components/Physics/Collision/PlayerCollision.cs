@@ -38,7 +38,7 @@ namespace PlayerPlatformer2D
 			// ground
 			Collider2D groundCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.BottomOffset, collisionSettings.GroundCollisionRadius, collisionSettings.GroundLayer);
 			if (groundCollider && !collisionData.onGround)
-				collisionData.onGroundTimestamp = Time.time;
+				OnLandingOnGround(groundCollider.gameObject);
 
 			collisionData.onGround = groundCollider != null;
 
@@ -59,6 +59,22 @@ namespace PlayerPlatformer2D
 			// WARNING! rotational platforms are changing the player's rotation!
 			//if(m_Transform.parent == null)
 				//m_Transform.eulerAngles = new Vector3(m_Transform.eulerAngles.x, m_Transform.eulerAngles.y, 0.0f);
+		}
+
+		private void OnLandingOnGround(GameObject aGroundObj)
+		{
+			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
+			collisionData.onGroundTimestamp = Time.time;
+
+			var modifyPlayerSettings = aGroundObj.GetComponent<Surface_ModifyPlayerPhysicsSettings>();
+			if(modifyPlayerSettings != null)
+			{
+				modifyPlayerSettings.OnPlayerTouchesSurface(m_RuntimeData);
+			}
+			else
+			{
+				m_RuntimeData.ResetToDefaultPhysicsContextsSettings();
+			}
 		}
 
 		public void OnDrawGizmos()

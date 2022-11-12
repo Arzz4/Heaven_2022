@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,8 +35,18 @@ namespace PlayerPlatformer2D
 	}
 
 	[CreateAssetMenu(fileName = "Jump Settings", menuName = "Player Platformer 2D/Physics/Contexts/Jump", order = 1)]
-	public class PhysicsContext_JumpMotionSettings : ScriptableObject
+	public class PhysicsContext_JumpMotionSettings : PhysicsContext_BaseSettings
 	{
+		[SerializeField, Tooltip("when not overwriting the max speed, it means we will use the max speed the player has on the current motion settings for the jump physics")]
+		private bool m_OverwriteMaxHorizontalSpeed = false;
+		public bool OverwriteMaxHorizontalSpeed { get { return m_OverwriteMaxHorizontalSpeed; } }
+
+		[ShowIf("OverwriteMaxHorizontalSpeed")] 
+		[AllowNesting]
+		[SerializeField]
+		private float m_MaxHorizontalSpeed = 10.0f;
+		public float MaxHorizontalSpeed { get { return m_MaxHorizontalSpeed; } }
+
 		[SerializeField]
 		private JumpDefinition m_HighJump = default;
 		public JumpDefinition HighJump { get { return m_HighJump; } }
@@ -43,5 +54,10 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private JumpDefinition m_LowJump = default;
 		public JumpDefinition LowJump { get { return m_LowJump; } }
+
+		public override PhysicsContextSettingsType GetSettingsType()
+		{
+			return PhysicsContextSettingsType.Jump;
+		}
 	}
 }

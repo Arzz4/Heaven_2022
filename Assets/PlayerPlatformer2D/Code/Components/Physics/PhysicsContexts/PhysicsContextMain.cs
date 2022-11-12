@@ -121,13 +121,9 @@ namespace PlayerPlatformer2D
 		{
 			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var jumpSettings = data.jumpSettings;
-			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 
-			float maxSpeed = data.mainSettings.MaxSpeed;
-
-			rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSettings.HighJump.YVelocityMultiplierUp * maxSpeed);
+			SetVerticalVelocity(jumpSettings.HighJump.YVelocityMultiplierUp);
 			SetGravityMultiplier(jumpSettings.HighJump.GravityMultiplierUp);
-
 
 			data.jumpState = PhysicsContextMainRuntimeData.JumpState.TakingOff;
 			data.lowJump = false;
@@ -168,7 +164,7 @@ namespace PlayerPlatformer2D
 					if (!frameInput.buttonHoldRaw[(int)ButtonInputType.Jump] && !data.lowJump)
 					{
 						data.lowJump = true;
-						rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpSettings.LowJump.YVelocityMultiplierUp * data.mainSettings.MaxSpeed);
+						SetVerticalVelocity(jumpSettings.LowJump.YVelocityMultiplierUp);
 						SetGravityMultiplier(jumpSettings.LowJump.GravityMultiplierUp);
 					}
 				}
@@ -180,12 +176,22 @@ namespace PlayerPlatformer2D
 			}
 		}
 
+		private void SetVerticalVelocity(float verticalVelocityMultiplier) 
+		{
+			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
+			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
+
+			float maxSpeed = data.jumpSettings.OverwriteMaxHorizontalSpeed ? data.jumpSettings.MaxHorizontalSpeed : data.mainSettings.MaxSpeed;
+			
+			rigidbody.velocity = new Vector2(rigidbody.velocity.x, verticalVelocityMultiplier * maxSpeed);
+		}
+
 		private void SetGravityMultiplier(float gravityMultiplier)
 		{
 			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 
-			float maxSpeed = data.mainSettings.MaxSpeed;
+			float maxSpeed = data.jumpSettings.OverwriteMaxHorizontalSpeed ? data.jumpSettings.MaxHorizontalSpeed : data.mainSettings.MaxSpeed;
 			float maxSpeedSqr = maxSpeed * maxSpeed;
 
 			rigidbody.gravityScale = -(gravityMultiplier * maxSpeedSqr) / Physics2D.gravity.y;

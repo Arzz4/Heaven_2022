@@ -6,7 +6,7 @@ namespace PlayerPlatformer2D
 {
 
 	[CreateAssetMenu(fileName = "Main Motion Settings", menuName = "Player Platformer 2D/Physics/Contexts/Main Motion", order = 1)]
-	public class PhysicsContext_MainMotionSettings : ScriptableObject
+	public class PhysicsContext_MainMotionSettings : PhysicsContext_BaseSettings
 	{
 		[Header("General Settings")]
 		[SerializeField, Min(0.0f)]
@@ -48,5 +48,9 @@ namespace PlayerPlatformer2D
 		private float m_MaxFallSpeed = 10.0f;
 		public float MaxFallSpeed { get { return m_MaxFallSpeed; } }
 
+		public override PhysicsContextSettingsType GetSettingsType()
+		{
+			return PhysicsContextSettingsType.Motion;
+		}
 	}
 }
