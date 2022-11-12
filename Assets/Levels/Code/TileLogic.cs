@@ -22,7 +22,6 @@ public class TileLogic : MonoBehaviour
     public float explosionRadius = 2.5f;
     public List<int> destructableLayers = new List<int>();
     public float gooRadius = 2.5f;
-    public Color gooTint = Color.green;
 
     private List<Tilemap> mapsToCleanOnExplosion;
     // Start is called before the first frame update
@@ -67,7 +66,7 @@ public class TileLogic : MonoBehaviour
                 toColor.Add(tile);
             }
         }
-        StartCoroutine(tintTiles(toColor, gooTint));
+        StartCoroutine(tintTiles(toColor, pos));
     }
 
     private bool hasFacingAirContact(Vector3Int p, Vector3Int origin)
@@ -79,7 +78,7 @@ public class TileLogic : MonoBehaviour
                 Vector3Int dir = new Vector3Int(i, j);
                 Vector3Int airPos = p + dir;
                 
-                if (!tiles.HasTile(airPos) && Vector3.Dot(dir, origin - p) > 0)
+                if (!tiles.HasTile(airPos) && Vector3.Dot(Vector3.Normalize(dir), Vector3.Normalize(origin - p)) > 0.4)
                 {
                     return true;
                 }
@@ -114,7 +113,7 @@ public class TileLogic : MonoBehaviour
         }
     }
 
-    private IEnumerator tintTiles(List<Tuple<float, Vector3Int>> toTint, Color color)
+    private IEnumerator tintTiles(List<Tuple<float, Vector3Int>> toTint, Vector3 origin)
     {
         float prevDelay = 0;
         foreach (var item in toTint)
@@ -125,9 +124,8 @@ public class TileLogic : MonoBehaviour
             yield return new WaitForSeconds(wait);
             if (tiles.HasTile(pos))
             {
-                gooLogic.createGoo(tiles.LocalToWorld(pos));
-                tiles.SetTileFlags(pos, TileFlags.None);
-                tiles.SetColor(pos, color);
+                Vector3 world = tiles.LocalToWorld(pos);
+                gooLogic.createGoo(world, origin-world);
             }
             prevDelay = delay;
         }
