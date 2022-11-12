@@ -7,25 +7,19 @@ using UnityEngine.Tilemaps;
 public class Level : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float explosionRadius = 2.0f;
 
     private Grid grid;
     private PlayerCharacter player;
     private EndTrigger end;
-    private Tilemap psxTiles;
+    private TileLogic psxTiles;
 
     void Start()
     {
         grid = GetComponent<Grid>();
+        psxTiles = GameObject.FindObjectOfType<TileLogic>();
         player = GameObject.FindObjectOfType<PlayerCharacter>();
         end = GameObject.FindObjectOfType<EndTrigger>();
-
-        foreach (var item in grid.GetComponentsInChildren<Tilemap>())
-        {
-            if (item.name.Contains("psx"))
-            {
-                psxTiles = item;
-            }
-        }
     }
 
     // Update is called once per frame
@@ -34,10 +28,10 @@ public class Level : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int local = psxTiles.WorldToCell(pos);
-            psxTiles.SetTile(local, null);
+            psxTiles.RemoveTiles(explosionRadius,pos);
         }
     }
+
 
     public bool isFinished()
     {
