@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RuntimeData: {fileID: 7821152413202273583}
-  m_DeathPrefab: {fileID: 0}
+  m_DeathPrefab: {fileID: 8162970925206297358, guid: 246b62480bf7fe74e846731127b0759f, type: 3}
 --- !u!114 &7821152413202273580
 MonoBehaviour:
   m_ObjectHideFlags: 0

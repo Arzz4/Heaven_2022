@@ -8,6 +8,7 @@ public class EndTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool triggered;
+    public int nextSceneIndex;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class EndTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SceneManager.LoadScene(nextSceneIndex);
         triggered = true;
     }
 }
