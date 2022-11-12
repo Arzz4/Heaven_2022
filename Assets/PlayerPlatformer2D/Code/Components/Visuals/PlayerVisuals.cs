@@ -22,22 +22,22 @@ namespace PlayerPlatformer2D
 		private int m_SkinIndex;
 
 		[SerializeField]
-		private int m_SpriteIndex;
+		private string m_ReferenceSpriteName = "Character_Matter_Sheet_";
 
-		void Awake()
+		void LateUpdate()
 		{
 			SelectSkin();
 		}
 
 		void SelectSkin()
 		{
-			if (m_SpriteRenderer.sprite.name.Contains("HamsterMain"))
+			if (m_SpriteRenderer.sprite.name.Contains(m_ReferenceSpriteName))
 			{
 				string spriteName = m_SpriteRenderer.sprite.name;
-				spriteName = spriteName.Replace("HamsterMain_", "");
-				m_SpriteIndex = int.Parse(spriteName);
+				spriteName = spriteName.Replace(m_ReferenceSpriteName, "");
+				int spriteIndex = int.Parse(spriteName);
 
-				m_SpriteRenderer.sprite = m_Skins[m_SkinIndex].sprites[m_SpriteIndex];
+				m_SpriteRenderer.sprite = m_Skins[m_SkinIndex].sprites[spriteIndex];
 			}
 		}
 	}
