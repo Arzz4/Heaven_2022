@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7d9e6f831042969438d2362b5bf2e966
+guid: 10e5a038cde39d941bf9371957f12503
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,161 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Matter_Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9185306aa75763c42b590979f3b36892
-      internalID: -21243598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42bb0ecb6bbbbb34c80f7961ee33c26c
-      internalID: -1840212720
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86da9dfa450fbfb449724f6068075d3a
-      internalID: -2094636514
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d851538602eb16542b98c6ed6ce304d4
-      internalID: 578932317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bea530dc290cbd4b96ecf5df36096ee
-      internalID: -268811415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ad73513013278143af777fe7915248f
-      internalID: -1079508371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_6
+      name: Character_Monker_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -269,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e2e20fc1fcc4874383096ff88f8421b
-      internalID: 906643683
+      spriteID: b1ded5cba1287dd43bd5c816c0d5c412
+      internalID: 417154182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_7
+      name: Character_Monker_Sheet_1
       rect:
         serializedVersion: 2
         x: 16
@@ -290,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db7ea3f865f494349b8af2418be93639
-      internalID: 1884935242
+      spriteID: 6a15936d90a7e8e4990445ae8f619d1e
+      internalID: -1950573246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_8
+      name: Character_Monker_Sheet_2
       rect:
         serializedVersion: 2
         x: 32
@@ -311,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b791da85be5154e4e886d3ff3323d042
-      internalID: -1159277711
+      spriteID: 70ce7d2b2d6d09d4da85789854111b57
+      internalID: 47388733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_9
+      name: Character_Monker_Sheet_3
       rect:
         serializedVersion: 2
         x: 48
@@ -332,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e5545b9f4bce34fa769067c617b978
-      internalID: -1060407381
+      spriteID: d49e8a12eff1853438928233a3731721
+      internalID: 1376738226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_10
+      name: Character_Monker_Sheet_4
       rect:
         serializedVersion: 2
         x: 64
@@ -353,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cf0adb4ebb301b4b87e681afb8b101f
-      internalID: 516611091
+      spriteID: 30ed8d92421e33240a5cb566d5f0a224
+      internalID: 1343982342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_11
+      name: Character_Monker_Sheet_5
       rect:
         serializedVersion: 2
         x: 80
@@ -374,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edecf47f0c95d974a99e6ffd6de15fad
-      internalID: -1235294318
+      spriteID: f971163362546cc478ab37f6c5786da7
+      internalID: -929106206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_12
+      name: Character_Monker_Sheet_6
       rect:
         serializedVersion: 2
         x: 0
@@ -395,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14df4f1120a59d84cb7da8ed9a050ed0
-      internalID: -132905062
+      spriteID: f90cd8ec9cf17344cb8a9a93e865c84f
+      internalID: 1706031576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_13
+      name: Character_Monker_Sheet_7
       rect:
         serializedVersion: 2
         x: 16
@@ -416,14 +266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 969392f9f7b9ee8428d15416ea7ca73b
-      internalID: 122060814
+      spriteID: 0cb69615a547e844289304a95f3f78ba
+      internalID: -1173569307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_14
+      name: Character_Monker_Sheet_8
       rect:
         serializedVersion: 2
         x: 32
@@ -437,14 +287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a641a30f1af1ad946b86c4e67a0c84de
-      internalID: -1298800198
+      spriteID: b5bbf8468f703484ca22c3b9dce6ed03
+      internalID: 1365130214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_15
+      name: Character_Monker_Sheet_9
       rect:
         serializedVersion: 2
         x: 48
@@ -458,14 +308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02380abaa1e227742b56179ae64f2785
-      internalID: -1247208274
+      spriteID: 34c60081241b4c346907f734854bb992
+      internalID: 624495059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_16
+      name: Character_Monker_Sheet_10
       rect:
         serializedVersion: 2
         x: 64
@@ -479,14 +329,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06565b49879b7df41817d8eb5833e97d
-      internalID: 113206752
+      spriteID: 385d0cfe1b358194b84b1a6126410754
+      internalID: 1566631923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_17
+      name: Character_Monker_Sheet_11
       rect:
         serializedVersion: 2
         x: 80
@@ -500,14 +350,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef40820e786cd14488ac75a189a4985
-      internalID: -989645603
+      spriteID: 44efada1ca3c65946b324f7bb1f14379
+      internalID: -502418707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_18
+      name: Character_Monker_Sheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -521,14 +371,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe0d9fd6521eb3745b4c6bd5e6f6ca08
-      internalID: -947599407
+      spriteID: c9647b1c89394ae49a7005d47a7c13c5
+      internalID: 196557006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_19
+      name: Character_Monker_Sheet_13
       rect:
         serializedVersion: 2
         x: 16
@@ -542,14 +392,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29c5cbb527305744fb133be4f24e428e
-      internalID: -1076387724
+      spriteID: ad5135ba5cb445a419c099e61c132f68
+      internalID: -1453835917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_20
+      name: Character_Monker_Sheet_14
       rect:
         serializedVersion: 2
         x: 32
@@ -563,14 +413,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f65fc2f1f16d7f4dab38d9917ae625e
-      internalID: 532337316
+      spriteID: 6ae203d0ce3fd1940b6debde041936e8
+      internalID: 677544290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_21
+      name: Character_Monker_Sheet_15
       rect:
         serializedVersion: 2
         x: 48
@@ -584,14 +434,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e68a0b3caead0547815cd2bdbe43768
-      internalID: 780659071
+      spriteID: dd39259f80e63604bb417bfdc3dd596b
+      internalID: 121192754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_22
+      name: Character_Monker_Sheet_16
       rect:
         serializedVersion: 2
         x: 64
@@ -605,14 +455,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a2cee975a4b914f923321c7fa5f68f
-      internalID: -1518366014
+      spriteID: 32c68d198e9d85b4cbeb1fecb8f35f3f
+      internalID: -996039080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_23
+      name: Character_Monker_Sheet_17
       rect:
         serializedVersion: 2
         x: 80
@@ -626,14 +476,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df85614d5e2e6c24dbc135463506d03e
-      internalID: -2110048082
+      spriteID: 956fbcbc6965eba449dc28552a6bcac8
+      internalID: 1755716389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_24
+      name: Character_Monker_Sheet_18
       rect:
         serializedVersion: 2
         x: 0
@@ -647,14 +497,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0ddaf3f0e171554e94abf7a4def8b41
-      internalID: 1135766292
+      spriteID: 4dd100b8563d16c40aa3cce0ed325da8
+      internalID: -1896269065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_25
+      name: Character_Monker_Sheet_19
       rect:
         serializedVersion: 2
         x: 16
@@ -668,14 +518,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bddced237d4d1fa44a3add446ed7d1e0
-      internalID: 434105210
+      spriteID: dbc53a6bae9f54f41bd97ec2ac5283c7
+      internalID: 988984036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_26
+      name: Character_Monker_Sheet_20
       rect:
         serializedVersion: 2
         x: 32
@@ -689,14 +539,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b09bb0785534ca448df092112c14bf7
-      internalID: 271514889
+      spriteID: 7583e133e1291404a9cde20eaf851aa8
+      internalID: -1001526251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_27
+      name: Character_Monker_Sheet_21
       rect:
         serializedVersion: 2
         x: 48
@@ -710,14 +560,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0057fd4abed8207419316dc227a4fd8c
-      internalID: 1177514644
+      spriteID: aa7dc671140cf504bb8bd25046d5c6e3
+      internalID: -1707503384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_28
+      name: Character_Monker_Sheet_22
       rect:
         serializedVersion: 2
         x: 64
@@ -731,14 +581,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a87959851e50606489981612689cc0ce
-      internalID: -936827371
+      spriteID: 99296342817bf78499e6ea028a36a759
+      internalID: 1212325256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_29
+      name: Character_Monker_Sheet_23
       rect:
         serializedVersion: 2
         x: 80
@@ -752,14 +602,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1bd1689ba92bd042983838cc4a5c70a
-      internalID: -2006913351
+      spriteID: ff567fd5a0a24144aa15491212ed7b0b
+      internalID: 484725090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_30
+      name: Character_Monker_Sheet_24
       rect:
         serializedVersion: 2
         x: 0
@@ -773,14 +623,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c186edf0a08a0742846c38ef30b3030
-      internalID: 1379364189
+      spriteID: e11b8a594405d1a4fa960ea46a0ff50d
+      internalID: 1976516567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_31
+      name: Character_Monker_Sheet_25
       rect:
         serializedVersion: 2
         x: 16
@@ -794,60 +644,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc16a1fdd6f1fc4e86e68d8c3ec59dc
-      internalID: -902302933
+      spriteID: ef056bf41b4ea964caf5884dd3aafe50
+      internalID: -397097946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_32
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 112
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36e46114e26c22e4aabd2d0c34411990
-      internalID: -863462288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_33
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 112
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29219170b067c874fa94c17e11dc735a
-      internalID: -2112604981
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_34
+      name: Character_Monker_Sheet_26
       rect:
         serializedVersion: 2
         x: 32
-        y: 112
+        y: 128
         width: 16
         height: 16
       alignment: 7
@@ -857,81 +665,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0659b974af4a6af4ebdcf7de20b47a36
-      internalID: -236531970
+      spriteID: 666580a230887224c8b3f800fa44559a
+      internalID: -980151890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_35
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 070afed587a57964fb63917bd7a81e4f
-      internalID: -1150525610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_36
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b3b2d3670835704c80402de59e24653
-      internalID: -918396812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_37
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7de6815e56b1c4b46a8822e60bd68748
-      internalID: -1828842400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_38
+      name: Character_Monker_Sheet_27
       rect:
         serializedVersion: 2
         x: 48
-        y: 96
+        y: 128
         width: 16
         height: 16
       alignment: 7
@@ -941,18 +686,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ecf87e345d29bd418f2d90763df923c
-      internalID: 576162653
+      spriteID: 0d5f60f87913d68439d7a6332cf06223
+      internalID: 1431272298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_39
+      name: Character_Monker_Sheet_28
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 128
         width: 16
         height: 16
       alignment: 7
@@ -962,17 +707,80 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 021b1beab26126c4bac622c4d448f09b
-      internalID: 2124847769
+      spriteID: d111bb2ffc344404b83f7932fe086a7a
+      internalID: -568786722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_40
+      name: Character_Monker_Sheet_29
       rect:
         serializedVersion: 2
         x: 80
+        y: 128
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ddfde6624ff3c43a582cea8f067e70
+      internalID: 2118728567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45836b897adc8384c85214c2d8bbb400
+      internalID: -1925966334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f504522bd4b024ea2615a17827a1c6
+      internalID: -713951320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 96
         width: 16
         height: 16
@@ -983,14 +791,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7d903a7159607749848b632ff1ec805
-      internalID: -1493048241
+      spriteID: 7337de84b535af1499860711ca0e7732
+      internalID: -2036361063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_41
+      name: Character_Monker_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b90539801d0d134c8b9abdf6927cbee
+      internalID: 1162919582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0559b3747415f31499329f919ca94c6c
+      internalID: -882108669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_35
       rect:
         serializedVersion: 2
         x: 0
@@ -1004,14 +854,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8503f9a0c0e346b4db2d6ff3c92fe55d
-      internalID: 208335769
+      spriteID: 507db10fd217ed246988ddda565a6cdb
+      internalID: 89994503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_42
+      name: Character_Monker_Sheet_36
       rect:
         serializedVersion: 2
         x: 16
@@ -1025,14 +875,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a89f125cbd9ec1240b4bca83ef77814c
-      internalID: -1710424113
+      spriteID: 2700bef2779ab2145b2746fe123dcbc3
+      internalID: -2132602467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_43
+      name: Character_Monker_Sheet_37
       rect:
         serializedVersion: 2
         x: 32
@@ -1046,14 +896,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44a81e47dc91d904bb2670a83147bfdc
-      internalID: 1920853973
+      spriteID: 913e0eb802245db4597bcdadbcf8bfcc
+      internalID: 1899797487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_44
+      name: Character_Monker_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a11c4c1fc3aac47a68c66f20ba5a4a
+      internalID: -1842795945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b59e651bd3f927a4eabe7759f7cc15d6
+      internalID: -876019333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98524965f5bc7b04d9c49b21153e6d8c
+      internalID: 1331950690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_41
       rect:
         serializedVersion: 2
         x: 0
@@ -1067,14 +980,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b29497cd7953db04da8543a382fd1872
-      internalID: 227844697
+      spriteID: 919c76dab84118a44af468d84958128a
+      internalID: -1846106434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_45
+      name: Character_Monker_Sheet_42
       rect:
         serializedVersion: 2
         x: 16
@@ -1088,14 +1001,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51c5701711e5e3b48bbebfc7fb6d64ae
-      internalID: -1748884633
+      spriteID: b2a0a08927967ca4a904a9b33db2de7d
+      internalID: -1392893292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_46
+      name: Character_Monker_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a1cd56454faea4cb3f5578ef3b8538
+      internalID: 944801760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_44
       rect:
         serializedVersion: 2
         x: 0
@@ -1109,14 +1043,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cea097c229ebf764abe500e206504450
-      internalID: -459076516
+      spriteID: 2322cc3c695e1094aabd23d6333c9acb
+      internalID: -384214467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_47
+      name: Character_Monker_Sheet_45
       rect:
         serializedVersion: 2
         x: 16
@@ -1130,98 +1064,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47352fa729630594f8c0e910e6da9fee
-      internalID: -1516050349
+      spriteID: 93bb9ebf321d94b419393e857d918d7b
+      internalID: 206527684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_48
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a659be33b30e8cb42a74ca6f31c4db3c
-      internalID: 849814248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_49
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65354076b8711c445b4d92f293450bb6
-      internalID: 1280147117
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_50
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 48
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a44f53ce50cf2642b48ac7927581137
-      internalID: -829089581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_51
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 48
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d18dfdfeca9e83443ae3406d03752d74
-      internalID: 147951098
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_52
+      name: Character_Monker_Sheet_46
       rect:
         serializedVersion: 2
         x: 0
@@ -1235,39 +1085,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77015a8a66a68c84ab8c597e6f733aa3
-      internalID: -992195615
+      spriteID: b60baec8449f4f14ca565fc1f296cea4
+      internalID: 867582472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_53
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a078161e18fb6942b1ff311f3d9b4f4
-      internalID: -1252496524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_54
+      name: Character_Monker_Sheet_47
       rect:
         serializedVersion: 2
         x: 16
-        y: 16
+        y: 32
         width: 16
         height: 16
       alignment: 7
@@ -1277,18 +1106,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3ee6e97689fd0f4e926a83d2644f121
-      internalID: 1555361732
+      spriteID: ccbf448e127c67c41aa88e51fc5476b2
+      internalID: -36040489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_55
+      name: Character_Monker_Sheet_48
       rect:
         serializedVersion: 2
         x: 32
-        y: 16
+        y: 32
         width: 16
         height: 16
       alignment: 7
@@ -1298,17 +1127,80 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75e32dcdc3fcd2c48a788b26e9b5a0f9
-      internalID: 113295097
+      spriteID: 29002426ad6231b4e95fc5735ec2694a
+      internalID: -570537101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_56
+      name: Character_Monker_Sheet_49
       rect:
         serializedVersion: 2
         x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c83236bf25b524180e8026d2dd6e66
+      internalID: 664676041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 674a73cc658be3e42bb6c5b98c536d9b
+      internalID: 1722535738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9af23835e60426f4389ed725988330d7
+      internalID: -1157597307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 16
         width: 16
         height: 16
@@ -1319,14 +1211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b0622f10f46cae4f9d554a68d1f0c8e
-      internalID: -305146253
+      spriteID: 4001fb96499d8d94d8685aae578ca7cf
+      internalID: 2125655356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_57
+      name: Character_Monker_Sheet_53
       rect:
         serializedVersion: 2
         x: 0
@@ -1340,14 +1232,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b2af18cdc31a494bb83a0e8117fecc5
-      internalID: 871702893
+      spriteID: 58561ebe43eeae84ea812f8bb00eab1b
+      internalID: -127956008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_58
+      name: Character_Monker_Sheet_54
       rect:
         serializedVersion: 2
         x: 16
@@ -1361,14 +1253,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06fcf1e817997ad40b3f1a23c9ef8eb5
-      internalID: -1517177707
+      spriteID: 6760e788f0083f24ab6deb456590c4b1
+      internalID: 1117156493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_59
+      name: Character_Monker_Sheet_55
       rect:
         serializedVersion: 2
         x: 32
@@ -1382,8 +1274,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aab4c05372985642a6ff9de0c3eb0cf
-      internalID: -1524362412
+      spriteID: 4dc74266df5347c438ad966e33182ad5
+      internalID: 2134095517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73da4c2c4cfc104aa43bf0cb1b72e7b
+      internalID: 1580433380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6cec3f2fb161e479782b42a0b4c5ed
+      internalID: 2016216087
       vertices: []
       indices: 
       edges: []
@@ -1399,66 +1333,64 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Matter_Sheet_19: -1076387724
-      Character_Matter_Sheet_14: -1298800198
-      Character_Matter_Sheet_21: 780659071
-      Character_Matter_Sheet_25: 434105210
-      Character_Matter_Sheet_40: -1493048241
-      Character_Matter_Sheet_45: -1748884633
-      Character_Matter_Sheet_58: -1517177707
-      Character_Matter_Sheet_53: -1252496524
-      Character_Matter_Sheet_3: 578932317
-      Character_Matter_Sheet_24: 1135766292
-      Character_Matter_Sheet_42: -1710424113
-      Character_Matter_Sheet_56: -305146253
-      Character_Matter_Sheet_20: 532337316
-      Character_Matter_Sheet_43: 1920853973
-      Character_Matter_Sheet_8: -1159277711
-      Character_Matter_Sheet_22: -1518366014
-      Character_Matter_Sheet_12: -132905062
-      Character_Matter_Sheet_26: 271514889
-      Character_Matter_Sheet_51: 147951098
-      Character_Matter_Sheet_48: 849814248
-      Character_Matter_Sheet_9: -1060407381
-      Character_Matter_Sheet_17: -989645603
-      Character_Matter_Sheet_34: -236531970
-      Character_Matter_Sheet_50: -829089581
-      Character_Matter_Sheet_59: -1524362412
-      Character_Matter_Sheet_27: 1177514644
-      Character_Matter_Sheet_5: -1079508371
-      Character_Matter_Sheet_0: -21243598
-      Character_Matter_Sheet_35: -1150525610
-      Character_Matter_Sheet_30: 1379364189
-      Character_Matter_Sheet_41: 208335769
-      Character_Matter_Sheet_57: 871702893
-      Character_Matter_Sheet_47: -1516050349
-      Character_Matter_Sheet_46: -459076516
-      Character_Matter_Sheet_11: -1235294318
-      Character_Matter_Sheet_36: -918396812
-      Character_Matter_Sheet_16: 113206752
-      Character_Matter_Sheet_49: 1280147117
-      Character_Matter_Sheet_52: -992195615
-      Character_Matter_Sheet_55: 113295097
-      Character_Matter_Sheet_29: -2006913351
-      Character_Matter_Sheet_38: 576162653
-      Character_Matter_Sheet_13: 122060814
-      Character_Matter_Sheet_44: 227844697
-      Character_Matter_Sheet_10: 516611091
-      Character_Matter_Sheet_54: 1555361732
-      Character_Matter_Sheet_6: 906643683
-      Character_Matter_Sheet_7: 1884935242
-      Character_Matter_Sheet_18: -947599407
-      Character_Matter_Sheet_31: -902302933
-      Character_Matter_Sheet_39: 2124847769
-      Character_Matter_Sheet_1: -1840212720
-      Character_Matter_Sheet_2: -2094636514
-      Character_Matter_Sheet_32: -863462288
-      Character_Matter_Sheet_28: -936827371
-      Character_Matter_Sheet_37: -1828842400
-      Character_Matter_Sheet_15: -1247208274
-      Character_Matter_Sheet_23: -2110048082
-      Character_Matter_Sheet_33: -2112604981
-      Character_Matter_Sheet_4: -268811415
+      Character_Monker_Sheet_28: -568786722
+      Character_Monker_Sheet_11: -502418707
+      Character_Monker_Sheet_40: 1331950690
+      Character_Monker_Sheet_50: 1722535738
+      Character_Monker_Sheet_2: 47388733
+      Character_Monker_Sheet_20: -1001526251
+      Character_Monker_Sheet_56: 1580433380
+      Character_Monker_Sheet_37: 1899797487
+      Character_Monker_Sheet_34: -882108669
+      Character_Monker_Sheet_44: -384214467
+      Character_Monker_Sheet_52: 2125655356
+      Character_Monker_Sheet_0: 417154182
+      Character_Monker_Sheet_48: -570537101
+      Character_Monker_Sheet_17: 1755716389
+      Character_Monker_Sheet_15: 121192754
+      Character_Monker_Sheet_12: 196557006
+      Character_Monker_Sheet_3: 1376738226
+      Character_Monker_Sheet_35: 89994503
+      Character_Monker_Sheet_27: 1431272298
+      Character_Monker_Sheet_14: 677544290
+      Character_Monker_Sheet_19: 988984036
+      Character_Monker_Sheet_43: 944801760
+      Character_Monker_Sheet_42: -1392893292
+      Character_Monker_Sheet_8: 1365130214
+      Character_Monker_Sheet_7: -1173569307
+      Character_Monker_Sheet_9: 624495059
+      Character_Monker_Sheet_10: 1566631923
+      Character_Monker_Sheet_22: 1212325256
+      Character_Monker_Sheet_45: 206527684
+      Character_Monker_Sheet_4: 1343982342
+      Character_Monker_Sheet_32: -2036361063
+      Character_Monker_Sheet_13: -1453835917
+      Character_Monker_Sheet_54: 1117156493
+      Character_Monker_Sheet_30: -1925966334
+      Character_Monker_Sheet_31: -713951320
+      Character_Monker_Sheet_41: -1846106434
+      Character_Monker_Sheet_51: -1157597307
+      Character_Monker_Sheet_53: -127956008
+      Character_Monker_Sheet_5: -929106206
+      Character_Monker_Sheet_21: -1707503384
+      Character_Monker_Sheet_24: 1976516567
+      Character_Monker_Sheet_33: 1162919582
+      Character_Monker_Sheet_49: 664676041
+      Character_Monker_Sheet_26: -980151890
+      Character_Monker_Sheet_25: -397097946
+      Character_Monker_Sheet_57: 2016216087
+      Character_Monker_Sheet_23: 484725090
+      Character_Monker_Sheet_6: 1706031576
+      Character_Monker_Sheet_38: -1842795945
+      Character_Monker_Sheet_29: 2118728567
+      Character_Monker_Sheet_36: -2132602467
+      Character_Monker_Sheet_46: 867582472
+      Character_Monker_Sheet_1: -1950573246
+      Character_Monker_Sheet_16: -996039080
+      Character_Monker_Sheet_18: -1896269065
+      Character_Monker_Sheet_39: -876019333
+      Character_Monker_Sheet_55: 2134095517
+      Character_Monker_Sheet_47: -36040489
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

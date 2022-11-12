@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7d9e6f831042969438d2362b5bf2e966
+guid: fc84259db215c6943a4d9cf11c67c177
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,161 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Matter_Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9185306aa75763c42b590979f3b36892
-      internalID: -21243598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42bb0ecb6bbbbb34c80f7961ee33c26c
-      internalID: -1840212720
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86da9dfa450fbfb449724f6068075d3a
-      internalID: -2094636514
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d851538602eb16542b98c6ed6ce304d4
-      internalID: 578932317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bea530dc290cbd4b96ecf5df36096ee
-      internalID: -268811415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 208
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ad73513013278143af777fe7915248f
-      internalID: -1079508371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_6
+      name: Character_Jumper_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -269,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e2e20fc1fcc4874383096ff88f8421b
-      internalID: 906643683
+      spriteID: 093e0e1744e28694c901d903b39e1535
+      internalID: 1151287171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_7
+      name: Character_Jumper_Sheet_1
       rect:
         serializedVersion: 2
         x: 16
@@ -290,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db7ea3f865f494349b8af2418be93639
-      internalID: 1884935242
+      spriteID: cd53724e0106e0047bc7e93a385a9df7
+      internalID: 1700858236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_8
+      name: Character_Jumper_Sheet_2
       rect:
         serializedVersion: 2
         x: 32
@@ -311,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b791da85be5154e4e886d3ff3323d042
-      internalID: -1159277711
+      spriteID: eff8fbb552fc7794daf15e6eaf2bc4be
+      internalID: -1005106760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_9
+      name: Character_Jumper_Sheet_3
       rect:
         serializedVersion: 2
         x: 48
@@ -332,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e5545b9f4bce34fa769067c617b978
-      internalID: -1060407381
+      spriteID: f14b68b478359da42a617cc987e41436
+      internalID: 782063254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_10
+      name: Character_Jumper_Sheet_4
       rect:
         serializedVersion: 2
         x: 64
@@ -353,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cf0adb4ebb301b4b87e681afb8b101f
-      internalID: 516611091
+      spriteID: 5a5ef7b5c96a48749a89619500faa879
+      internalID: 772536240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_11
+      name: Character_Jumper_Sheet_5
       rect:
         serializedVersion: 2
         x: 80
@@ -374,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edecf47f0c95d974a99e6ffd6de15fad
-      internalID: -1235294318
+      spriteID: 7c87c17b3f7fb734bb6870b56ad5b8bb
+      internalID: 1148861297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_12
+      name: Character_Jumper_Sheet_6
       rect:
         serializedVersion: 2
         x: 0
@@ -395,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14df4f1120a59d84cb7da8ed9a050ed0
-      internalID: -132905062
+      spriteID: 81715c5379703aa449c2b5cafa0b488d
+      internalID: -774607452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_13
+      name: Character_Jumper_Sheet_7
       rect:
         serializedVersion: 2
         x: 16
@@ -416,14 +266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 969392f9f7b9ee8428d15416ea7ca73b
-      internalID: 122060814
+      spriteID: 4bfd0ae7bc3893f4a8ca3008e9fa3e80
+      internalID: 615973131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_14
+      name: Character_Jumper_Sheet_8
       rect:
         serializedVersion: 2
         x: 32
@@ -437,14 +287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a641a30f1af1ad946b86c4e67a0c84de
-      internalID: -1298800198
+      spriteID: 1f95e613e7f0f164a98b56c459639d9d
+      internalID: -923126324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_15
+      name: Character_Jumper_Sheet_9
       rect:
         serializedVersion: 2
         x: 48
@@ -458,14 +308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02380abaa1e227742b56179ae64f2785
-      internalID: -1247208274
+      spriteID: 3f2f585a80688c94ca2fd95a6d3f828d
+      internalID: 1333560357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_16
+      name: Character_Jumper_Sheet_10
       rect:
         serializedVersion: 2
         x: 64
@@ -479,14 +329,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06565b49879b7df41817d8eb5833e97d
-      internalID: 113206752
+      spriteID: 04e7f4ba7d116a94092d214f6331c746
+      internalID: 874021577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_17
+      name: Character_Jumper_Sheet_11
       rect:
         serializedVersion: 2
         x: 80
@@ -500,14 +350,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef40820e786cd14488ac75a189a4985
-      internalID: -989645603
+      spriteID: a2b9d828beec7124b9c060d222a2e59d
+      internalID: 809025140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_18
+      name: Character_Jumper_Sheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -521,14 +371,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe0d9fd6521eb3745b4c6bd5e6f6ca08
-      internalID: -947599407
+      spriteID: 4f63ec5401ff7fb4ab5b5c7c26d01d45
+      internalID: 619240868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_19
+      name: Character_Jumper_Sheet_13
       rect:
         serializedVersion: 2
         x: 16
@@ -542,14 +392,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29c5cbb527305744fb133be4f24e428e
-      internalID: -1076387724
+      spriteID: c57a9bdec39e14149aa4c2bae9d6dd9d
+      internalID: -661250373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_20
+      name: Character_Jumper_Sheet_14
       rect:
         serializedVersion: 2
         x: 32
@@ -563,14 +413,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f65fc2f1f16d7f4dab38d9917ae625e
-      internalID: 532337316
+      spriteID: 8dd381dd05e83ca42b75d5efc3d16430
+      internalID: -1173843250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_21
+      name: Character_Jumper_Sheet_15
       rect:
         serializedVersion: 2
         x: 48
@@ -584,14 +434,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e68a0b3caead0547815cd2bdbe43768
-      internalID: 780659071
+      spriteID: b6132be1bbecc094abc67f2331a49781
+      internalID: -450840075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_22
+      name: Character_Jumper_Sheet_16
       rect:
         serializedVersion: 2
         x: 64
@@ -605,14 +455,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a2cee975a4b914f923321c7fa5f68f
-      internalID: -1518366014
+      spriteID: 87db995f78bbd4048acaf65afa69c086
+      internalID: 1252021200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_23
+      name: Character_Jumper_Sheet_17
       rect:
         serializedVersion: 2
         x: 80
@@ -626,14 +476,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df85614d5e2e6c24dbc135463506d03e
-      internalID: -2110048082
+      spriteID: d3ff4eb261d1bcf43827265bce06caf0
+      internalID: 1482150572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_24
+      name: Character_Jumper_Sheet_18
       rect:
         serializedVersion: 2
         x: 0
@@ -647,14 +497,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0ddaf3f0e171554e94abf7a4def8b41
-      internalID: 1135766292
+      spriteID: c824dd1a780a4094991b15a9045d3e27
+      internalID: -1707588530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_25
+      name: Character_Jumper_Sheet_19
       rect:
         serializedVersion: 2
         x: 16
@@ -668,14 +518,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bddced237d4d1fa44a3add446ed7d1e0
-      internalID: 434105210
+      spriteID: 08cf03fc2a865f946b90e6dc1b7c525c
+      internalID: -1586728403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_26
+      name: Character_Jumper_Sheet_20
       rect:
         serializedVersion: 2
         x: 32
@@ -689,14 +539,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b09bb0785534ca448df092112c14bf7
-      internalID: 271514889
+      spriteID: 7b7bc6b8ef6557c4e8f7fc03a3694b29
+      internalID: 92559113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_27
+      name: Character_Jumper_Sheet_21
       rect:
         serializedVersion: 2
         x: 48
@@ -710,14 +560,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0057fd4abed8207419316dc227a4fd8c
-      internalID: 1177514644
+      spriteID: 3893b3cb2e8f0ce409b24eebd4cbaeca
+      internalID: -1244309488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_28
+      name: Character_Jumper_Sheet_22
       rect:
         serializedVersion: 2
         x: 64
@@ -731,14 +581,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a87959851e50606489981612689cc0ce
-      internalID: -936827371
+      spriteID: adecae7a7bc5cdf41b2c82439a2b3875
+      internalID: -1736770631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_29
+      name: Character_Jumper_Sheet_23
       rect:
         serializedVersion: 2
         x: 80
@@ -752,14 +602,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1bd1689ba92bd042983838cc4a5c70a
-      internalID: -2006913351
+      spriteID: 3de199ee7239fd740b9ef8de2f550b52
+      internalID: -278361582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_30
+      name: Character_Jumper_Sheet_24
       rect:
         serializedVersion: 2
         x: 0
@@ -773,14 +623,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c186edf0a08a0742846c38ef30b3030
-      internalID: 1379364189
+      spriteID: 4f56b9d08d6ae4d47bc1f80946756a49
+      internalID: 454929435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_31
+      name: Character_Jumper_Sheet_25
       rect:
         serializedVersion: 2
         x: 16
@@ -794,60 +644,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc16a1fdd6f1fc4e86e68d8c3ec59dc
-      internalID: -902302933
+      spriteID: 616b5bec9805ce74d9346c888d7542cc
+      internalID: 805538022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_32
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 112
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36e46114e26c22e4aabd2d0c34411990
-      internalID: -863462288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_33
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 112
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29219170b067c874fa94c17e11dc735a
-      internalID: -2112604981
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_34
+      name: Character_Jumper_Sheet_26
       rect:
         serializedVersion: 2
         x: 32
-        y: 112
+        y: 128
         width: 16
         height: 16
       alignment: 7
@@ -857,81 +665,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0659b974af4a6af4ebdcf7de20b47a36
-      internalID: -236531970
+      spriteID: 61a01ec8d9cde134ebdba41bd264cb5e
+      internalID: 54850920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_35
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 070afed587a57964fb63917bd7a81e4f
-      internalID: -1150525610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_36
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b3b2d3670835704c80402de59e24653
-      internalID: -918396812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_37
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7de6815e56b1c4b46a8822e60bd68748
-      internalID: -1828842400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_38
+      name: Character_Jumper_Sheet_27
       rect:
         serializedVersion: 2
         x: 48
-        y: 96
+        y: 128
         width: 16
         height: 16
       alignment: 7
@@ -941,18 +686,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ecf87e345d29bd418f2d90763df923c
-      internalID: 576162653
+      spriteID: f37e1ad1bcd5f4944b093660c1303638
+      internalID: 2072589984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_39
+      name: Character_Jumper_Sheet_28
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 128
         width: 16
         height: 16
       alignment: 7
@@ -962,17 +707,80 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 021b1beab26126c4bac622c4d448f09b
-      internalID: 2124847769
+      spriteID: 7527b987ecf7b9c4a90920715c1dfd24
+      internalID: 389247226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_40
+      name: Character_Jumper_Sheet_29
       rect:
         serializedVersion: 2
         x: 80
+        y: 128
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf4038b35f8016488a1b05309aa9d56
+      internalID: 224578961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdab98d364843f441a34241eb81c48cc
+      internalID: -339580833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5dcf955523305649b32d9b648f48fd4
+      internalID: 2084671391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 96
         width: 16
         height: 16
@@ -983,14 +791,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7d903a7159607749848b632ff1ec805
-      internalID: -1493048241
+      spriteID: eaf8b941f54ec834eb347a0bf8bd0a78
+      internalID: -2070846912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_41
+      name: Character_Jumper_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f2a0d2cbcd3f046b45b10d43611ce5
+      internalID: -1379281650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653995aa5e8b3924ab4fab01e3f36d51
+      internalID: -801872065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_35
       rect:
         serializedVersion: 2
         x: 0
@@ -1004,14 +854,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8503f9a0c0e346b4db2d6ff3c92fe55d
-      internalID: 208335769
+      spriteID: 0a7eabded0a77224db7dcfe16603b4c8
+      internalID: 1785777282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_42
+      name: Character_Jumper_Sheet_36
       rect:
         serializedVersion: 2
         x: 16
@@ -1025,14 +875,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a89f125cbd9ec1240b4bca83ef77814c
-      internalID: -1710424113
+      spriteID: d4d4b4e45b5ffae4892d355952942a65
+      internalID: 1368453633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_43
+      name: Character_Jumper_Sheet_37
       rect:
         serializedVersion: 2
         x: 32
@@ -1046,14 +896,77 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44a81e47dc91d904bb2670a83147bfdc
-      internalID: 1920853973
+      spriteID: 453258a35867794499363625331dbd15
+      internalID: -1801834249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_44
+      name: Character_Jumper_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db85e505f7cc4114ea26763212b14ca2
+      internalID: 1710805153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 662b1b4b76783e54d87f0991385c168d
+      internalID: 507847131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735c6cd3a96aa574a82bb2cfc097cdfd
+      internalID: -44236505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_41
       rect:
         serializedVersion: 2
         x: 0
@@ -1067,14 +980,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b29497cd7953db04da8543a382fd1872
-      internalID: 227844697
+      spriteID: 2447a6a43a509ea43a8e820fee2384cf
+      internalID: 1984129568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_45
+      name: Character_Jumper_Sheet_42
       rect:
         serializedVersion: 2
         x: 16
@@ -1088,14 +1001,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51c5701711e5e3b48bbebfc7fb6d64ae
-      internalID: -1748884633
+      spriteID: 79257447c4f81f5419cb1d84682f4c8d
+      internalID: -615945820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_46
+      name: Character_Jumper_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31535742fa9e101498ed237061cf0a0a
+      internalID: 944121387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_44
       rect:
         serializedVersion: 2
         x: 0
@@ -1109,14 +1043,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cea097c229ebf764abe500e206504450
-      internalID: -459076516
+      spriteID: 4551fa1f384af07488d04eed53740fa5
+      internalID: 973742146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_47
+      name: Character_Jumper_Sheet_45
       rect:
         serializedVersion: 2
         x: 16
@@ -1130,98 +1064,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47352fa729630594f8c0e910e6da9fee
-      internalID: -1516050349
+      spriteID: afa9c04717204bf47af60695ebe40d83
+      internalID: 1181247870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_48
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a659be33b30e8cb42a74ca6f31c4db3c
-      internalID: 849814248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_49
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65354076b8711c445b4d92f293450bb6
-      internalID: 1280147117
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_50
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 48
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a44f53ce50cf2642b48ac7927581137
-      internalID: -829089581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_51
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 48
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d18dfdfeca9e83443ae3406d03752d74
-      internalID: 147951098
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_52
+      name: Character_Jumper_Sheet_46
       rect:
         serializedVersion: 2
         x: 0
@@ -1235,39 +1085,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77015a8a66a68c84ab8c597e6f733aa3
-      internalID: -992195615
+      spriteID: d676771a2a1485e409f1d6ae858ff1e8
+      internalID: 429744491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_53
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a078161e18fb6942b1ff311f3d9b4f4
-      internalID: -1252496524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Matter_Sheet_54
+      name: Character_Jumper_Sheet_47
       rect:
         serializedVersion: 2
         x: 16
-        y: 16
+        y: 32
         width: 16
         height: 16
       alignment: 7
@@ -1277,18 +1106,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3ee6e97689fd0f4e926a83d2644f121
-      internalID: 1555361732
+      spriteID: f4d0d30b9e88d9e4e9c54bb8a96af8d0
+      internalID: 1518104406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_55
+      name: Character_Jumper_Sheet_48
       rect:
         serializedVersion: 2
         x: 32
-        y: 16
+        y: 32
         width: 16
         height: 16
       alignment: 7
@@ -1298,17 +1127,80 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75e32dcdc3fcd2c48a788b26e9b5a0f9
-      internalID: 113295097
+      spriteID: 68cd42c336a6e7a45bfcb407bdf888e5
+      internalID: 488635159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_56
+      name: Character_Jumper_Sheet_49
       rect:
         serializedVersion: 2
         x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 050f13a02d14816419d2b234bd5c3ce2
+      internalID: 323086740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb4b0f3509cfdaa4881817ea3b3f848e
+      internalID: -1336005988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501ff8687b014044c918439f36f35b79
+      internalID: -834147943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 16
         width: 16
         height: 16
@@ -1319,14 +1211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b0622f10f46cae4f9d554a68d1f0c8e
-      internalID: -305146253
+      spriteID: 489d3aba6fb603d41bbe72163f8581b5
+      internalID: 67132316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_57
+      name: Character_Jumper_Sheet_53
       rect:
         serializedVersion: 2
         x: 0
@@ -1340,14 +1232,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b2af18cdc31a494bb83a0e8117fecc5
-      internalID: 871702893
+      spriteID: b474fe8a4edd2914db222cb2182ff7d5
+      internalID: -406598165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_58
+      name: Character_Jumper_Sheet_54
       rect:
         serializedVersion: 2
         x: 16
@@ -1361,14 +1253,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06fcf1e817997ad40b3f1a23c9ef8eb5
-      internalID: -1517177707
+      spriteID: bf709bc9d4630a6439683398d4b021c8
+      internalID: -592348856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Matter_Sheet_59
+      name: Character_Jumper_Sheet_55
       rect:
         serializedVersion: 2
         x: 32
@@ -1382,8 +1274,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aab4c05372985642a6ff9de0c3eb0cf
-      internalID: -1524362412
+      spriteID: 0efb9f7f39860b74785e143bb5c8b344
+      internalID: -1469288629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b88bbe89b55f2a47826528456befc8d
+      internalID: -956491764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Jumper_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86595dc6f531ccb4a86568e73ecf5634
+      internalID: -368378418
       vertices: []
       indices: 
       edges: []
@@ -1399,66 +1333,64 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Matter_Sheet_19: -1076387724
-      Character_Matter_Sheet_14: -1298800198
-      Character_Matter_Sheet_21: 780659071
-      Character_Matter_Sheet_25: 434105210
-      Character_Matter_Sheet_40: -1493048241
-      Character_Matter_Sheet_45: -1748884633
-      Character_Matter_Sheet_58: -1517177707
-      Character_Matter_Sheet_53: -1252496524
-      Character_Matter_Sheet_3: 578932317
-      Character_Matter_Sheet_24: 1135766292
-      Character_Matter_Sheet_42: -1710424113
-      Character_Matter_Sheet_56: -305146253
-      Character_Matter_Sheet_20: 532337316
-      Character_Matter_Sheet_43: 1920853973
-      Character_Matter_Sheet_8: -1159277711
-      Character_Matter_Sheet_22: -1518366014
-      Character_Matter_Sheet_12: -132905062
-      Character_Matter_Sheet_26: 271514889
-      Character_Matter_Sheet_51: 147951098
-      Character_Matter_Sheet_48: 849814248
-      Character_Matter_Sheet_9: -1060407381
-      Character_Matter_Sheet_17: -989645603
-      Character_Matter_Sheet_34: -236531970
-      Character_Matter_Sheet_50: -829089581
-      Character_Matter_Sheet_59: -1524362412
-      Character_Matter_Sheet_27: 1177514644
-      Character_Matter_Sheet_5: -1079508371
-      Character_Matter_Sheet_0: -21243598
-      Character_Matter_Sheet_35: -1150525610
-      Character_Matter_Sheet_30: 1379364189
-      Character_Matter_Sheet_41: 208335769
-      Character_Matter_Sheet_57: 871702893
-      Character_Matter_Sheet_47: -1516050349
-      Character_Matter_Sheet_46: -459076516
-      Character_Matter_Sheet_11: -1235294318
-      Character_Matter_Sheet_36: -918396812
-      Character_Matter_Sheet_16: 113206752
-      Character_Matter_Sheet_49: 1280147117
-      Character_Matter_Sheet_52: -992195615
-      Character_Matter_Sheet_55: 113295097
-      Character_Matter_Sheet_29: -2006913351
-      Character_Matter_Sheet_38: 576162653
-      Character_Matter_Sheet_13: 122060814
-      Character_Matter_Sheet_44: 227844697
-      Character_Matter_Sheet_10: 516611091
-      Character_Matter_Sheet_54: 1555361732
-      Character_Matter_Sheet_6: 906643683
-      Character_Matter_Sheet_7: 1884935242
-      Character_Matter_Sheet_18: -947599407
-      Character_Matter_Sheet_31: -902302933
-      Character_Matter_Sheet_39: 2124847769
-      Character_Matter_Sheet_1: -1840212720
-      Character_Matter_Sheet_2: -2094636514
-      Character_Matter_Sheet_32: -863462288
-      Character_Matter_Sheet_28: -936827371
-      Character_Matter_Sheet_37: -1828842400
-      Character_Matter_Sheet_15: -1247208274
-      Character_Matter_Sheet_23: -2110048082
-      Character_Matter_Sheet_33: -2112604981
-      Character_Matter_Sheet_4: -268811415
+      Character_Jumper_Sheet_10: 874021577
+      Character_Jumper_Sheet_26: 54850920
+      Character_Jumper_Sheet_55: -1469288629
+      Character_Jumper_Sheet_56: -956491764
+      Character_Jumper_Sheet_20: 92559113
+      Character_Jumper_Sheet_29: 224578961
+      Character_Jumper_Sheet_45: 1181247870
+      Character_Jumper_Sheet_27: 2072589984
+      Character_Jumper_Sheet_38: 1710805153
+      Character_Jumper_Sheet_6: -774607452
+      Character_Jumper_Sheet_17: 1482150572
+      Character_Jumper_Sheet_16: 1252021200
+      Character_Jumper_Sheet_49: 323086740
+      Character_Jumper_Sheet_36: 1368453633
+      Character_Jumper_Sheet_5: 1148861297
+      Character_Jumper_Sheet_57: -368378418
+      Character_Jumper_Sheet_1: 1700858236
+      Character_Jumper_Sheet_12: 619240868
+      Character_Jumper_Sheet_44: 973742146
+      Character_Jumper_Sheet_4: 772536240
+      Character_Jumper_Sheet_31: 2084671391
+      Character_Jumper_Sheet_39: 507847131
+      Character_Jumper_Sheet_8: -923126324
+      Character_Jumper_Sheet_42: -615945820
+      Character_Jumper_Sheet_22: -1736770631
+      Character_Jumper_Sheet_50: -1336005988
+      Character_Jumper_Sheet_52: 67132316
+      Character_Jumper_Sheet_41: 1984129568
+      Character_Jumper_Sheet_7: 615973131
+      Character_Jumper_Sheet_15: -450840075
+      Character_Jumper_Sheet_23: -278361582
+      Character_Jumper_Sheet_43: 944121387
+      Character_Jumper_Sheet_34: -801872065
+      Character_Jumper_Sheet_48: 488635159
+      Character_Jumper_Sheet_18: -1707588530
+      Character_Jumper_Sheet_21: -1244309488
+      Character_Jumper_Sheet_53: -406598165
+      Character_Jumper_Sheet_24: 454929435
+      Character_Jumper_Sheet_35: 1785777282
+      Character_Jumper_Sheet_51: -834147943
+      Character_Jumper_Sheet_28: 389247226
+      Character_Jumper_Sheet_47: 1518104406
+      Character_Jumper_Sheet_32: -2070846912
+      Character_Jumper_Sheet_54: -592348856
+      Character_Jumper_Sheet_40: -44236505
+      Character_Jumper_Sheet_33: -1379281650
+      Character_Jumper_Sheet_14: -1173843250
+      Character_Jumper_Sheet_2: -1005106760
+      Character_Jumper_Sheet_46: 429744491
+      Character_Jumper_Sheet_3: 782063254
+      Character_Jumper_Sheet_30: -339580833
+      Character_Jumper_Sheet_0: 1151287171
+      Character_Jumper_Sheet_37: -1801834249
+      Character_Jumper_Sheet_11: 809025140
+      Character_Jumper_Sheet_25: 805538022
+      Character_Jumper_Sheet_19: -1586728403
+      Character_Jumper_Sheet_9: 1333560357
+      Character_Jumper_Sheet_13: -661250373
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
