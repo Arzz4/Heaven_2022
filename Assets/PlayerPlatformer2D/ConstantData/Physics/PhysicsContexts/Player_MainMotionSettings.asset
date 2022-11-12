@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8476f33abcb3f4ca8c24179f0aae0d, type: 3}
   m_Name: Player_MainMotionSettings
   m_EditorClassIdentifier: 
-  m_DefaultGravityScale: 3
   m_DefaultLinearDrag: 0
-  m_MaxSpeed: 10
+  m_MaxSpeed: 12
   m_HorizontalMotionInputRemapping:
     serializedVersion: 2
     m_Curve:
@@ -39,13 +38,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Acceleration: 150
-  m_Deceleration: 112
+  m_Acceleration: 120
+  m_Deceleration: 100
   m_AirAcelerationMultiplierForInput: 1
-  m_AirAcelerationMultiplierNoInput: 0.25
-  m_DashAirAcelerationMultiplierForInput: 0.5
-  m_DashAirAcelerationMultiplierNoInput: 0.15
-  m_WallJumpAirAcelerationMultiplierForInput: 0.7
-  m_WallJumpAirAcelerationMultiplierNoInput: 0.2
-  m_FallMultiplier: 2.5
+  m_AirAcelerationMultiplierNoInput: 0.75
   m_MaxFallSpeed: 20
