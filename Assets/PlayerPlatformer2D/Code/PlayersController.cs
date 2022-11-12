@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PlayerPlatformer2D
 {
@@ -10,6 +11,9 @@ namespace PlayerPlatformer2D
 		private PlayerCharacter[] m_Players = default;
 
 		private int m_CurrentPlayerIndex = 0;
+
+		[SerializeField]
+		private UnityEvent m_OnAllCharactersDead = default;
 
 		private void Start()
 		{
@@ -28,6 +32,7 @@ namespace PlayerPlatformer2D
 				// check if we finished playing all characters 
 				if (m_CurrentPlayerIndex == m_Players.Length)
 				{
+					m_OnAllCharactersDead?.Invoke();
 					this.enabled = false;
 					return;
 				}
