@@ -24,16 +24,16 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            psxTiles.RemoveTiles(pos);
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            psxTiles.TintTiles(pos);
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //    psxTiles.RemoveTiles(pos);
+        //}
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //    psxTiles.TintTiles(pos);
+        //}
     }
 
 
