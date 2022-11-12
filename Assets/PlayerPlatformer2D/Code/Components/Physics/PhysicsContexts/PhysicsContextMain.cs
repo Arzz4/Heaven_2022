@@ -22,7 +22,6 @@ namespace PlayerPlatformer2D
 		{
 			public float airAccelerationForInput;
 			public float airAccelerationNoInput;
-			public float maxSpeedMultiplier;
 		}
 
 		public AirAccelerationValues currentAirAccelerationValues;
@@ -50,11 +49,6 @@ namespace PlayerPlatformer2D
 			// physics initialization
 			rigidbody.drag = mainMotion.DefaultLinearDrag;
 			SetGravityMultiplier(data.jumpSettings.HighJump.GravityMultiplierDown);
-
-			// air acceleration
-			data.currentAirAccelerationValues.airAccelerationForInput = data.mainSettings.AirAcelerationMultiplierForInput;
-			data.currentAirAccelerationValues.airAccelerationNoInput = data.mainSettings.AirAcelerationMultiplierNoInput;
-			data.currentAirAccelerationValues.maxSpeedMultiplier = 1.0f;
 		}
 
 		public override void EndContext()
@@ -65,8 +59,13 @@ namespace PlayerPlatformer2D
 
 		public override void UpdateContext()
 		{
+			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var frameInput = m_RuntimeData.PlayerInputRuntimeData.frameInput;
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
+
+			// air acceleration values (to allow hot reloading of tweaking values at runtime)
+			data.currentAirAccelerationValues.airAccelerationForInput = data.mainSettings.AirAcelerationMultiplierForInput;
+			data.currentAirAccelerationValues.airAccelerationNoInput = data.mainSettings.AirAcelerationMultiplierNoInput;
 
 			// start jump
 			if (collisionData.onGround && frameInput.buttonPress[(int)ButtonInputType.Jump])
@@ -97,7 +96,7 @@ namespace PlayerPlatformer2D
 			Vector2 aJoystickInput = frameInput.leftJoystickData.rawInput;
 			float joystickX_Remapped = System.Math.Sign(aJoystickInput.x) * mainMotion.HorizontalMotionInputRemapping.Evaluate(Mathf.Abs(aJoystickInput.x));
 			float currentSpeedX = rigidbody.velocity.x;
-			float targetSpeedX = joystickX_Remapped * mainMotion.MaxSpeed * data.currentAirAccelerationValues.maxSpeedMultiplier;
+			float targetSpeedX = joystickX_Remapped * mainMotion.MaxSpeed;
 			float accelerationX = Mathf.Abs(targetSpeedX) > Mathf.Abs(currentSpeedX) ? mainMotion.Acceleration : mainMotion.Deceleration;
 			float airAccelerationMultiplier = targetSpeedX != 0.0f && aJoystickInput.x * rigidbody.velocity.x < 0 ? data.currentAirAccelerationValues.airAccelerationForInput : data.currentAirAccelerationValues.airAccelerationNoInput;
 

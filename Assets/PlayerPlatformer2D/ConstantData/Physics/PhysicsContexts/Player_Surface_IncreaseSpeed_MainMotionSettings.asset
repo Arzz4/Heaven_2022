@@ -38,9 +38,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_Acceleration: 150
-  m_Deceleration: 112
+  m_Acceleration: 80
+  m_Deceleration: 70
   m_AirAcelerationMultiplierForInput: 1
   m_AirAcelerationMultiplierNoInput: 0.25
-  m_FallMultiplier: 2.5
   m_MaxFallSpeed: 20

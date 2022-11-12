@@ -40,9 +40,6 @@ namespace PlayerPlatformer2D
 		public float AirAcelerationMultiplierNoInput { get { return m_AirAcelerationMultiplierNoInput; } }
 
 		[Header("Fall Settings")]
-		[SerializeField, Min(0.0f)]
-		private float m_FallMultiplier = 2.5f;
-		public float FallMultiplier { get { return m_FallMultiplier; } }
 
 		[SerializeField, Min(0.0f)]
 		private float m_MaxFallSpeed = 10.0f;
