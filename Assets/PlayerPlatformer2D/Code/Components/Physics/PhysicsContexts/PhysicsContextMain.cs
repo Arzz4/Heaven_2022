@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static PlayerPlatformer2D.PlayerInputRuntimeData;
 
 namespace PlayerPlatformer2D
 {
@@ -107,10 +106,18 @@ namespace PlayerPlatformer2D
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 			var jumpSettings = data.jumpSettings;
 
+			if (data.queuedJump)
+			{
+				if (collisionData.onWall && !collisionData.onGround)
+					data.isWallJumping = true;
+
+				Jump();
+			}
+
 			// sticky walls
 			data.onStickySurface = false;
 
-			if(!data.isWallJumping)
+			if (!data.isWallJumping)
 			{
 				bool isJumpStateGoingUp = data.jumpState == PhysicsContextMainRuntimeData.JumpState.TakingOff || (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir && rigidbody.velocity.y > 0);
 				bool commonValidationForStickySurfaceAction = !frameInput.buttonPress[(int)ButtonInputType.Jump] && !isJumpStateGoingUp;
@@ -120,14 +127,6 @@ namespace PlayerPlatformer2D
 					rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
 					data.onStickySurface = true;
 				}
-			}
-
-			if (data.queuedJump)
-			{
-				if (collisionData.onWall && !collisionData.onGround)
-					data.isWallJumping = true;
-
-				Jump();
 			}
 
 			// update gravity multiplier according to hold jump (high/low)
