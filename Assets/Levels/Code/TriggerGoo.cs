@@ -1,3 +1,4 @@
+using AudioSystems;
 using UnityEngine;
 
 public class TriggerGoo : MonoBehaviour
@@ -9,7 +10,15 @@ public class TriggerGoo : MonoBehaviour
         if (tileLogic != null)
         {
             tileLogic.TintTiles(transform.position);
-        }
-        Destroy(gameObject);
+		}
+
+		AudioManager manager = AudioManager.Instance;
+		if (manager != null)
+		{
+			AudioDatabase db = manager.GetAudioDatabase();
+			manager.PlayOnShotAudioOnVFXAudioSource(db.GetWetSplatVFX(Random.Range(0, db.GetNumberOfWetSplatVFX())));
+		}
+
+		Destroy(gameObject);
     }
 }
