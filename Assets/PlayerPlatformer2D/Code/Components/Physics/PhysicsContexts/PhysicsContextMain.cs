@@ -88,7 +88,7 @@ namespace PlayerPlatformer2D
 			// facing dir towards the other side of the wall
 			if (data.onStickySurface && collisionData.onWall)
 			{
-				orientationData.facingSign = collisionData.wallSide;
+				orientationData.facingSign = -collisionData.wallSide;
 				return;
 			}
 			else if(data.onStickySurface)
