@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -61,6 +62,9 @@ namespace PlayerPlatformer2D
 				collisionData.justLeftGround = true;
 			}
 
+			// update surface physics modification
+			UpdatePhysicsChangesBasedOnSurfaces();
+
 			// walls
 			bool wasOnWall = collisionData.onWall;
 			Collider2D rightWallCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.RightOffset, collisionSettings.WallCollisionRadius, collisionSettings.GroundLayer);
@@ -85,6 +89,20 @@ namespace PlayerPlatformer2D
 				//m_Transform.eulerAngles = new Vector3(m_Transform.eulerAngles.x, m_Transform.eulerAngles.y, 0.0f);
 		}
 
+		private void UpdatePhysicsChangesBasedOnSurfaces()
+		{
+			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
+
+			if (collisionData.onStickySurface)
+			{
+				m_RuntimeData.ApplyStickySurfaceSettings();
+			}
+			else if (collisionData.onSpeedySurface)
+			{
+				m_RuntimeData.ApplySpeedySurfaceSettings();
+			}
+		}
+
 		private void OnTouchingSurface(GameObject aGroundObj)
 		{
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
@@ -94,14 +112,6 @@ namespace PlayerPlatformer2D
 			if(modifyPlayerSettings != null)
 			{
 				modifyPlayerSettings.OnPlayerTouchesSurface(m_RuntimeData);
-			}
-			else if(collisionData.onStickySurface)
-			{
-				m_RuntimeData.ApplyStickySurfaceSettings();
-			}
-			else if(collisionData.onSpeedySurface)
-			{
-				m_RuntimeData.ApplySpeedySurfaceSettings();
 			}
 			else
 			{
