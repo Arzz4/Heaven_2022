@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.Tilemaps;
 
 public class TileLogic : MonoBehaviour
@@ -15,6 +16,9 @@ public class TileLogic : MonoBehaviour
     public float explosionRadius = 2.5f;
     public List<int> destructableLayers = new List<int>();
     public float gooRadius = 2.5f;
+
+    public int numTilesToCreate = 3;
+    public Sprite tileCreationSprite;
 
     private List<Tilemap> mapsToCleanOnExplosion;
     // Start is called before the first frame update
@@ -34,9 +38,10 @@ public class TileLogic : MonoBehaviour
 
     }
         // Update is called once per frame
-    void Update()
+
+    public void CreateTiles(Vector3 pos)
     {
-        
+        StartCoroutine(createTiles(pos));
     }
 
     public void RemoveTiles(Vector3 pos)
@@ -122,6 +127,27 @@ public class TileLogic : MonoBehaviour
             }
             prevDelay = delay;
         }
+    }
+
+    private IEnumerator createTiles(Vector3 worldPosition)
+    {
+        Vector3Int local = tiles.WorldToCell(worldPosition);
+        createTileAt(local);
+        yield return new WaitForSeconds(0.05f);
+        for (int i = 1; i <= numTilesToCreate/2; i++)
+        {
+            createTileAt(local + new Vector3Int(-i,0,0));
+            createTileAt(local + new Vector3Int(i,0,0));
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    private void createTileAt(Vector3Int local)
+    {
+        Tile tile = ScriptableObject.CreateInstance<Tile>();
+        tile.sprite = tileCreationSprite;
+        tiles.SetTile(local, tile);
+        tiles.RefreshTile(local);
     }
 
     List<Tuple<float, Vector3Int>> getTiles(float r, Vector3 pos, float delayMax)

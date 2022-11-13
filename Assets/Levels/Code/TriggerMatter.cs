@@ -1,8 +1,9 @@
 using AudioSystems;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerGoo : MonoBehaviour
+public class TriggerMatter : MonoBehaviour
 {
     TileLogic tileLogic;
     public float destroyAfterTime = 0.5f;
@@ -11,15 +12,15 @@ public class TriggerGoo : MonoBehaviour
         tileLogic = GameObject.FindObjectOfType<TileLogic>();
         if (tileLogic != null)
         {
-            tileLogic.TintTiles(transform.position);
-		}
+            tileLogic.CreateTiles(transform.position);
+        }
 
-		AudioManager manager = AudioManager.Instance;
-		if (manager != null)
-		{
-			AudioDatabase db = manager.GetAudioDatabase();
-			manager.PlayOnShotAudioOnVFXAudioSource(db.GetWetSplatVFX(Random.Range(0, db.GetNumberOfWetSplatVFX())));
-		}
+        AudioManager manager = AudioManager.Instance;
+        if (manager != null)
+        {
+            AudioDatabase db = manager.GetAudioDatabase();
+            manager.PlayOnShotAudioOnVFXAudioSource(db.GetWetSplatVFX(Random.Range(0, db.GetNumberOfWetSplatVFX())));
+        }
 
         StartCoroutine(killMe());
     }
