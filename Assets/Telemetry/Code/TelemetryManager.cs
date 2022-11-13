@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TelemetrySystems
 {
@@ -36,6 +37,8 @@ namespace TelemetrySystems
 			DontDestroyOnLoad(gameObject);
 
 			InitializeTelemetry();
+
+			SceneManager.sceneLoaded += OnSceneLoaded;
 		}
 
 		private void InitializeTelemetry()
@@ -46,20 +49,23 @@ namespace TelemetrySystems
 		public void OnCharacterDeath()
 		{
 			m_TelemetryData.numberOfDeaths++;
-
-			if(!m_GotAchievement_TargetNumberOfDeaths && m_TelemetryData.numberOfDeaths >= m_Achivement_TargetNumberOfDeaths)
-			{
-				m_GotAchievement_TargetNumberOfDeaths = true;
-				
-				var poolSystem = GameplayUtility.ObjectPoolSystem.Instance;
-				if(poolSystem)
-					poolSystem.InstantiatePrefabWith(m_Achievement_TargetNumberOfDeathsPrefab, Vector3.zero, Quaternion.identity);
-			}
 		}
 
 		public TelemetryData GetData()
 		{
 			return m_TelemetryData;
+		}
+
+		private void OnSceneLoaded(Scene anScene, LoadSceneMode aMode)
+		{
+			if (!m_GotAchievement_TargetNumberOfDeaths && m_TelemetryData.numberOfDeaths >= m_Achivement_TargetNumberOfDeaths)
+			{
+				m_GotAchievement_TargetNumberOfDeaths = true;
+
+				var poolSystem = GameplayUtility.ObjectPoolSystem.Instance;
+				if (poolSystem)
+					poolSystem.InstantiatePrefabWith(m_Achievement_TargetNumberOfDeathsPrefab, Vector3.zero, Quaternion.identity);
+			}
 		}
 	}
 }
