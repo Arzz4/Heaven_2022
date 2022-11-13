@@ -1,188 +1,140 @@
 ﻿
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
+using System.Collections;
+using System.Collections.Generic;
 
-// later on the contents in this file are probably going to be replaced by some other input system 
+// later on the contents in this file are probably going to be replaced by Unity's new Input System or some other input system 
 
 namespace GameplayUtility
 {
-	public enum InputInteractionState
+	public enum GamePadButtonType
 	{
-		JustPressed,
-		JustReleased,
+		A_X,
+		B_CIRCLE,
+		X_SQUARE,
+		Y_TRIANGLE,
+		R_BUMPER_R1,
+		R_TRIGGER_R2,
+		L_BUMPER_L1,
+		L_TRIGGER_L2,
+		START_MENU,
+		BACK,
+		L_JOYSTICK_BUTTON,
+		R_JOYSTICK_BUTTON
+	}
+
+	public enum GamePadButtonInteractionType
+	{
+		ButtonDown,
+		ButtonUp,
 		Released,
 		Hold,
+		AxisButtonPressed,
+		AxisButtonHold,
+		AxisButtonReleased
 	}
 
-	public class InputActionProcessor
+	[System.Serializable]
+	public class InputAction
 	{
-		private struct InputActionStateData
+		public GamePadButtonType buttonType;
+		public GamePadButtonInteractionType interactionType;
+	}
+
+	[System.Serializable]
+	public class InputActionTuple
+	{
+		public InputAction action1;
+		public InputAction action2;
+	}
+
+	public class InputSystem
+	{
+		private enum AxisButtonState
 		{
-			public InputInteractionState currentState;
-			public float timestamp;
-			public bool isTriggered;
+			JustPressed,
+			Hold,
+			Released
 		}
 
-		// one per entry on the GamePadButtonType, increase accordingly
-		private int m_ActionsCount = 0;
-		private InputAction[] m_UnityInputActions;
-		private InputActionStateData[] m_ActionStates;
-
-		public void Initialize(int actionsCount)
+		// TODO: optimize by using an array with elements of a tuple (axis name, state)
+		private static Dictionary<string, AxisButtonState> m_AxisButtons = new Dictionary<string, AxisButtonState>()
 		{
-			m_ActionsCount		= actionsCount;
-			m_UnityInputActions = new InputAction[m_ActionsCount];
-			m_ActionStates		= new InputActionStateData[m_ActionsCount];
+			{ "L_TRIGGER_L2", AxisButtonState.Released },
+			{ "R_TRIGGER_R2", AxisButtonState.Released },
+		};
 
-			for(int i = 0; i < m_ActionsCount; i++)
-			{
-				m_UnityInputActions[i]			= null;
-				m_ActionStates[i].currentState	= InputInteractionState.Released;
-				m_ActionStates[i].timestamp		= 0.0f;
-				m_ActionStates[i].isTriggered	= false;
-			}
+		public static void Update()
+		{
+			// NOTE: if adding more axis buttons, use a foreach on the dictionary, otherwise that would be overkill
+			UpdateAxisButtonState(GamePadButtonType.L_TRIGGER_L2.ToString());
+			UpdateAxisButtonState(GamePadButtonType.R_TRIGGER_R2.ToString());
 		}
 
-		public void BindInputAction(int anActionIndex, InputAction anUnityInputAction)
+		private static void UpdateAxisButtonState(string aButtonString)
 		{
-			m_UnityInputActions[anActionIndex] = anUnityInputAction;
-		}
+			float axisValue = Input.GetAxis(aButtonString);
 
-		public void Update()
-		{
-			for(int i = 0; i < m_ActionsCount; ++i)
-				UpdateInputActionState(i);
-		}
-	
-		public bool CheckForInput(int anActionTypeIndex, InputInteractionState anStateType)
-		{
-			return m_ActionStates[anActionTypeIndex].currentState == anStateType;
-		}
-
-		public bool CheckForInput(int anActionTypeIndex, InputInteractionState anStateType, float aTresholdTime)
-		{
-			return m_ActionStates[anActionTypeIndex].currentState == anStateType && Time.time - m_ActionStates[anActionTypeIndex].timestamp > aTresholdTime;
-		}
-
-		public bool CheckInputIsTriggered(int anActionTypeIndex)
-		{
-			return m_ActionStates[anActionTypeIndex].isTriggered;
-		}
-
-		private void UpdateInputActionState(int anActionIndex)
-		{
-			bool isActionPressed   = m_UnityInputActions[anActionIndex].IsPressed();
-			bool isActionTriggered = m_UnityInputActions[anActionIndex].triggered;
-			UpdateActionStateChangeLogic(anActionIndex, isActionPressed, isActionTriggered);
-		}
-
-		private void UpdateActionStateChangeLogic(int anActionIndex, bool isActionPressed, bool isActionTriggered)
-		{
-			m_ActionStates[anActionIndex].isTriggered = isActionTriggered;
-
-			if (!isActionPressed)
-			{
-				if (m_ActionStates[anActionIndex].currentState == InputInteractionState.Hold || m_ActionStates[anActionIndex].currentState == InputInteractionState.JustPressed)
-				{
-					m_ActionStates[anActionIndex].currentState = InputInteractionState.JustReleased;
-					m_ActionStates[anActionIndex].timestamp = Time.time;
-				}
-				else if (m_ActionStates[anActionIndex].currentState != InputInteractionState.Released)
-				{
-					m_ActionStates[anActionIndex].currentState = InputInteractionState.Released;
-					m_ActionStates[anActionIndex].timestamp = Time.time;
-				}
-			}
+			if (axisValue <= 0.0f)
+				m_AxisButtons[aButtonString] = AxisButtonState.Released;
 			else
 			{
-				if (m_ActionStates[anActionIndex].currentState == InputInteractionState.Released)
-				{
-					m_ActionStates[anActionIndex].currentState = InputInteractionState.JustPressed;
-					m_ActionStates[anActionIndex].timestamp = Time.time;
-				}
-				else if (m_ActionStates[anActionIndex].currentState == InputInteractionState.JustPressed)
-				{
-					m_ActionStates[anActionIndex].currentState = InputInteractionState.Hold;
-					m_ActionStates[anActionIndex].timestamp = Time.time;
-				}
+				if (m_AxisButtons[aButtonString] == AxisButtonState.Released)
+					m_AxisButtons[aButtonString] = AxisButtonState.JustPressed;
+				else
+					m_AxisButtons[aButtonString] = AxisButtonState.Hold;
 			}
 		}
 
-		public void Reset()
+		public static bool CheckForInput(GamePadButtonType aButtonType, GamePadButtonInteractionType anInteractionType)
 		{
-			for (int i = 0; i < m_ActionsCount; ++i)
+			// TODO: cache this to avoid creation of strings at runtime
+			string buttonString = aButtonType.ToString();
+
+			switch (anInteractionType)
 			{
-				m_ActionStates[i].currentState = InputInteractionState.Released;
-				m_ActionStates[i].timestamp = 0.0f;
-				m_ActionStates[i].isTriggered = false;
+				case GamePadButtonInteractionType.ButtonDown:
+					return Input.GetButtonDown(buttonString);
+				case GamePadButtonInteractionType.ButtonUp:
+					return Input.GetButtonUp(buttonString);
+				case GamePadButtonInteractionType.Released:
+					return !Input.GetButton(buttonString);
+				case GamePadButtonInteractionType.Hold:
+					return Input.GetButton(buttonString);
+				case GamePadButtonInteractionType.AxisButtonPressed:
+					return m_AxisButtons[buttonString] == AxisButtonState.JustPressed;
+				case GamePadButtonInteractionType.AxisButtonHold:
+					return m_AxisButtons[buttonString] == AxisButtonState.Hold;
+				case GamePadButtonInteractionType.AxisButtonReleased:
+					return m_AxisButtons[buttonString] == AxisButtonState.Released;
 			}
+
+			return false;
 		}
 
-		public void Disable()
+		public static bool CheckForInput(InputAction anInputAction)
 		{
-			for (int i = 0; i < m_ActionsCount; ++i)
-				m_UnityInputActions[i].Disable();
+			return CheckForInput(anInputAction.buttonType, anInputAction.interactionType);
 		}
 
-		public void Enable()
+		public static bool CheckForInput(InputActionTuple anInputActionTuple)
 		{
-			for (int i = 0; i < m_ActionsCount; ++i)
-				m_UnityInputActions[i].Enable();
-		}
-	}
-
-	public class InputActionAxisProcessor
-	{
-		private int m_ActionsCount = 0;
-		private InputAction[] m_UnityInputActions;
-		private Vector2[] m_ActionValues;
-
-		public void Initialize(int anActionsCount)
-		{
-			m_ActionsCount = anActionsCount;
-			m_UnityInputActions = new InputAction[m_ActionsCount];
-			m_ActionValues = new Vector2[m_ActionsCount];
-
-			for (int i = 0; i < m_ActionsCount; i++)
-			{
-				m_UnityInputActions[i] = null;
-				m_ActionValues[i] = Vector2.zero;
-			}
+			return CheckForInput(anInputActionTuple.action1) && CheckForInput(anInputActionTuple.action2);
 		}
 
-		public void BindInputAction(int anActionIndex, InputAction anUnityInputAction)
+		public static Vector2 GetRawLeftJoystickInput()
 		{
-			m_UnityInputActions[anActionIndex] = anUnityInputAction;
+			return new Vector2(Input.GetAxis("L_JOYSTICK_HORIZONTAL"), Input.GetAxis("L_JOYSTICK_VERTICAL"));
 		}
 
-		public void Update()
+		public static Vector2 GetRawRightJoystickInput()
 		{
-			for (int i = 0; i < m_ActionsCount; ++i)
-				m_ActionValues[i] = m_UnityInputActions[i].ReadValue<Vector2>();
+			return new Vector2(Input.GetAxis("R_JOYSTICK_HORIZONTAL"), Input.GetAxis("R_JOYSTICK_VERTICAL"));
 		}
 
-		public Vector2 GetAxisValue(int anActionIndex)
+		public static Vector2 GetRawDPADInput()
 		{
-			return m_ActionValues[anActionIndex];
-		}
-
-		public void Reset()
-		{
-			for (int i = 0; i < m_ActionsCount; ++i)
-				m_ActionValues[i] = Vector2.zero;
-		}
-
-		public void Disable()
-		{
-			for (int i = 0; i < m_ActionsCount; ++i)
-				m_UnityInputActions[i].Disable();
-		}
-
-		public void Enable()
-		{
-			for (int i = 0; i < m_ActionsCount; ++i)
-				m_UnityInputActions[i].Enable();
+			return new Vector2(Input.GetAxis("DPAD_HORIZONTAL"), Input.GetAxis("DPAD_VERTICAL"));
 		}
 	}
 }
