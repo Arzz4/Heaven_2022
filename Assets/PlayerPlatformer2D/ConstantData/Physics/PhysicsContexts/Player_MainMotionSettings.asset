@@ -42,4 +42,5 @@ MonoBehaviour:
   m_Deceleration: 100
   m_AirAcelerationMultiplierForInput: 1
   m_AirAcelerationMultiplierNoInput: 0.75
+  m_AirAcelerationForWallJumping: 0.1
   m_MaxFallSpeed: 15

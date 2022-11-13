@@ -1,0 +1,18 @@
+{
+    "name": "DebugSystems",
+    "rootNamespace": "",
+    "references": [
+        "GUID:dd12c206e55a59b428b695145af6c2b2",
+        "GUID:ada7eca046d619b48b239dffeef81f52",
+        "GUID:9a87097604f806340b969a2d9261a322"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

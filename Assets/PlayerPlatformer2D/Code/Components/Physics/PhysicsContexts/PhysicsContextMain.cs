@@ -19,14 +19,7 @@ namespace PlayerPlatformer2D
 		public bool lowJump = false;
 		public bool queuedJump = false;
 		public bool onStickySurface = false;
-
-		public struct AirAccelerationValues
-		{
-			public float airAccelerationForInput;
-			public float airAccelerationNoInput;
-		}
-
-		public AirAccelerationValues currentAirAccelerationValues;
+		public bool isWallJumping = false;
 
 		public PhysicsContext_MainMotionSettings mainSettings = default;
 		public PhysicsContext_JumpMotionSettings jumpSettings = default;
@@ -65,10 +58,6 @@ namespace PlayerPlatformer2D
 			var frameInput = m_RuntimeData.PlayerInputRuntimeData.frameInput;
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 
-			// air acceleration values (to allow hot reloading of tweaking values at runtime)
-			data.currentAirAccelerationValues.airAccelerationForInput = data.mainSettings.AirAcelerationMultiplierForInput;
-			data.currentAirAccelerationValues.airAccelerationNoInput = data.mainSettings.AirAcelerationMultiplierNoInput;
-
 			// start jump
 			float elapsedTimeSinceGroundLeft = Time.time - collisionData.leftGroundTimestamp;
 			bool jumpInput = frameInput.buttonPress[(int)ButtonInputType.Jump];
@@ -80,6 +69,9 @@ namespace PlayerPlatformer2D
 
 			// update jump state
 			UpdateJumpState();
+
+		//	if(!collisionData.onGround)
+				//Debug.Log("wall jumping? " + data.isWallJumping + " - " + m_RuntimeData.DebugRuntimeData.frameCounter);
 		}
 
 		public override void PostUpdateContext()
@@ -117,20 +109,29 @@ namespace PlayerPlatformer2D
 
 			// sticky walls
 			data.onStickySurface = false;
-			bool isJumpStateGoingUp = data.jumpState == PhysicsContextMainRuntimeData.JumpState.TakingOff || (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir && rigidbody.velocity.y > 0);
-			bool commonValidationForStickySurfaceAction = !frameInput.buttonPress[(int)ButtonInputType.Jump] && !isJumpStateGoingUp;
-			if ((collisionData.onWall || collisionData.onGround) && collisionData.onStickySurface && commonValidationForStickySurfaceAction)
+
+			if(!data.isWallJumping)
 			{
-				rigidbody.gravityScale = 0.0f;
-				rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
-				data.onStickySurface = true;
+				bool isJumpStateGoingUp = data.jumpState == PhysicsContextMainRuntimeData.JumpState.TakingOff || (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir && rigidbody.velocity.y > 0);
+				bool commonValidationForStickySurfaceAction = !frameInput.buttonPress[(int)ButtonInputType.Jump] && !isJumpStateGoingUp;
+				if ((collisionData.onWall || collisionData.onGround) && collisionData.onStickySurface && commonValidationForStickySurfaceAction)
+				{
+					rigidbody.gravityScale = 0.0f;
+					rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
+					data.onStickySurface = true;
+				}
 			}
 
 			if (data.queuedJump)
+			{
+				if (collisionData.onWall)
+					data.isWallJumping = true;
+
 				Jump();
+			}
 
 			// update gravity multiplier according to hold jump (high/low)
-			if (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir)
+			if (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir && !data.isWallJumping)
 			{
 				if (rigidbody.velocity.y > 0)
 				{
@@ -149,7 +150,7 @@ namespace PlayerPlatformer2D
 			}
 
 			// 2d movement
-			if (data.onStickySurface)
+			if (data.onStickySurface && !data.isWallJumping)
 			{
 				rigidbody.velocity = Vector2.zero;
 			}
@@ -160,7 +161,8 @@ namespace PlayerPlatformer2D
 				float currentSpeedX = rigidbody.velocity.x;
 				float targetSpeedX = joystickX_Remapped * mainMotion.MaxSpeed;
 				float accelerationX = Mathf.Abs(targetSpeedX) > Mathf.Abs(currentSpeedX) ? mainMotion.Acceleration : mainMotion.Deceleration;
-				float airAccelerationMultiplier = targetSpeedX != 0.0f && aJoystickInput.x * rigidbody.velocity.x < 0 ? data.currentAirAccelerationValues.airAccelerationForInput : data.currentAirAccelerationValues.airAccelerationNoInput;
+				float airAccelerationMultiplier = targetSpeedX != 0.0f && aJoystickInput.x * rigidbody.velocity.x < 0 ? data.mainSettings.AirAcelerationMultiplierForInput : data.mainSettings.AirAcelerationMultiplierNoInput;
+				airAccelerationMultiplier = data.isWallJumping ? data.mainSettings.AirAcelerationForWallJumping : airAccelerationMultiplier;
 
 				if (collisionData.onGround)
 				{
@@ -188,9 +190,8 @@ namespace PlayerPlatformer2D
 			SetJumpVerticalVelocity(jumpSettings.HighJump.YVelocityMultiplierUp);
 			SetJumpGravityMultiplier(jumpSettings.HighJump.GravityMultiplierUp);
 
-			// wall jump modifier
-			if (collisionData.onWall && data.onStickySurface)
-				SetJumpHorizontalVelocity(jumpSettings.HighJump.YVelocityMultiplierUp, collisionData.wallSide);
+			if (data.isWallJumping)
+				SetJumpHorizontalVelocity(collisionData.wallSide);
 
 			data.jumpState = PhysicsContextMainRuntimeData.JumpState.TakingOff;
 			data.lowJump = false;
@@ -200,7 +201,6 @@ namespace PlayerPlatformer2D
 		private void UpdateJumpState()
 		{
 			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
-			var jumpSettings = data.jumpSettings;
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 
@@ -209,6 +209,9 @@ namespace PlayerPlatformer2D
 
 			bool touchingTraversalObjects = collisionData.onGround || collisionData.onWall;
 			bool falling = rigidbody.velocity.y < 0;
+
+			if (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir && (touchingTraversalObjects || falling))
+				data.isWallJumping = false;
 
 			if (data.jumpState == PhysicsContextMainRuntimeData.JumpState.TakingOff && (!touchingTraversalObjects || falling))
 			{
@@ -249,15 +252,14 @@ namespace PlayerPlatformer2D
 			rigidbody.gravityScale = -(gravityMultiplier * maxSpeedSqr) / Physics2D.gravity.y;
 		}
 
-		private void SetJumpHorizontalVelocity(float verticalVelocityMultiplier, float sign)
+		private void SetJumpHorizontalVelocity(float sign)
 		{
 			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 
 			float maxSpeed = data.jumpSettings.OverwriteMaxHorizontalSpeed ? data.jumpSettings.MaxHorizontalSpeed : data.mainSettings.MaxSpeed;
-			float velocityX = verticalVelocityMultiplier * maxSpeed;
 
-			rigidbody.velocity = new Vector2(sign * Mathf.Max(Mathf.Abs(rigidbody.velocity.x), velocityX), rigidbody.velocity.y);
+			rigidbody.velocity = new Vector2(sign * maxSpeed, rigidbody.velocity.y);
 		}
 
 		#endregion

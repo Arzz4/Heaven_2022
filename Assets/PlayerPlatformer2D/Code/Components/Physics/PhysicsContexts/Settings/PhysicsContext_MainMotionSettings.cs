@@ -39,6 +39,10 @@ namespace PlayerPlatformer2D
 		private float m_AirAcelerationMultiplierNoInput = 0.25f;
 		public float AirAcelerationMultiplierNoInput { get { return m_AirAcelerationMultiplierNoInput; } }
 
+		[SerializeField, Min(0.0f)]
+		private float m_AirAcelerationForWallJumping = 0.1f;
+		public float AirAcelerationForWallJumping { get { return m_AirAcelerationForWallJumping; } }
+
 		[Header("Fall Settings")]
 
 		[SerializeField, Min(0.0f)]
