@@ -230,6 +230,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Effect_FlashCut_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef4b1afd875292847a43f4c236379606
+      internalID: -1904001586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -245,6 +266,7 @@ TextureImporter:
       Effect_FlashCut_4: -1876355430
       Effect_FlashCut_0: -44201181
       Effect_FlashCut_2: 312677659
+      Effect_FlashCut_6: -1904001586
       Effect_FlashCut_3: -1298536293
       Effect_FlashCut_1: -1245460324
   spritePackingTag: 
