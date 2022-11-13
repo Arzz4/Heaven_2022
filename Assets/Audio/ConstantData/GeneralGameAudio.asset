@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9c109cbebb29c4faac5451bd0774d8, type: 3}
   m_Name: GeneralGameAudio
   m_EditorClassIdentifier: 
-  m_DefaultMainMenuAudio: {fileID: 8300000, guid: f1554f5175fc03c4c962e89e24c42a56, type: 3}
-  m_DefaultLevelsAudio: {fileID: 8300000, guid: f1554f5175fc03c4c962e89e24c42a56, type: 3}
+  m_DefaultMainMenuAudio: {fileID: 8300000, guid: a376902bf4169644791a33458a6c581d, type: 3}
+  m_DefaultLevelsAudio: {fileID: 8300000, guid: a376902bf4169644791a33458a6c581d, type: 3}
   m_ScenesAudioClips: []
   m_PlayerExplodeVFX: {fileID: 8300000, guid: ce3e032fbea44ec41a263d270ca948e3, type: 3}
   m_WetSplatVFX:
