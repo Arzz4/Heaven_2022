@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MovingPlatform
   - StickySurface
+  - SpeedySurface
   layers:
   - Default
   - TransparentFX

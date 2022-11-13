@@ -18,10 +18,20 @@ namespace PlayerPlatformer2D
 		public PhysicsContext_JumpMotionSettings defaultJumpSettings = default;
 	}
 
+	[System.Serializable]
+	public class PlayerSurfaceSettings
+	{
+		public PhysicsContext_BaseSettings[] settingsToApplyOnStickySurface = default;
+		public PhysicsContext_BaseSettings[] settingsToApplyOnSpeedySurface = default;
+	}
+
 	public class PlayerRuntimeData : MonoBehaviour
 	{
 		[SerializeField]
 		private PlayerDefaultSettings m_DefaultSettings = default;
+
+		[SerializeField]
+		private PlayerSurfaceSettings m_SurfaceSettings = default; 
 
 		public DebugRuntimeData DebugRuntimeData { get; } = new DebugRuntimeData();
 		public PlayerInputRuntimeData PlayerInputRuntimeData { get; } = new PlayerInputRuntimeData();
@@ -50,6 +60,44 @@ namespace PlayerPlatformer2D
 		{
 			PhysicsContextMainRuntimeData.mainSettings = m_DefaultSettings.defaultMainMotionSettings;
 			PhysicsContextMainRuntimeData.jumpSettings = m_DefaultSettings.defaultJumpSettings;
+		}
+
+		public void ApplyStickySurfaceSettings()
+		{
+			var settingsToApply = m_SurfaceSettings.settingsToApplyOnStickySurface;
+
+			for (int i = 0; i < settingsToApply.Length; ++i)
+			{
+				var settings = settingsToApply[i];
+				switch (settings.GetSettingsType())
+				{
+					case PhysicsContextSettingsType.Motion:
+						PhysicsContextMainRuntimeData.mainSettings = settings as PhysicsContext_MainMotionSettings;
+						break;
+					case PhysicsContextSettingsType.Jump:
+						PhysicsContextMainRuntimeData.jumpSettings = settings as PhysicsContext_JumpMotionSettings;
+						break;
+				}
+			}
+		}
+
+		public void ApplySpeedySurfaceSettings()
+		{
+			var settingsToApply = m_SurfaceSettings.settingsToApplyOnStickySurface;
+
+			for (int i = 0; i < settingsToApply.Length; ++i)
+			{
+				var settings = settingsToApply[i];
+				switch (settings.GetSettingsType())
+				{
+					case PhysicsContextSettingsType.Motion:
+						PhysicsContextMainRuntimeData.mainSettings = settings as PhysicsContext_MainMotionSettings;
+						break;
+					case PhysicsContextSettingsType.Jump:
+						PhysicsContextMainRuntimeData.jumpSettings = settings as PhysicsContext_JumpMotionSettings;
+						break;
+				}
+			}
 		}
 	}
 }
