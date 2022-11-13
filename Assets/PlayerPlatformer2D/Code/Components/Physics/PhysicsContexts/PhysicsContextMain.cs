@@ -70,18 +70,13 @@ namespace PlayerPlatformer2D
 			data.currentAirAccelerationValues.airAccelerationNoInput = data.mainSettings.AirAcelerationMultiplierNoInput;
 
 			// start jump
-			bool canJump = collisionData.onGround || data.onStickySurface;
-			bool jumpInput = frameInput.buttonPress[(int)ButtonInputType.Jump];
 			float elapsedTimeSinceGroundLeft = Time.time - collisionData.leftGroundTimestamp;
-			
-			if (canJump && (jumpInput || data.queuedJump))
-				Jump();
+			bool jumpInput = frameInput.buttonPress[(int)ButtonInputType.Jump];
+			bool canJumpOffGround = (!collisionData.onGround && !collisionData.onWall) && elapsedTimeSinceGroundLeft < 0.1f;
+			bool canJump = collisionData.onGround || data.onStickySurface || canJumpOffGround ;
 
-			else if (jumpInput && (!collisionData.onGround && !collisionData.onWall) && elapsedTimeSinceGroundLeft < 0.1f)
-			{
-				Jump();
-				return; // do not update the jump state in this case, we need at least 1 frame on TakingOff state
-			}
+			if (canJump && jumpInput)
+				data.queuedJump = true;
 
 			// update jump state
 			UpdateJumpState();
@@ -130,6 +125,9 @@ namespace PlayerPlatformer2D
 				rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
 				data.onStickySurface = true;
 			}
+
+			if (data.queuedJump)
+				Jump();
 
 			// update gravity multiplier according to hold jump (high/low)
 			if (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir)
