@@ -22,6 +22,7 @@ namespace PlayerPlatformer2D
 		public Transform movingPlatform = null;
 		public GameObject groundObject = null;
 		public bool justLanded = false;
+		public bool justLeftGround = false;
 
 		public const int maxHits = 1;
 		public Collider[] groundHits = new Collider[maxHits];
@@ -47,11 +48,17 @@ namespace PlayerPlatformer2D
 			collisionData.onStickySurface = groundCollider == null ? false : groundCollider.CompareTag("StickySurface");
 			collisionData.onSpeedySurface = groundCollider == null ? false : groundCollider.CompareTag("SpeedySurface");
 			collisionData.justLanded = false;
+			collisionData.justLeftGround = false;
 
 			if (!wasOnGround && collisionData.onGround)
 			{
 				OnTouchingSurface(groundCollider.gameObject);
 				collisionData.justLanded = true;
+			}
+
+			if(wasOnGround && !collisionData.onGround)
+			{
+				collisionData.justLeftGround = true;
 			}
 
 			// walls
