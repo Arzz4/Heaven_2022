@@ -18,7 +18,12 @@ namespace PlayerPlatformer2D
 			if (!frameInput.buttonPress[(int)ButtonInputType.KillCharacter])
 				return false;
 
-			GameObject.Instantiate(m_DeathPrefab, transform.position, Quaternion.identity);
+			var obj = GameObject.Instantiate(m_DeathPrefab, transform.position, Quaternion.identity);
+			var bounce = obj.GetComponent<Surface_Base>();
+			if (bounce != null)
+			{
+				bounce.setSourceVelocity(m_RuntimeData.PlayerPhysicsRuntimeData.velocity);
+			}
 			return true;
 		}
 	}

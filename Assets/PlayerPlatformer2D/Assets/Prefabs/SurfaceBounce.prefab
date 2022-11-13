@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6388444990132524559}
   - component: {fileID: 6388444990132524556}
   - component: {fileID: 8225374441413953466}
+  - component: {fileID: -6934244486282414264}
   m_Layer: 6
   m_Name: SurfaceBounce
   m_TagString: Untagged
@@ -125,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ApplyOnlyWhenPlayerStandsOnThisSurface: 1
+  gravity: 10
+  body: {fileID: 0}
 --- !u!114 &8225374441413953466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +143,24 @@ MonoBehaviour:
   m_ApplyOnlyWhenPlayerStandsOnThisSurface: 1
   m_SettingsToApply:
   - {fileID: 11400000, guid: a6a65bc4e9f05e042bf89cdbf6feddd5, type: 2}
+--- !u!50 &-6934244486282414264
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388444990132524554}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 2
+  m_LinearDrag: 2
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

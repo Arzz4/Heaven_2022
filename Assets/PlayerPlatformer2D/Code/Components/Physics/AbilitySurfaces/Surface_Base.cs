@@ -9,6 +9,8 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private bool m_ApplyOnlyWhenPlayerStandsOnThisSurface = false;
 
+		protected Vector3 sourceVelocity;
+
 		protected bool ValidateSurfaceAbilityActivation(PlayerRuntimeData aPlayer)
 		{
 			if (m_ApplyOnlyWhenPlayerStandsOnThisSurface)
@@ -18,6 +20,11 @@ namespace PlayerPlatformer2D
 			}
 
 			return true;
+		}
+
+		public void setSourceVelocity(Vector3 vel)
+		{
+			this.sourceVelocity = vel;
 		}
 	}
 }
