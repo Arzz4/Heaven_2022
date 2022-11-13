@@ -1,6 +1,6 @@
-using PlayerPlatformer2D;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class EndTrigger : MonoBehaviour
 {
@@ -9,6 +9,9 @@ public class EndTrigger : MonoBehaviour
 
 	[SerializeField]
 	private Vector3 m_TriggerSize = new Vector3(3, 3, 3);
+
+	public float levelSwitchDelay = 0.7f;
+	public float levelResetDelay = 0.7f;
 
 	private bool m_Loading = false;
 
@@ -28,17 +31,23 @@ public class EndTrigger : MonoBehaviour
 	{
 		m_Loading = true;
 		Debug.Log("Reset current level " + this.GetInstanceID());
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-	}
+        StartCoroutine(loadLevel(SceneManager.GetActiveScene().buildIndex, levelResetDelay));
+    }
 
 	public void StartNextScene()
 	{
 		m_Loading = true;
 		Debug.Log("Loading next level: " + m_NextSceneIndex + "  " + this.GetInstanceID());
-		SceneManager.LoadScene(m_NextSceneIndex);
+		StartCoroutine(loadLevel(m_NextSceneIndex,levelSwitchDelay));
 	}
 
-	private bool IsInsideTriggerZone(Vector3 pos)
+    private IEnumerator loadLevel(int index, float delay)
+    {
+		yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(index);
+    }
+
+    private bool IsInsideTriggerZone(Vector3 pos)
 	{
 		Vector3 point = transform.InverseTransformPoint(pos);
 		float halfX = m_TriggerSize.x * 0.5f;

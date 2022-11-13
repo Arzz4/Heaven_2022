@@ -808,7 +808,7 @@ PrefabInstance:
     - target: {fileID: 1456932131307962855, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
       propertyPath: m_Players.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1666749505}
     - target: {fileID: 1456932131307962855, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
       propertyPath: m_Players.Array.data[2]
       value: 
