@@ -16,10 +16,10 @@ MonoBehaviour:
   m_MaxHorizontalSpeed: 10
   m_LowJumpDifferentFromHighJump: 1
   m_HighJump:
-    m_JumpHeight: 4
-    m_JumpHorizontalRangeUp: 4
-    m_JumpHorizontalRangeDown: 3
+    m_JumpHeight: 6
+    m_JumpHorizontalRangeUp: 8
+    m_JumpHorizontalRangeDown: 7
   m_LowJump:
-    m_JumpHeight: 2
-    m_JumpHorizontalRangeUp: 2
-    m_JumpHorizontalRangeDown: 2
+    m_JumpHeight: 3
+    m_JumpHorizontalRangeUp: 4
+    m_JumpHorizontalRangeDown: 5

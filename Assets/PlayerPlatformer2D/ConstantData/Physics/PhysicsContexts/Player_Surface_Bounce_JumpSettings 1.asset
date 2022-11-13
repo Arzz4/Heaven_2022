@@ -17,8 +17,8 @@ MonoBehaviour:
   m_LowJumpDifferentFromHighJump: 0
   m_HighJump:
     m_JumpHeight: 8
-    m_JumpHorizontalRangeUp: 7
-    m_JumpHorizontalRangeDown: 8
+    m_JumpHorizontalRangeUp: 6
+    m_JumpHorizontalRangeDown: 7
   m_LowJump:
     m_JumpHeight: 8
     m_JumpHorizontalRangeUp: 8
