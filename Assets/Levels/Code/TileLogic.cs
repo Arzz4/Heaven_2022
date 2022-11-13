@@ -10,6 +10,7 @@ public class TileLogic : MonoBehaviour
 {
     private Tilemap tiles;
     private GooLogic gooLogic;
+    private SpeedLogic speedLogic;
     public GameObject explosionPrefab;
     private Vector3 prefabOffset = new Vector3(0.5f, 0.5f, 0.5f);
 
@@ -20,12 +21,16 @@ public class TileLogic : MonoBehaviour
     public int numTilesToCreate = 3;
     public Sprite tileCreationSprite;
 
+    public float speedyRadius = 2.5f;
+
+
     private List<Tilemap> mapsToCleanOnExplosion;
     // Start is called before the first frame update
     void Start()
     {
         tiles = GetComponent<Tilemap>();
         gooLogic = GameObject.FindObjectOfType<GooLogic>();
+        speedLogic = GameObject.FindObjectOfType<SpeedLogic>();
 
         mapsToCleanOnExplosion = new List<Tilemap>();
         foreach (var tilemap in GameObject.FindObjectsOfType<Tilemap>())
@@ -65,6 +70,24 @@ public class TileLogic : MonoBehaviour
             }
         }
         StartCoroutine(tintTiles(toColor, pos));
+    }
+
+    public void SpeedyTiles(Vector3 pos)
+    {
+        var possibleTiles = getTiles(speedyRadius, pos, 0.4f);
+        Vector3Int local = this.tiles.WorldToCell(pos);
+        var toSpeed = new List<Tuple<float, Vector3Int>>();
+
+
+        foreach (var tile in possibleTiles)
+        {
+            var tilePos = tile.Item2;
+            if (tiles.HasTile(tilePos) && hasFacingAirContact(tilePos, local))
+            {
+                toSpeed.Add(tile);
+            }
+        }
+        StartCoroutine(speedTiles(toSpeed, pos));
     }
 
     private bool hasFacingAirContact(Vector3Int p, Vector3Int origin)
@@ -123,7 +146,27 @@ public class TileLogic : MonoBehaviour
             if (tiles.HasTile(pos))
             {
                 Vector3 world = tiles.LocalToWorld(pos);
-                gooLogic.createGoo(world, origin-world);
+                gooLogic.createTiles(world, origin-world);
+                speedLogic.clean(world);
+            }
+            prevDelay = delay;
+        }
+    }
+
+    private IEnumerator speedTiles(List<Tuple<float, Vector3Int>> toTint, Vector3 origin)
+    {
+        float prevDelay = 0;
+        foreach (var item in toTint)
+        {
+            var delay = item.Item1;
+            var pos = item.Item2;
+            float wait = delay - prevDelay;
+            yield return new WaitForSeconds(wait);
+            if (tiles.HasTile(pos))
+            {
+                Vector3 world = tiles.LocalToWorld(pos);
+                speedLogic.createTiles(world, origin - world);
+                gooLogic.clean(world);
             }
             prevDelay = delay;
         }
