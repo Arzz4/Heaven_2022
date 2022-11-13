@@ -1,12 +1,14 @@
+using GameplayUtility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace PlayerPlatformer2D
 {
 	public class PlayerDeadZone : MonoBehaviour
 	{
+		[SerializeField]
+		private GameObject m_GhostPrefab = default;
 
 		private void OnDrawGizmos()
 		{
@@ -22,6 +24,7 @@ namespace PlayerPlatformer2D
 			if (obj.GetComponent<PlayerCharacter>() != null)
 			{
 				obj.SetActive(false);
+				ObjectPoolSystem.Instance.InstantiatePrefabWith(m_GhostPrefab, collision.transform.position, Quaternion.identity);
 			}
 		}
 
