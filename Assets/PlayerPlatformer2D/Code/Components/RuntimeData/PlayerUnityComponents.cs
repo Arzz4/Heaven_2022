@@ -13,6 +13,7 @@ namespace PlayerPlatformer2D
 		public Transform physicsContextsRoot = default;
 		public PlayerPhysics physicsController = default;
 		public Animator animator = default;
+		public Transform characterArrow = default;
 	}
 
 	public class PlayerUnityComponents : MonoBehaviour
@@ -35,6 +36,9 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private Animator m_Animator = default;
 
+		[SerializeField]
+		private Transform m_CharacterArrow = default;
+
 		public void Initialize()
 		{
 			var data = m_RuntimeData.PlayerUnityComponentsRuntimeData;
@@ -45,6 +49,7 @@ namespace PlayerPlatformer2D
 			data.visualsTransform = m_VisualsTransform;
 			data.physicsContextsRoot = m_PhysicsContextsRoot;
 			data.physicsController = m_RigidBody.GetComponent<PlayerPhysics>();
+			data.characterArrow = m_CharacterArrow;
 		}
 	}
 }
