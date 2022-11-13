@@ -786,7 +786,7 @@ MonoBehaviour:
     defaultJumpSettings: {fileID: 11400000, guid: a06a7f33233ad3f4faae00a0b11ceb06, type: 2}
   m_SurfaceSettings:
     settingsToApplyOnStickySurface:
-    - {fileID: 11400000, guid: 7f41293e51d842b44a2fa82ddd1f450f, type: 2}
+    - {fileID: 11400000, guid: 64758d21702c3694f85221fbfcfdb2df, type: 2}
     settingsToApplyOnSpeedySurface:
     - {fileID: 11400000, guid: e856337d46e300d4bb7e3fac2013c2fd, type: 2}
     - {fileID: 11400000, guid: 7f41293e51d842b44a2fa82ddd1f450f, type: 2}
