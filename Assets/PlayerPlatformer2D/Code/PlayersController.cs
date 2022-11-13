@@ -10,6 +10,9 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private PlayerCharacter[] m_Players = default;
 
+		[SerializeField]
+		private float m_DelayBetweenCharacters = 1.0f;
+
 		private int m_CurrentPlayerIndex = 0;
 
 		[SerializeField]
@@ -53,7 +56,7 @@ namespace PlayerPlatformer2D
 
 		private void StartPlayingWithPlayer(int playerIndex)
 		{
-			m_Players[playerIndex].StartPlayingWithCharacter();
+			m_Players[playerIndex].StartPlayingWithCharacter(m_DelayBetweenCharacters);
 		}
 	}
 }

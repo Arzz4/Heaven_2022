@@ -110,9 +110,9 @@ namespace PlayerPlatformer2D
 
 		#endregion
 
-		public void StartPlayingWithCharacter()
+		public void StartPlayingWithCharacter(float delayBetweenCharacters)
 		{
-			StartCoroutine(DelayToStartPlayingWithCharacter(1.0f));
+			StartCoroutine(DelayToStartPlayingWithCharacter(delayBetweenCharacters));
 		}
 
 		public void StopPlayingWithCharacter()
