@@ -21,5 +21,5 @@ MonoBehaviour:
   m_PlayerGhostDeath: {fileID: 8300000, guid: 50ea1a934cdbfed43a42bdb5075dfede, type: 3}
   m_PlayerHeavenlyGoal: {fileID: 8300000, guid: 2653d6b32b909e24baca2d7b16baaf50, type: 3}
   m_WetSplatVFX:
-  - {fileID: 8300000, guid: d8bc8855b523ce94892b35e306ceff71, type: 3}
+  - {fileID: 8300000, guid: 1d0e4a60e2df03b4aabb2fcf6b1522cd, type: 3}
   - {fileID: 8300000, guid: 1d0e4a60e2df03b4aabb2fcf6b1522cd, type: 3}
