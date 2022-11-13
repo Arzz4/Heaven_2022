@@ -33,14 +33,24 @@ namespace PlayerPlatformer2D
 				int remainingCharacters = m_Players.Length - m_CurrentPlayerIndex - 1;
 				m_OnCharacterDead?.Invoke(m_Players[m_CurrentPlayerIndex].gameObject, remainingCharacters);
 
-				m_CurrentPlayerIndex++;
+				int nextPlayerIndex = -1;
+				for(int i = m_CurrentPlayerIndex + 1; i < m_Players.Length; ++i)
+				{
+					if (m_Players[i].gameObject.activeInHierarchy)
+					{
+						nextPlayerIndex = i;
+						break;
+					}
+				}
 
 				// check if we finished playing all characters 
-				if (m_CurrentPlayerIndex == m_Players.Length)
+				if (m_CurrentPlayerIndex == m_Players.Length || nextPlayerIndex < 0)
 				{
 					this.enabled = false;
 					return;
 				}
+
+				m_CurrentPlayerIndex = nextPlayerIndex;
 
 				// otherwise start playing with next character
 				StartPlayingWithPlayer(m_CurrentPlayerIndex);
