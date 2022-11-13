@@ -99,3 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NextSceneIndex: 0
   m_TriggerSize: {x: 3, y: 3, z: 3}
+  m_WinningSpriteRenderer: {fileID: 0}
+  m_WinningTexture: {fileID: 21300000, guid: 3c9612acc6a0040428d4ecc0090abf23, type: 3}
+  levelSwitchDelay: 0.7
+  levelResetDelay: 0.7
