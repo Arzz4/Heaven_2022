@@ -29,6 +29,14 @@ namespace AudioSystems
 		public AudioClip PlayerLandSound { get { return m_PlayerLandSound; } }
 
 		[SerializeField]
+		private AudioClip m_PlayerGhostDeath = default;
+		public AudioClip PlayerGhostDeath { get { return m_PlayerGhostDeath; } }
+
+		[SerializeField]
+		private AudioClip m_PlayerHeavenlyGoal = default;
+		public AudioClip PlayerHeavenlyGoal { get { return m_PlayerHeavenlyGoal; } }
+
+		[SerializeField]
 		private AudioClip[] m_WetSplatVFX = default;
 		public int GetNumberOfWetSplatVFX() { return m_WetSplatVFX.Length; }
 		public AudioClip GetWetSplatVFX(int index) { return m_WetSplatVFX[index];}
