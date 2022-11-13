@@ -84,7 +84,7 @@ namespace PlayerPlatformer2D
 
 		public void ApplySpeedySurfaceSettings()
 		{
-			var settingsToApply = m_SurfaceSettings.settingsToApplyOnStickySurface;
+			var settingsToApply = m_SurfaceSettings.settingsToApplyOnSpeedySurface;
 
 			for (int i = 0; i < settingsToApply.Length; ++i)
 			{
