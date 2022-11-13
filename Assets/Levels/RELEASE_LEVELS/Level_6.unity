@@ -679,11 +679,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585105112556055544, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
       propertyPath: m_LocalScale.y
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3585105112556055544, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.11
+      value: 22.500034
       objectReference: {fileID: 0}
     - target: {fileID: 3585105112556055544, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
       propertyPath: m_LocalPosition.y
@@ -721,7 +721,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3585105112556055547, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3585105112556055546, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
 --- !u!1001 &1469714356
 PrefabInstance:
@@ -1042,11 +1047,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3585105112556055544, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
       propertyPath: m_LocalScale.y
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3585105112556055544, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.17
+      value: -22.500034
       objectReference: {fileID: 0}
     - target: {fileID: 3585105112556055544, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1084,7 +1089,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3585105112556055547, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3585105112556055546, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa8084e5ae802cf47912b42d96ce1f73, type: 3}
 --- !u!1 &2123971335
 GameObject:
