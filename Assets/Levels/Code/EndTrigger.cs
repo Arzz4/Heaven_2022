@@ -1,76 +1,57 @@
 using PlayerPlatformer2D;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public bool triggered;
-    public int nextSceneIndex;
-   
-    private PlayerCharacter player;
-    private bool loadingNext;
+	[SerializeField]
+	private int m_NextSceneIndex;
 
-    private void Start()
-    {
-        triggered = false;
-        player = null;
-        loadingNext = false;
-    }
+	[SerializeField]
+	private Vector3 m_TriggerSize = new Vector3(3, 3, 3);
 
-    private void Update()
-    {
-        if (player != null && !player.isActiveAndEnabled)
-        {
-            StartNextScene();
-        }
-    }
+	private bool m_Loading = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        var player = collision.gameObject.GetComponent<PlayerCharacter>();
-        if (player != null)
-        {
-            this.player = player;  
-            triggered = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        var player = collision.gameObject.GetComponent<PlayerCharacter>();
-        if (player != null)
-        {
-            if (!player.isActiveAndEnabled)
-            {
-                StartNextScene();
-            }
-            else
-            {
-                this.player = null;
-                triggered = false;
-            }
-        }
-    }
+	public void OnCharacterDead(GameObject character, int remainingCharacters)
+	{
+		if (m_Loading)
+			return;
 
-    public void resetCurrentLevel()
-    {
-        if (!loadingNext)
-        {
-            loadingNext =true;
-            Debug.Log("Reset current level " + this.GetInstanceID());
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
-    public void StartNextScene()
-    {
-        if (!loadingNext)
-        {
-            loadingNext = true;
-            Debug.Log("Loading next level: " +nextSceneIndex + "  " + this.GetInstanceID());
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-    }
+		if (IsInsideTriggerZone(character.transform.position))
+			StartNextScene();
+
+		else if (remainingCharacters == 0)
+			ResetCurrentLevel();
+	}
+
+	public void ResetCurrentLevel()
+	{
+		m_Loading = true;
+		Debug.Log("Reset current level " + this.GetInstanceID());
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+
+	public void StartNextScene()
+	{
+		m_Loading = true;
+		Debug.Log("Loading next level: " + m_NextSceneIndex + "  " + this.GetInstanceID());
+		SceneManager.LoadScene(m_NextSceneIndex);
+	}
+
+	private bool IsInsideTriggerZone(Vector3 pos)
+	{
+		Vector3 point = transform.InverseTransformPoint(pos);
+		float halfX = m_TriggerSize.x * 0.5f;
+		float halfY = m_TriggerSize.y * 0.5f;
+		float halfZ = m_TriggerSize.z * 0.5f;
+		return (point.x < halfX && point.x > -halfX && point.y < halfY && point.y > -halfY && point.z < halfZ && point.z > -halfZ);
+	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.magenta;
+		Gizmos.matrix = transform.localToWorldMatrix;
+		Gizmos.DrawWireCube(Vector3.zero, m_TriggerSize);
+		Gizmos.matrix = Matrix4x4.identity;
+	}
 }

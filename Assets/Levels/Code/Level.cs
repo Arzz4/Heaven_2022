@@ -35,10 +35,4 @@ public class Level : MonoBehaviour
         //    psxTiles.TintTiles(pos);
         //}
     }
-
-
-    public bool isFinished()
-    {
-        return end.triggered;
-    }
 }
