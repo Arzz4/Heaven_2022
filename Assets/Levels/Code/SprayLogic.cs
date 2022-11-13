@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
 using Tile = UnityEngine.Tilemaps.Tile;
 
 public class SprayLogic : MonoBehaviour
