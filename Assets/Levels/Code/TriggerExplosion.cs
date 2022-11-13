@@ -1,14 +1,14 @@
 using AudioSystems;
 using System.Collections;
 using UnityEngine;
-using GameplayUtility;
 using DG.Tweening;
 
 public class TriggerExplosion : MonoBehaviour
 {
 	// Start is called before the first frame update
 	TileLogic tileLogic;
-	void Start()
+    public float destroyAfterTime = 0.2f;
+    void Start()
 	{
 		// level destruction
 		tileLogic = GameObject.FindObjectOfType<TileLogic>();
@@ -47,7 +47,7 @@ public class TriggerExplosion : MonoBehaviour
 
 	private IEnumerator killMe()
 	{
-		yield return new WaitForSeconds(0.2f);
+		yield return new WaitForSeconds(destroyAfterTime);
 		Destroy(gameObject);
 	}
 }

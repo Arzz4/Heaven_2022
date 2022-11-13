@@ -1,9 +1,11 @@
 using AudioSystems;
+using System.Collections;
 using UnityEngine;
 
 public class TriggerGoo : MonoBehaviour
 {
     TileLogic tileLogic;
+    public float destroyAfterTime = 0.2f;
     void Start()
     {
         tileLogic = GameObject.FindObjectOfType<TileLogic>();
@@ -19,6 +21,11 @@ public class TriggerGoo : MonoBehaviour
 			manager.PlayOnShotAudioOnVFXAudioSource(db.GetWetSplatVFX(Random.Range(0, db.GetNumberOfWetSplatVFX())));
 		}
 
-		Destroy(gameObject);
+        StartCoroutine(killMe());
+    }
+    private IEnumerator killMe()
+    {
+        yield return new WaitForSeconds(destroyAfterTime);
+        Destroy(gameObject);
     }
 }
