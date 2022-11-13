@@ -1,3 +1,4 @@
+using AudioSystems;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +16,14 @@ public class TriggerExplosion : MonoBehaviour
             tileLogic.RemoveTiles(transform.position);
         }
 
-        StartCoroutine(killMe());
+        AudioManager manager = AudioManager.Instance;
+        if(manager != null )
+        {
+            AudioDatabase db = manager.GetAudioDatabase();
+            manager.PlayOnShotAudioOnVFXAudioSource(db.PlayerExplodeVFX);
+        }
+
+		StartCoroutine(killMe());
     }
 
     private IEnumerator killMe()

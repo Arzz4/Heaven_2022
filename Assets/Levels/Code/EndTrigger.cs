@@ -15,9 +15,19 @@ public class EndTrigger : MonoBehaviour
         triggered = false;
     }
 
+    public void resetCurrentLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(nextSceneIndex);
+        StartNextScene(nextSceneIndex);
         triggered = true;
+    }
+
+    public void StartNextScene(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 }

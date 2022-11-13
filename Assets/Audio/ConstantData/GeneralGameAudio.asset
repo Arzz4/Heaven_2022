@@ -12,14 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9c109cbebb29c4faac5451bd0774d8, type: 3}
   m_Name: GeneralGameAudio
   m_EditorClassIdentifier: 
-  m_DefaultMainMenuAudio: {fileID: 8300000, guid: ef88375c1bfb2d8499e8659122f2de0b, type: 3}
-  m_DefaultLevelsAudio: {fileID: 8300000, guid: 0cf0b19df3dbfe247bf60b3ede8466c2, type: 3}
-  m_ScenesAudioClips:
-  - {fileID: 8300000, guid: f94e7ac62030eb04986e72c9a7fb63f1, type: 3}
-  - {fileID: 8300000, guid: ef88375c1bfb2d8499e8659122f2de0b, type: 3}
-  - {fileID: 8300000, guid: 0cf0b19df3dbfe247bf60b3ede8466c2, type: 3}
-  - {fileID: 8300000, guid: f94e7ac62030eb04986e72c9a7fb63f1, type: 3}
-  - {fileID: 8300000, guid: 0cf0b19df3dbfe247bf60b3ede8466c2, type: 3}
-  - {fileID: 8300000, guid: ef88375c1bfb2d8499e8659122f2de0b, type: 3}
-  m_OnTileClicked: {fileID: 8300000, guid: 6635656b10d337e449a1135507080f7a, type: 3}
-  m_OnLevelCompleted: {fileID: 0}
+  m_DefaultMainMenuAudio: {fileID: 8300000, guid: f1554f5175fc03c4c962e89e24c42a56, type: 3}
+  m_DefaultLevelsAudio: {fileID: 8300000, guid: f1554f5175fc03c4c962e89e24c42a56, type: 3}
+  m_ScenesAudioClips: []
+  m_PlayerExplodeVFX: {fileID: 8300000, guid: ce3e032fbea44ec41a263d270ca948e3, type: 3}
+  m_WetSplatVFX:
+  - {fileID: 8300000, guid: d8bc8855b523ce94892b35e306ceff71, type: 3}
+  - {fileID: 8300000, guid: 1d0e4a60e2df03b4aabb2fcf6b1522cd, type: 3}
