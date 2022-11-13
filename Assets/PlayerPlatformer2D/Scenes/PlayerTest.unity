@@ -1102,7 +1102,7 @@ MonoBehaviour:
   - {fileID: 3577888}
   - {fileID: 4094545605591534208}
   - {fileID: 8306914059996663644}
-  m_OnAllCharactersDead:
+  m_OnCharacterDead:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &2134629077

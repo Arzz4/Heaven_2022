@@ -15,6 +15,7 @@ namespace PlayerPlatformer2D
 		public bool onLeftWall = false;
 		public bool onWall = false;
 		public bool onStickySurface = false;
+		public bool onSpeedySurface = false;
 		public int wallSide = 0;
 		public bool onMovingPlatform = false;
 		public float onGroundTimestamp = 0.0f;
@@ -43,6 +44,7 @@ namespace PlayerPlatformer2D
 			collisionData.onGround = groundCollider != null;
 			collisionData.groundObject = groundCollider != null ? groundCollider.gameObject : null;
 			collisionData.onStickySurface = groundCollider == null ? false : groundCollider.CompareTag("StickySurface");
+			collisionData.onSpeedySurface = groundCollider == null ? false : groundCollider.CompareTag("SpeedySurface");
 
 			if (!wasOnGround && collisionData.onGround)
 				OnTouchingSurface(groundCollider.gameObject);
@@ -80,6 +82,14 @@ namespace PlayerPlatformer2D
 			if(modifyPlayerSettings != null)
 			{
 				modifyPlayerSettings.OnPlayerTouchesSurface(m_RuntimeData);
+			}
+			else if(collisionData.onStickySurface)
+			{
+				m_RuntimeData.ApplyStickySurfaceSettings();
+			}
+			else if(collisionData.onSpeedySurface)
+			{
+				m_RuntimeData.ApplySpeedySurfaceSettings();
 			}
 			else
 			{

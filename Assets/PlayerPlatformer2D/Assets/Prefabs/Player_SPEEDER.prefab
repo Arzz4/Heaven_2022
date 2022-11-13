@@ -645,6 +645,11 @@ MonoBehaviour:
     defaultCollisionSettings: {fileID: 11400000, guid: 710ab9b6edb7e6d48a23017d175153c1, type: 2}
     defaultMainMotionSettings: {fileID: 11400000, guid: 6a2b8678d4be3b145a7ceb675ac7534e, type: 2}
     defaultJumpSettings: {fileID: 11400000, guid: a06a7f33233ad3f4faae00a0b11ceb06, type: 2}
+  m_SurfaceSettings:
+    settingsToApplyOnStickySurface:
+    - {fileID: 11400000, guid: 7f41293e51d842b44a2fa82ddd1f450f, type: 2}
+    settingsToApplyOnSpeedySurface:
+    - {fileID: 11400000, guid: e856337d46e300d4bb7e3fac2013c2fd, type: 2}
 --- !u!114 &7821152413202273582
 MonoBehaviour:
   m_ObjectHideFlags: 0
