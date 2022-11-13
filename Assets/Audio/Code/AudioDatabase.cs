@@ -21,6 +21,14 @@ namespace AudioSystems
 		public AudioClip PlayerExplodeVFX { get { return m_PlayerExplodeVFX; } }
 
 		[SerializeField]
+		private AudioClip m_PlayerJumpSound = default;
+		public AudioClip PlayerJumpSound { get { return m_PlayerJumpSound; } }
+
+		[SerializeField]
+		private AudioClip m_PlayerLandSound = default;
+		public AudioClip PlayerLandSound { get { return m_PlayerLandSound; } }
+
+		[SerializeField]
 		private AudioClip[] m_WetSplatVFX = default;
 		public int GetNumberOfWetSplatVFX() { return m_WetSplatVFX.Length; }
 		public AudioClip GetWetSplatVFX(int index) { return m_WetSplatVFX[index];}
