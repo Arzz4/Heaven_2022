@@ -101,6 +101,10 @@ namespace PlayerPlatformer2D
 			{
 				m_RuntimeData.ApplySpeedySurfaceSettings();
 			}
+			else
+			{
+				m_RuntimeData.ResetToDefaultPhysicsContextsSettings();
+			}
 		}
 
 		private void OnTouchingSurface(GameObject aGroundObj)
