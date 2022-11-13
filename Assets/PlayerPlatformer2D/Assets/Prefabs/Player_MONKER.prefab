@@ -780,6 +780,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 7f41293e51d842b44a2fa82ddd1f450f, type: 2}
     settingsToApplyOnSpeedySurface:
     - {fileID: 11400000, guid: e856337d46e300d4bb7e3fac2013c2fd, type: 2}
+    - {fileID: 11400000, guid: 7f41293e51d842b44a2fa82ddd1f450f, type: 2}
 --- !u!114 &7821152413202273582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,7 +799,6 @@ MonoBehaviour:
   m_RigidBody: {fileID: 7821152413202273577}
   m_Collider: {fileID: 1793998656066129804}
   m_Animator: {fileID: 697661034108906379}
-  m_PlayerAudioSource: {fileID: 7373985098382308500}
 --- !u!114 &7821152413202273552
 MonoBehaviour:
   m_ObjectHideFlags: 0
