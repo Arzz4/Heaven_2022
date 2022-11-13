@@ -144,10 +144,13 @@ public class TileLogic : MonoBehaviour
 
     private void createTileAt(Vector3Int local)
     {
-        Tile tile = ScriptableObject.CreateInstance<Tile>();
-        tile.sprite = tileCreationSprite;
-        tiles.SetTile(local, tile);
-        tiles.RefreshTile(local);
+        if ( !tiles.HasTile(local))
+        {
+            Tile tile = ScriptableObject.CreateInstance<Tile>();
+            tile.sprite = tileCreationSprite;
+            tiles.SetTile(local, tile);
+            tiles.RefreshTile(local);
+        }
     }
 
     List<Tuple<float, Vector3Int>> getTiles(float r, Vector3 pos, float delayMax)
