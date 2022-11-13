@@ -84,7 +84,7 @@ MonoBehaviour:
       - m_Name: 
         m_Id: 51fe28c2-e64e-44a2-9a14-9be61e685cd1
         m_Path: <Gamepad>/buttonSouth
-        m_Interactions: Press
+        m_Interactions: Press(pressPoint=0.1)
         m_Processors: 
         m_Groups: 
         m_Action: Input
@@ -92,7 +92,7 @@ MonoBehaviour:
       - m_Name: 
         m_Id: b178ce3f-4a24-4e7e-a41b-df5e831ad9a9
         m_Path: <Keyboard>/space
-        m_Interactions: Press
+        m_Interactions: Press(pressPoint=0.1)
         m_Processors: 
         m_Groups: 
         m_Action: Input
