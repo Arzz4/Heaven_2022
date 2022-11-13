@@ -16,8 +16,10 @@ MonoBehaviour:
   m_DefaultLevelsAudio: {fileID: 8300000, guid: a376902bf4169644791a33458a6c581d, type: 3}
   m_ScenesAudioClips: []
   m_PlayerExplodeVFX: {fileID: 8300000, guid: ce3e032fbea44ec41a263d270ca948e3, type: 3}
-  m_PlayerJumpSound: {fileID: 8300000, guid: de0fe1118e6858c45a1bf2084276ef30, type: 3}
-  m_PlayerLandSound: {fileID: 8300000, guid: 8641065bc19d8854eb1667c6bd8d5bc9, type: 3}
+  m_PlayerJumpSound: {fileID: 8300000, guid: 8641065bc19d8854eb1667c6bd8d5bc9, type: 3}
+  m_PlayerLandSound: {fileID: 8300000, guid: de0fe1118e6858c45a1bf2084276ef30, type: 3}
+  m_PlayerGhostDeath: {fileID: 8300000, guid: 50ea1a934cdbfed43a42bdb5075dfede, type: 3}
+  m_PlayerHeavenlyGoal: {fileID: 8300000, guid: 2653d6b32b909e24baca2d7b16baaf50, type: 3}
   m_WetSplatVFX:
   - {fileID: 8300000, guid: d8bc8855b523ce94892b35e306ceff71, type: 3}
   - {fileID: 8300000, guid: 1d0e4a60e2df03b4aabb2fcf6b1522cd, type: 3}
