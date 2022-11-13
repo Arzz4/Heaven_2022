@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -7784935210050565719}
   m_Layer: 6
   m_Name: SurfaceBounce
-  m_TagString: Untagged
+  m_TagString: BouncySurface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

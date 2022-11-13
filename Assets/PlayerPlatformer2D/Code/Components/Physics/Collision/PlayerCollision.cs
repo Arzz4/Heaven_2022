@@ -17,9 +17,11 @@ namespace PlayerPlatformer2D
 		public bool onWall = false;
 		public bool onStickySurface = false;
 		public bool onSpeedySurface = false;
+		public bool onBouncySurface = false;
 		public int wallSide = 0;
 		public bool onMovingPlatform = false;
 		public float onGroundTimestamp = 0.0f;
+		public float leftGroundTimestamp = 0.0f;
 		public Transform movingPlatform = null;
 		public GameObject groundObject = null;
 		public bool justLanded = false;
@@ -48,18 +50,20 @@ namespace PlayerPlatformer2D
 			collisionData.groundObject = groundCollider != null ? groundCollider.gameObject : null;
 			collisionData.onStickySurface = groundCollider == null ? false : groundCollider.CompareTag("StickySurface");
 			collisionData.onSpeedySurface = groundCollider == null ? false : groundCollider.CompareTag("SpeedySurface");
+			collisionData.onBouncySurface = groundCollider == null ? false : groundCollider.CompareTag("BouncySurface");
 			collisionData.justLanded = false;
 			collisionData.justLeftGround = false;
 
 			if (!wasOnGround && collisionData.onGround)
 			{
-				OnTouchingSurface(groundCollider.gameObject);
 				collisionData.justLanded = true;
+				collisionData.onGroundTimestamp = Time.time;
 			}
 
 			if(wasOnGround && !collisionData.onGround)
 			{
 				collisionData.justLeftGround = true;
+				collisionData.leftGroundTimestamp = Time.time;
 			}
 
 			// update surface physics modification
@@ -75,9 +79,6 @@ namespace PlayerPlatformer2D
 			collisionData.onWall = collisionData.onRightWall || collisionData.onLeftWall;
 			collisionData.wallSide = collisionData.onWall ? (collisionData.onRightWall ? -1 : 1) : 0;
 			collisionData.onStickySurface = !collisionData.onWall ? collisionData.onStickySurface : (collisionData.onRightWall ? rightWallCollider.CompareTag("StickySurface") : leftWallCollider.CompareTag("StickySurface"));
-
-			if (!wasOnWall && collisionData.onWall)
-				OnTouchingSurface(collisionData.onRightWall ? rightWallCollider.gameObject : leftWallCollider.gameObject);
 
 			// platforms
 			Collider2D platformCollider = groundCollider ? groundCollider : (rightWallCollider ? rightWallCollider : (leftWallCollider ? leftWallCollider : null));
@@ -101,31 +102,23 @@ namespace PlayerPlatformer2D
 			{
 				m_RuntimeData.ApplySpeedySurfaceSettings();
 			}
-			else
+			else if(collisionData.onBouncySurface)
+			{
+				var bounceSurface = collisionData.groundObject.GetComponent<Surface_Bounce>();
+				if (bounceSurface != null)
+				{
+					bounceSurface.OnPlayerTouchesSurface(m_RuntimeData);
+				}
+
+				var modifyPlayerSettings = collisionData.groundObject.GetComponent<Surface_ModifyPlayerPhysicsSettings>();
+				if (modifyPlayerSettings != null)
+				{
+					modifyPlayerSettings.OnPlayerTouchesSurface(m_RuntimeData);
+				}
+			}
+			else if(collisionData.onGround)
 			{
 				m_RuntimeData.ResetToDefaultPhysicsContextsSettings();
-			}
-		}
-
-		private void OnTouchingSurface(GameObject aGroundObj)
-		{
-			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
-			collisionData.onGroundTimestamp = Time.time;
-
-			var modifyPlayerSettings = aGroundObj.GetComponent<Surface_ModifyPlayerPhysicsSettings>();
-			if(modifyPlayerSettings != null)
-			{
-				modifyPlayerSettings.OnPlayerTouchesSurface(m_RuntimeData);
-			}
-			else
-			{
-				m_RuntimeData.ResetToDefaultPhysicsContextsSettings();
-			}
-
-			var bounceSurface = aGroundObj.GetComponent<Surface_Bounce>();
-			if(bounceSurface != null)
-			{
-				bounceSurface.OnPlayerTouchesSurface(m_RuntimeData);
 			}
 		}
 
