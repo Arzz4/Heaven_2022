@@ -1,0 +1,16 @@
+{
+    "name": "TelemetrySystems",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ada7eca046d619b48b239dffeef81f52"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
