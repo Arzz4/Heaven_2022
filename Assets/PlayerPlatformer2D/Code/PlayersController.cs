@@ -30,9 +30,6 @@ namespace PlayerPlatformer2D
 		{
 			if (!m_Players[m_CurrentPlayerIndex].gameObject.activeSelf)
 			{
-				int remainingCharacters = m_Players.Length - m_CurrentPlayerIndex - 1;
-				m_OnCharacterDead?.Invoke(m_Players[m_CurrentPlayerIndex].gameObject, remainingCharacters);
-
 				int nextPlayerIndex = -1;
 				for(int i = m_CurrentPlayerIndex + 1; i < m_Players.Length; ++i)
 				{
@@ -43,8 +40,11 @@ namespace PlayerPlatformer2D
 					}
 				}
 
+				int remainingCharacters = nextPlayerIndex < 0 ? 0 : m_Players.Length - nextPlayerIndex;
+				m_OnCharacterDead?.Invoke(m_Players[m_CurrentPlayerIndex].gameObject, remainingCharacters);
+
 				// check if we finished playing all characters 
-				if (m_CurrentPlayerIndex == m_Players.Length || nextPlayerIndex < 0)
+				if (nextPlayerIndex < 0)
 				{
 					this.enabled = false;
 					return;
