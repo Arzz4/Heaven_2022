@@ -66,11 +66,7 @@ namespace PlayerPlatformer2D
 				collisionData.leftGroundTimestamp = Time.time;
 			}
 
-			// update surface physics modification
-			UpdatePhysicsChangesBasedOnSurfaces();
-
 			// walls
-			bool wasOnWall = collisionData.onWall;
 			Collider2D rightWallCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.RightOffset, collisionSettings.WallCollisionRadius, collisionSettings.GroundLayer);
 			Collider2D leftWallCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.LeftOffset, collisionSettings.WallCollisionRadius, collisionSettings.GroundLayer);
 
@@ -79,6 +75,9 @@ namespace PlayerPlatformer2D
 			collisionData.onWall = collisionData.onRightWall || collisionData.onLeftWall;
 			collisionData.wallSide = collisionData.onWall ? (collisionData.onRightWall ? -1 : 1) : 0;
 			collisionData.onStickySurface = !collisionData.onWall ? collisionData.onStickySurface : (collisionData.onRightWall ? rightWallCollider.CompareTag("StickySurface") : leftWallCollider.CompareTag("StickySurface"));
+
+			// update surface physics modification
+			UpdatePhysicsChangesBasedOnSurfaces();
 
 			// platforms
 			Collider2D platformCollider = groundCollider ? groundCollider : (rightWallCollider ? rightWallCollider : (leftWallCollider ? leftWallCollider : null));
