@@ -31,6 +31,9 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private PlayerDeath m_DeathBehaviour = default;
 
+		[SerializeField]
+		private PlayerAudio m_Audio = default;
+
 		#region UNITY METHODS
 
 		private void Awake()
@@ -92,6 +95,7 @@ namespace PlayerPlatformer2D
 			m_Physics.PostUpdateController();
 			m_Orientation.PostUpdateCharacterOrientation();
 			m_Animator.PostUpdateAnimations();
+			m_Audio.PostUpdateAudio();
 		}
 
 		private void FrameLateUpdate()

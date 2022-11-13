@@ -181,7 +181,7 @@ namespace AudioSystems
 			if (aClip == null)
 				return;
 
-			PlayAudioLoop(m_MainAudioSource, aClip);
+			PlayAudioLoopInternal(m_MainAudioSource, aClip);
 		}
 
 		public void PlayOneShotAudio(AudioClip aClip, AudioSource anAudioSource)
@@ -203,6 +203,19 @@ namespace AudioSystems
 				PlayAudio(anAudioSource, aClip.asset);
 		}
 
+		public void PlayAudioLoop(AudioClipDef aClip, AudioSource anAudioSource)
+		{
+			if (aClip.delayToPlaySound > 0.0f)
+				StartCoroutine(PlayAudioLoopDelayed(anAudioSource, aClip.asset, aClip.delayToPlaySound));
+			else
+				PlayAudioLoopInternal(anAudioSource, aClip.asset);
+		}
+
+		public void PlayAudioLoop(AudioClip aClip, AudioSource anAudioSource)
+		{
+			PlayAudioLoopInternal(anAudioSource, aClip);
+		}
+
 		public AudioDatabase GetAudioDatabase()
 		{
 			return m_AudioDatabase;
@@ -219,21 +232,13 @@ namespace AudioSystems
 			anAudioSource.PlayOneShot(aClipAsset);
 		}
 
-		public void PlayAudioLoop(AudioClipDef aClip, AudioSource anAudioSource)
-		{
-			if (aClip.delayToPlaySound > 0.0f)
-				StartCoroutine(PlayAudioLoopDelayed(anAudioSource, aClip.asset, aClip.delayToPlaySound));
-			else
-				PlayAudioLoop(anAudioSource, aClip.asset);
-		}
-
 		private IEnumerator PlayAudioLoopDelayed(AudioSource anAudioSource, AudioClip aClipAsset, float delay)
 		{
 			yield return new WaitForSeconds(delay);
-			PlayAudioLoop(anAudioSource, aClipAsset);
+			PlayAudioLoopInternal(anAudioSource, aClipAsset);
 		}
 
-		private void PlayAudioLoop(AudioSource anAudioSource, AudioClip aClipAsset)
+		private void PlayAudioLoopInternal(AudioSource anAudioSource, AudioClip aClipAsset)
 		{
 			anAudioSource.clip = aClipAsset;
 			anAudioSource.loop = true;
