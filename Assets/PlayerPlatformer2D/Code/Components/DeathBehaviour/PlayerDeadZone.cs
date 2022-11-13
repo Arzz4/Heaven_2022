@@ -1,4 +1,6 @@
+using AudioSystems;
 using GameplayUtility;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +27,22 @@ namespace PlayerPlatformer2D
 			{
 				obj.SetActive(false);
 				ObjectPoolSystem.Instance.InstantiatePrefabWith(m_GhostPrefab, collision.transform.position, Quaternion.identity);
+
+				PlayGhostAudio();
 			}
+		}
+
+		private void PlayGhostAudio()
+		{
+			var manager = AudioManager.Instance;
+			if (manager == null)
+				return;
+
+			var db = manager.GetAudioDatabase();
+			if (db == null)
+				return;
+
+			manager.PlayOnShotAudioOnVFXAudioSource(db.PlayerGhostDeath);
 		}
 
 		private bool IsPointInsideDeadZone(Vector3 p)
