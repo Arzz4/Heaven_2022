@@ -13,7 +13,7 @@ namespace PlayerPlatformer2D
 		private int m_CurrentPlayerIndex = 0;
 
 		[SerializeField]
-		private UnityEvent m_OnAllCharactersDead = default;
+		private UnityEvent<GameObject, int> m_OnCharacterDead = default;
 
 		private void Start()
 		{
@@ -27,12 +27,14 @@ namespace PlayerPlatformer2D
 		{
 			if (!m_Players[m_CurrentPlayerIndex].gameObject.activeSelf)
 			{
+				int remainingCharacters = m_Players.Length - m_CurrentPlayerIndex - 1;
+				m_OnCharacterDead?.Invoke(m_Players[m_CurrentPlayerIndex].gameObject, remainingCharacters);
+
 				m_CurrentPlayerIndex++;
 
 				// check if we finished playing all characters 
 				if (m_CurrentPlayerIndex == m_Players.Length)
 				{
-					m_OnAllCharactersDead?.Invoke();
 					this.enabled = false;
 					return;
 				}

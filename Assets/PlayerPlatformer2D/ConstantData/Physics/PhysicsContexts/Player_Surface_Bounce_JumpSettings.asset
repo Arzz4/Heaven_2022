@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_OverwriteMaxHorizontalSpeed: 1
   m_MaxHorizontalSpeed: 10
+  m_LowJumpDifferentFromHighJump: 0
   m_HighJump:
     m_JumpHeight: 8
-    m_JumpHorizontalRangeUp: 8
-    m_JumpHorizontalRangeDown: 10
+    m_JumpHorizontalRangeUp: 7
+    m_JumpHorizontalRangeDown: 8
   m_LowJump:
     m_JumpHeight: 8
     m_JumpHorizontalRangeUp: 8

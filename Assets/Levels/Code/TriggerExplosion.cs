@@ -1,34 +1,53 @@
 using AudioSystems;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TriggerExplosion : MonoBehaviour
 {
-    // Start is called before the first frame update
-    TileLogic tileLogic;
+	// Start is called before the first frame update
+	TileLogic tileLogic;
+    public float destroyAfterTime = 0.2f;
     void Start()
-    {
-        tileLogic = GameObject.FindObjectOfType<TileLogic>();
-        if (tileLogic != null)
-        {
-            tileLogic.RemoveTiles(transform.position);
-        }
+	{
+		// level destruction
+		tileLogic = GameObject.FindObjectOfType<TileLogic>();
+		if (tileLogic != null)
+		{
+			tileLogic.RemoveTiles(transform.position);
+		}
 
-        AudioManager manager = AudioManager.Instance;
-        if(manager != null )
-        {
-            AudioDatabase db = manager.GetAudioDatabase();
-            manager.PlayOnShotAudioOnVFXAudioSource(db.PlayerExplodeVFX);
-        }
+		// audio
+		AudioManager manager = AudioManager.Instance;
+		if (manager != null)
+		{
+			AudioDatabase db = manager.GetAudioDatabase();
+			manager.PlayOnShotAudioOnVFXAudioSource(db.PlayerExplodeVFX);
+		}
 
+		// camera vfx
+		Camera cam = Camera.main;
+		if (cam != null)
+		{
+			Transform camTransform = cam.transform;
+			
+			// cam shake
+			camTransform.DOComplete();
+			camTransform.DOShakePosition(.2f, .5f, 14, 90, false, true);
+			
+			// vfx
+			var rippleEffect = camTransform.GetComponent<RipplePostProcessor>();
+			if (rippleEffect != null)
+				rippleEffect.Ripple(cam.WorldToScreenPoint(transform.position));
+		}
+
+		// make sure to destroy this object afterwards
 		StartCoroutine(killMe());
-    }
+	}
 
-    private IEnumerator killMe()
-    {
-        yield return new WaitForSeconds(0.2f);
-        Destroy(gameObject);
-    }
+	private IEnumerator killMe()
+	{
+		yield return new WaitForSeconds(destroyAfterTime);
+		Destroy(gameObject);
+	}
 }
