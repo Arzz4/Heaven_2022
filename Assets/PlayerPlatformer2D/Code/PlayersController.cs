@@ -43,6 +43,10 @@ namespace PlayerPlatformer2D
 				int remainingCharacters = nextPlayerIndex < 0 ? 0 : m_Players.Length - nextPlayerIndex;
 				m_OnCharacterDead?.Invoke(m_Players[m_CurrentPlayerIndex].gameObject, remainingCharacters);
 
+				var telemetryManager = TelemetrySystems.TelemetryManager.Instance;
+				if(telemetryManager)
+					telemetryManager.OnCharacterDeath();
+
 				// check if we finished playing all characters 
 				if (nextPlayerIndex < 0)
 				{
