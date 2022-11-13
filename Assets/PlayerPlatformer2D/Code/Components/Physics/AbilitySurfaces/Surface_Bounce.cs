@@ -6,23 +6,25 @@ namespace PlayerPlatformer2D
 {
 	public class Surface_Bounce : Surface_Base
 	{
-		private bool stop;
 		public float gravity = 30;
-        public Rigidbody2D body;
+        private Rigidbody2D body;
+		private Animator animator;
+		private bool idle;
 
 		private void Start()
 		{
 			body = GetComponent<Rigidbody2D>();
 			body.velocity = sourceVelocity;
+			animator = GetComponent<Animator>();
+			idle = false;	
 		}
 
-		private void FixedUpdate()
+		void Update()
 		{
-            if (!stop)
-            {
-                Vector2 velocity = body.velocity;
-                velocity.y -= gravity * Time.deltaTime;
-				body.velocity = velocity;
+			if(!idle && Mathf.Abs(body.velocity.y) < 0.01f)
+			{
+                animator.Play("Bouncer_Platform_Idle");
+				idle = true;	
             }
         }
 
@@ -32,7 +34,8 @@ namespace PlayerPlatformer2D
 				return;
 
 			aPlayer.PhysicsContextMainRuntimeData.queuedJump = true;
-		}
+            animator.Play("Bouncer_Platform_Bounce");
+        }
 	}
 
 	
