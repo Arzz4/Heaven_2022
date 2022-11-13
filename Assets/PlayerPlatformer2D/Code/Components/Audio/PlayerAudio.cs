@@ -25,12 +25,7 @@ namespace PlayerPlatformer2D
 			if (db == null)
 				return;
 
-			var mainData = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
-
-			// jump
-			if (collisionData.justLeftGround && mainData.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir)
-				manager.PlayOnShotAudioOnVFXAudioSource(db.PlayerJumpSound);
 
 			// land
 			if (collisionData.justLanded)
