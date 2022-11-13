@@ -17,7 +17,7 @@ namespace PlayerPlatformer2D
 			var frameInput = m_RuntimeData.PlayerInputRuntimeData.frameInput;
 
 			animator.SetBool("inAir", !collisionData.onGround);
-			animator.SetBool("isSidewaysMoving", Mathf.Abs(physicsData.velocity.x) > 0.01f);
+			animator.SetBool("isSidewaysMoving", physicsData.isMovingSideways);
 			animator.SetBool("isOnStickyWall", collisionData.onWall && collisionData.onStickySurface);
 			animator.SetFloat("verticalSpeed", physicsData.velocity.y);
 			animator.SetBool("isCrouching", collisionData.onGround && frameInput.leftJoystickData.rawInput == Vector2.down);
