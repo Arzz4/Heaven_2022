@@ -5,7 +5,7 @@ using UnityEngine;
 public class TriggerGoo : MonoBehaviour
 {
     TileLogic tileLogic;
-    public float destroyAfterTime = 0.2f;
+    public float destroyAfterTime = 0.5f;
     void Start()
     {
         tileLogic = GameObject.FindObjectOfType<TileLogic>();

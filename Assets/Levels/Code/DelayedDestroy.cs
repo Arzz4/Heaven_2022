@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class DelayedDestroy : MonoBehaviour
 {
-    public float destroyAfterTime = 0.2f;
+    public float destroyAfterTime = 0.5f;
     public void Start()
     {
         StartCoroutine(killMe());
