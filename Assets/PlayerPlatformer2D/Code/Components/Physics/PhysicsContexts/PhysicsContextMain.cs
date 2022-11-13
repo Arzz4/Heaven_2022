@@ -71,8 +71,17 @@ namespace PlayerPlatformer2D
 
 			// start jump
 			bool canJump = collisionData.onGround || data.onStickySurface;
-			if (canJump && (frameInput.buttonPress[(int)ButtonInputType.Jump] || data.queuedJump))
+			bool jumpInput = frameInput.buttonPress[(int)ButtonInputType.Jump];
+			float elapsedTimeSinceGroundLeft = Time.time - collisionData.leftGroundTimestamp;
+			
+			if (canJump && (jumpInput || data.queuedJump))
 				Jump();
+
+			else if (jumpInput && (!collisionData.onGround && !collisionData.onWall) && elapsedTimeSinceGroundLeft < 0.1f)
+			{
+				Jump();
+				return; // do not update the jump state in this case, we need at least 1 frame on TakingOff state
+			}
 
 			// update jump state
 			UpdateJumpState();
@@ -109,6 +118,7 @@ namespace PlayerPlatformer2D
 			var frameInput = m_RuntimeData.PlayerInputRuntimeData.frameInput;
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
+			var jumpSettings = data.jumpSettings;
 
 			// sticky walls
 			data.onStickySurface = false;
@@ -119,6 +129,25 @@ namespace PlayerPlatformer2D
 				rigidbody.gravityScale = 0.0f;
 				rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
 				data.onStickySurface = true;
+			}
+
+			// update gravity multiplier according to hold jump (high/low)
+			if (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir)
+			{
+				if (rigidbody.velocity.y > 0)
+				{
+					if (!frameInput.buttonHoldRaw[(int)ButtonInputType.Jump] && !data.lowJump)
+					{
+						data.lowJump = true;
+						SetJumpVerticalVelocity(jumpSettings.LowJump.YVelocityMultiplierUp, true);
+						SetJumpGravityMultiplier(jumpSettings.LowJump.GravityMultiplierUp);
+					}
+				}
+				else if (rigidbody.velocity.y < 0)
+				{
+					float gravityMultiplierDown = data.lowJump ? jumpSettings.LowJump.GravityMultiplierDown : jumpSettings.HighJump.GravityMultiplierDown;
+					SetJumpGravityMultiplier(gravityMultiplierDown);
+				}
 			}
 
 			// 2d movement
@@ -194,26 +223,6 @@ namespace PlayerPlatformer2D
 			else if (data.jumpState == PhysicsContextMainRuntimeData.JumpState.Landed)
 			{
 				data.jumpState = PhysicsContextMainRuntimeData.JumpState.None;
-			}
-
-			// update gravity multiplier according to hold jump (high/low)
-			if (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir)
-			{
-				if (rigidbody.velocity.y > 0)
-				{
-					var frameInput = m_RuntimeData.PlayerInputRuntimeData.frameInput;
-					if (!frameInput.buttonHoldRaw[(int)ButtonInputType.Jump] && !data.lowJump)
-					{
-						data.lowJump = true;
-						SetJumpVerticalVelocity(jumpSettings.LowJump.YVelocityMultiplierUp, true);
-						SetJumpGravityMultiplier(jumpSettings.LowJump.GravityMultiplierUp);
-					}
-				}
-				else if (rigidbody.velocity.y < 0)
-				{
-					float gravityMultiplierDown = data.lowJump ? jumpSettings.LowJump.GravityMultiplierDown : jumpSettings.HighJump.GravityMultiplierDown;
-					SetJumpGravityMultiplier(gravityMultiplierDown);
-				}
 			}
 		}
 
