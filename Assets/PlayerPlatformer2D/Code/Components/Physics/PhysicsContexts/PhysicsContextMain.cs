@@ -124,7 +124,7 @@ namespace PlayerPlatformer2D
 
 			if (data.queuedJump)
 			{
-				if (collisionData.onWall)
+				if (collisionData.onWall && !collisionData.onGround)
 					data.isWallJumping = true;
 
 				Jump();

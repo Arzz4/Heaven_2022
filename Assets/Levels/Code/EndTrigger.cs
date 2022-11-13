@@ -12,6 +12,12 @@ public class EndTrigger : MonoBehaviour
 	[SerializeField]
 	private Vector3 m_TriggerSize = new Vector3(3, 3, 3);
 
+	[SerializeField]
+	private SpriteRenderer m_WinningSpriteRenderer = default;
+
+	[SerializeField]
+	private Sprite m_WinningTexture = default;
+
 	public float levelSwitchDelay = 0.7f;
 	public float levelResetDelay = 0.7f;
 
@@ -25,6 +31,7 @@ public class EndTrigger : MonoBehaviour
 		if (IsInsideTriggerZone(character.transform.position))
 		{
 			PlayGoalReachedAudio();
+			SwapToWinningTexture();
 			StartNextScene();
 		}
 
@@ -72,6 +79,11 @@ public class EndTrigger : MonoBehaviour
 		float halfY = m_TriggerSize.y * 0.5f;
 		float halfZ = m_TriggerSize.z * 0.5f;
 		return (point.x < halfX && point.x > -halfX && point.y < halfY && point.y > -halfY && point.z < halfZ && point.z > -halfZ);
+	}
+
+	private void SwapToWinningTexture()
+	{
+		m_WinningSpriteRenderer.sprite = m_WinningTexture;
 	}
 
 	private void OnDrawGizmos()
