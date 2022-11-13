@@ -796,6 +796,34 @@ PrefabInstance:
       propertyPath: m_Players.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1456932131307962855, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
+      propertyPath: m_OnCharacterDead.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456932131307962855, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
+      propertyPath: m_OnCharacterDead.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456932131307962855, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
+      propertyPath: m_OnCharacterDead.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 532157371917875736}
+    - target: {fileID: 1456932131307962855, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
+      propertyPath: m_OnCharacterDead.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456932131307962855, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
+      propertyPath: m_OnCharacterDead.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnCharacterDead
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456932131307962855, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
+      propertyPath: m_OnCharacterDead.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EndTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456932131307962855, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
+      propertyPath: m_OnCharacterDead.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1148dff687aec33459fddc7b680889e6, type: 3}
 --- !u!1 &2108628409
@@ -3935,9 +3963,24 @@ PrefabInstance:
       propertyPath: nextSceneIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 532157371125354878, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
+      propertyPath: m_NextSceneIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 532157371125354879, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
       propertyPath: m_Name
       value: End_Trigger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
+--- !u!114 &532157371917875736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 532157371125354878, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
+  m_PrefabInstance: {fileID: 532157371917875735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21046fa493f059b438fec7cdd6906ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
