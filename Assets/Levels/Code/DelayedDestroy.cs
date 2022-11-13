@@ -1,8 +1,6 @@
 using AudioSystems;
 using System.Collections;
 using UnityEngine;
-using GameplayUtility;
-using DG.Tweening;
 
 public class DelayedDestroy : MonoBehaviour
 {
@@ -10,6 +8,13 @@ public class DelayedDestroy : MonoBehaviour
     public void Start()
     {
         StartCoroutine(killMe());
+
+        AudioManager manager = AudioManager.Instance;
+        if (manager != null)
+        {
+            AudioDatabase db = manager.GetAudioDatabase();
+            manager.PlayOnShotAudioOnVFXAudioSource(db.GetWetSplatVFX(Random.Range(0, db.GetNumberOfWetSplatVFX())));
+        }
     }
 
     private IEnumerator killMe()
