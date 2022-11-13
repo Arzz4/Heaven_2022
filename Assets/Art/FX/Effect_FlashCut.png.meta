@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4547328c96feee649b26611fc55bf1a8
+guid: 7355315e878ab854c9cd3cff42f9ea56
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Effect_Explosion_0
+      name: Effect_FlashCut_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bafc2d9eb8f5684e8d5cc1f309a4a2d
-      internalID: 1927357916
+      spriteID: e5931717ac62c8246bf9db371015d843
+      internalID: -44201181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_1
+      name: Effect_FlashCut_1
       rect:
         serializedVersion: 2
         x: 64
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48cbef1875dc59c49929328f3cb25c28
-      internalID: -232925243
+      spriteID: 91ad541ad66c4104982bc064111be552
+      internalID: -1245460324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_2
+      name: Effect_FlashCut_2
       rect:
         serializedVersion: 2
         x: 128
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 836f70d57fd5e8745a7aff86ab03c410
-      internalID: 752717364
+      spriteID: 274e3f4d5006f554e8078f7d2be639be
+      internalID: 312677659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_3
+      name: Effect_FlashCut_3
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 935d6b5379ec2794ea12312fce28ec12
-      internalID: 261118584
+      spriteID: c4e4292c1351eb94cac6ee65af6ff0b3
+      internalID: -1298536293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_4
+      name: Effect_FlashCut_4
       rect:
         serializedVersion: 2
         x: 64
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71f00fca50f29ee4cbb7569ea3d06dff
-      internalID: 1089733720
+      spriteID: 89c8752347766f24bb2fc9411aa6647a
+      internalID: -1876355430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_5
+      name: Effect_FlashCut_5
       rect:
         serializedVersion: 2
         x: 128
@@ -224,50 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 028c636a0d5c71c4e840c513f526497b
-      internalID: 1279310713
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Effect_Explosion_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fbeadeddbc256724881b0d59e1590ac7
-      internalID: -1177594674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Effect_Explosion_7
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 823be5dab323f1141a6a08a6d27b2bff
-      internalID: -656023277
+      spriteID: 4187bae39c5ba684fb98d2b90e043f84
+      internalID: 105712574
       vertices: []
       indices: 
       edges: []
@@ -283,14 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Effect_Explosion_3: 261118584
-      Effect_Explosion_4: 1089733720
-      Effect_Explosion_5: 1279310713
-      Effect_Explosion_1: -232925243
-      Effect_Explosion_0: 1927357916
-      Effect_Explosion_7: -656023277
-      Effect_Explosion_6: -1177594674
-      Effect_Explosion_2: 752717364
+      Effect_FlashCut_5: 105712574
+      Effect_FlashCut_4: -1876355430
+      Effect_FlashCut_0: -44201181
+      Effect_FlashCut_2: 312677659
+      Effect_FlashCut_3: -1298536293
+      Effect_FlashCut_1: -1245460324
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

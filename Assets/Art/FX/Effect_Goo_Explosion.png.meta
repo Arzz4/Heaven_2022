@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4547328c96feee649b26611fc55bf1a8
+guid: 4ed3cc097dc72844c8244603239aa178
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Effect_Explosion_0
+      name: Effect_Goo_Explosion_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bafc2d9eb8f5684e8d5cc1f309a4a2d
-      internalID: 1927357916
+      spriteID: 4725f38fa90705b4dba672cd4f70299e
+      internalID: -1649572245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_1
+      name: Effect_Goo_Explosion_1
       rect:
         serializedVersion: 2
         x: 64
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48cbef1875dc59c49929328f3cb25c28
-      internalID: -232925243
+      spriteID: 3e10fe4a506a76245920e003f5f3525b
+      internalID: 899273372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_2
+      name: Effect_Goo_Explosion_2
       rect:
         serializedVersion: 2
         x: 128
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 836f70d57fd5e8745a7aff86ab03c410
-      internalID: 752717364
+      spriteID: 6d77c7424506cbe419154340eed3797c
+      internalID: -1751590631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_3
+      name: Effect_Goo_Explosion_3
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 935d6b5379ec2794ea12312fce28ec12
-      internalID: 261118584
+      spriteID: ea20ed659da5b424f83ccd973c95ff10
+      internalID: -196801889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_4
+      name: Effect_Goo_Explosion_4
       rect:
         serializedVersion: 2
         x: 64
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71f00fca50f29ee4cbb7569ea3d06dff
-      internalID: 1089733720
+      spriteID: 5e87e07e6b92e204aac5e69141b42b9a
+      internalID: -751092967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_5
+      name: Effect_Goo_Explosion_5
       rect:
         serializedVersion: 2
         x: 128
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 028c636a0d5c71c4e840c513f526497b
-      internalID: 1279310713
+      spriteID: 91d192a1e1cbf3f448ed4ff1eddf7b37
+      internalID: -29302783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Effect_Explosion_6
+      name: Effect_Goo_Explosion_6
       rect:
         serializedVersion: 2
         x: 0
@@ -245,29 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbeadeddbc256724881b0d59e1590ac7
-      internalID: -1177594674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Effect_Explosion_7
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 823be5dab323f1141a6a08a6d27b2bff
-      internalID: -656023277
+      spriteID: 5e4e95b325befc647a0a1213635a6fc2
+      internalID: 701480710
       vertices: []
       indices: 
       edges: []
@@ -283,14 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Effect_Explosion_3: 261118584
-      Effect_Explosion_4: 1089733720
-      Effect_Explosion_5: 1279310713
-      Effect_Explosion_1: -232925243
-      Effect_Explosion_0: 1927357916
-      Effect_Explosion_7: -656023277
-      Effect_Explosion_6: -1177594674
-      Effect_Explosion_2: 752717364
+      Effect_Goo_Explosion_1: 899273372
+      Effect_Goo_Explosion_5: -29302783
+      Effect_Goo_Explosion_0: -1649572245
+      Effect_Goo_Explosion_4: -751092967
+      Effect_Goo_Explosion_3: -196801889
+      Effect_Goo_Explosion_6: 701480710
+      Effect_Goo_Explosion_2: -1751590631
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
