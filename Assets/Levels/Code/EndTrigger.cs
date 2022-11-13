@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
+using AudioSystems;
 
 public class EndTrigger : MonoBehaviour
 {
@@ -21,10 +23,26 @@ public class EndTrigger : MonoBehaviour
 			return;
 
 		if (IsInsideTriggerZone(character.transform.position))
+		{
+			PlayGoalReachedAudio();
 			StartNextScene();
+		}
 
 		else if (remainingCharacters == 0)
 			ResetCurrentLevel();
+	}
+
+	private void PlayGoalReachedAudio()
+	{
+		var manager = AudioManager.Instance;
+		if (manager == null)
+			return;
+
+		var db = manager.GetAudioDatabase();
+		if (db == null)
+			return;
+
+		manager.PlayOnShotAudioOnVFXAudioSource(db.PlayerHeavenlyGoal);
 	}
 
 	public void ResetCurrentLevel()
