@@ -141,10 +141,11 @@ namespace PlayerPlatformer2D
 						SetJumpGravityMultiplier(jumpSettings.LowJump.GravityMultiplierUp);
 					}
 				}
-				else if (rigidbody.velocity.y < 0)
+				else if (rigidbody.velocity.y < 0 && data.lowJump)
 				{
 					float gravityMultiplierDown = data.lowJump ? jumpSettings.LowJump.GravityMultiplierDown : jumpSettings.HighJump.GravityMultiplierDown;
 					SetJumpGravityMultiplier(gravityMultiplierDown);
+					data.lowJump = false;
 				}
 			}
 
