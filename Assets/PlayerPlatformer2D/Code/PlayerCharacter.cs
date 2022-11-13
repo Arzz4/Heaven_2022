@@ -108,11 +108,16 @@ namespace PlayerPlatformer2D
 
 		public void StartPlayingWithCharacter()
 		{
+			// TODO: hack to make players not move infinitively by colliding with other characters !
+			m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody.drag = 0.0f;
 			this.enabled = true;
 		}
 
 		public void StopPlayingWithCharacter()
 		{
+			// TODO: hack to make players not move infinitively by colliding with other characters !
+			m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody.drag = 1000.0f;
+
 			this.enabled = false;
 		}
 	}
