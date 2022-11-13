@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Player_JumpSettings_Sticky Surface
   m_EditorClassIdentifier: 
   m_OverwriteMaxHorizontalSpeed: 1
-  m_MaxHorizontalSpeed: 16
+  m_MaxHorizontalSpeed: 10
   m_LowJumpDifferentFromHighJump: 0
   m_HighJump:
     m_JumpHeight: 5
-    m_JumpHorizontalRangeUp: 8
-    m_JumpHorizontalRangeDown: 6
+    m_JumpHorizontalRangeUp: 6
+    m_JumpHorizontalRangeDown: 7
   m_LowJump:
     m_JumpHeight: 1.5
     m_JumpHorizontalRangeUp: 1
