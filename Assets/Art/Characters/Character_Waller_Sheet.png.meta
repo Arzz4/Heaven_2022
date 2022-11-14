@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1074,8 +1086,8 @@ TextureImporter:
       name: Character_Waller_Sheet_46
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
+        x: 32
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1095,8 +1107,8 @@ TextureImporter:
       name: Character_Waller_Sheet_47
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
+        x: 48
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1116,8 +1128,8 @@ TextureImporter:
       name: Character_Waller_Sheet_48
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
+        x: 64
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1137,8 +1149,8 @@ TextureImporter:
       name: Character_Waller_Sheet_49
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 80
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1158,7 +1170,7 @@ TextureImporter:
       name: Character_Waller_Sheet_50
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 48
         width: 16
         height: 16
@@ -1179,7 +1191,7 @@ TextureImporter:
       name: Character_Waller_Sheet_51
       rect:
         serializedVersion: 2
-        x: 80
+        x: 16
         y: 48
         width: 16
         height: 16
@@ -1200,8 +1212,8 @@ TextureImporter:
       name: Character_Waller_Sheet_52
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 32
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1221,8 +1233,8 @@ TextureImporter:
       name: Character_Waller_Sheet_53
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 48
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1242,8 +1254,8 @@ TextureImporter:
       name: Character_Waller_Sheet_54
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 64
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1263,8 +1275,8 @@ TextureImporter:
       name: Character_Waller_Sheet_55
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 80
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1284,8 +1296,8 @@ TextureImporter:
       name: Character_Waller_Sheet_56
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 0
+        y: 32
         width: 16
         height: 16
       alignment: 7
@@ -1306,7 +1318,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 7
@@ -1327,7 +1339,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 7
@@ -1348,7 +1360,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 7
@@ -1360,6 +1372,90 @@ TextureImporter:
       bones: []
       spriteID: 7b9de30a748868149842c531a373e4cd
       internalID: 778264363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Waller_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 174118bdf9260094ab4cdf1e0139fecd
+      internalID: 793665936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Waller_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b7c935d212c0c46a44dae5489f07fa
+      internalID: 863986624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Waller_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cbad9d5d1ff4ae4394ffb74e6d54fa7
+      internalID: 399593047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Waller_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4910f66bb3505104abe51e2db314265d
+      internalID: 1073355854
       vertices: []
       indices: 
       edges: []
@@ -1381,6 +1477,7 @@ TextureImporter:
       Character_Waller_Sheet_40: -1610253897
       Character_Waller_Sheet_47: 948010633
       Character_Waller_Sheet_21: -1317168306
+      Character_Waller_Sheet_60: 793665936
       Character_Waller_Sheet_38: -575134173
       Character_Waller_Sheet_42: 455856161
       Character_Waller_Sheet_26: 1528386623
@@ -1407,8 +1504,10 @@ TextureImporter:
       Character_Waller_Sheet_6: 1803460726
       Character_Waller_Sheet_5: -1134080435
       Character_Waller_Sheet_17: -63652866
+      Character_Waller_Sheet_63: 1073355854
       Character_Waller_Sheet_29: 476127560
       Character_Waller_Sheet_53: -1705088253
+      Character_Waller_Sheet_61: 863986624
       Character_Waller_Sheet_12: 1988619733
       Character_Waller_Sheet_55: 1286422139
       Character_Waller_Sheet_28: -1659201275
@@ -1427,6 +1526,7 @@ TextureImporter:
       Character_Waller_Sheet_50: 633942238
       Character_Waller_Sheet_39: -474574567
       Character_Waller_Sheet_52: -577630417
+      Character_Waller_Sheet_62: 399593047
       Character_Waller_Sheet_48: -316868890
       Character_Waller_Sheet_19: 16348318
       Character_Waller_Sheet_8: 187250585

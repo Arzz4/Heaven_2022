@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1074,8 +1086,8 @@ TextureImporter:
       name: Character_Monker_Sheet_46
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
+        x: 32
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1095,8 +1107,8 @@ TextureImporter:
       name: Character_Monker_Sheet_47
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
+        x: 48
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1116,8 +1128,8 @@ TextureImporter:
       name: Character_Monker_Sheet_48
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
+        x: 64
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1137,8 +1149,8 @@ TextureImporter:
       name: Character_Monker_Sheet_49
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 80
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1158,7 +1170,7 @@ TextureImporter:
       name: Character_Monker_Sheet_50
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 48
         width: 16
         height: 16
@@ -1179,7 +1191,7 @@ TextureImporter:
       name: Character_Monker_Sheet_51
       rect:
         serializedVersion: 2
-        x: 80
+        x: 16
         y: 48
         width: 16
         height: 16
@@ -1200,8 +1212,8 @@ TextureImporter:
       name: Character_Monker_Sheet_52
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 32
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1221,8 +1233,8 @@ TextureImporter:
       name: Character_Monker_Sheet_53
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 48
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1242,8 +1254,8 @@ TextureImporter:
       name: Character_Monker_Sheet_54
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 64
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1263,8 +1275,8 @@ TextureImporter:
       name: Character_Monker_Sheet_55
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 80
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1284,8 +1296,8 @@ TextureImporter:
       name: Character_Monker_Sheet_56
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 0
+        y: 32
         width: 16
         height: 16
       alignment: 7
@@ -1306,7 +1318,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 7
@@ -1327,7 +1339,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 7
@@ -1348,7 +1360,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 7
@@ -1360,6 +1372,90 @@ TextureImporter:
       bones: []
       spriteID: 20ada2770648b66489156fecc15dcd92
       internalID: 1753809854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517f01f587b2aac42802de3e95994a4e
+      internalID: 2094078770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ff9cadbef97fc4c916014eb1b781ac
+      internalID: -816091874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478f2d59e6e049d40a9d3459c772a535
+      internalID: -1047161274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Monker_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730fc16000539414985f53e43ad423f7
+      internalID: 963337645
       vertices: []
       indices: 
       edges: []
@@ -1376,6 +1472,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Character_Monker_Sheet_28: -568786722
+      Character_Monker_Sheet_60: 2094078770
       Character_Monker_Sheet_11: -502418707
       Character_Monker_Sheet_40: 1331950690
       Character_Monker_Sheet_50: 1722535738
@@ -1387,6 +1484,7 @@ TextureImporter:
       Character_Monker_Sheet_44: -384214467
       Character_Monker_Sheet_52: 2125655356
       Character_Monker_Sheet_0: 417154182
+      Character_Monker_Sheet_61: -816091874
       Character_Monker_Sheet_48: -570537101
       Character_Monker_Sheet_17: 1755716389
       Character_Monker_Sheet_15: 121192754
@@ -1400,12 +1498,14 @@ TextureImporter:
       Character_Monker_Sheet_42: -1392893292
       Character_Monker_Sheet_8: 1365130214
       Character_Monker_Sheet_7: -1173569307
+      Character_Monker_Sheet_63: 963337645
       Character_Monker_Sheet_9: 624495059
       Character_Monker_Sheet_10: 1566631923
       Character_Monker_Sheet_22: 1212325256
       Character_Monker_Sheet_45: 206527684
       Character_Monker_Sheet_4: 1343982342
       Character_Monker_Sheet_32: -2036361063
+      Character_Monker_Sheet_62: -1047161274
       Character_Monker_Sheet_13: -1453835917
       Character_Monker_Sheet_54: 1117156493
       Character_Monker_Sheet_59: 1753809854

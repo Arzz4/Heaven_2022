@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1074,8 +1086,8 @@ TextureImporter:
       name: Character_Speeder_Sheet_46
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
+        x: 32
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1095,8 +1107,8 @@ TextureImporter:
       name: Character_Speeder_Sheet_47
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
+        x: 48
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1116,8 +1128,8 @@ TextureImporter:
       name: Character_Speeder_Sheet_48
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
+        x: 64
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1137,8 +1149,8 @@ TextureImporter:
       name: Character_Speeder_Sheet_49
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
+        x: 80
+        y: 64
         width: 16
         height: 16
       alignment: 7
@@ -1158,7 +1170,7 @@ TextureImporter:
       name: Character_Speeder_Sheet_50
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 48
         width: 16
         height: 16
@@ -1179,7 +1191,7 @@ TextureImporter:
       name: Character_Speeder_Sheet_51
       rect:
         serializedVersion: 2
-        x: 80
+        x: 16
         y: 48
         width: 16
         height: 16
@@ -1200,8 +1212,8 @@ TextureImporter:
       name: Character_Speeder_Sheet_52
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 32
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1221,8 +1233,8 @@ TextureImporter:
       name: Character_Speeder_Sheet_53
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 48
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1242,8 +1254,8 @@ TextureImporter:
       name: Character_Speeder_Sheet_54
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 64
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1263,8 +1275,8 @@ TextureImporter:
       name: Character_Speeder_Sheet_55
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 80
+        y: 48
         width: 16
         height: 16
       alignment: 7
@@ -1284,8 +1296,8 @@ TextureImporter:
       name: Character_Speeder_Sheet_56
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 0
+        y: 32
         width: 16
         height: 16
       alignment: 7
@@ -1306,7 +1318,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 7
@@ -1327,7 +1339,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 7
@@ -1348,7 +1360,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 7
@@ -1360,6 +1372,90 @@ TextureImporter:
       bones: []
       spriteID: 717d106c1f192614cbb76b2658fade61
       internalID: 1332004819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Speeder_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d956bc7e5813cc4480a1073a983ed68
+      internalID: 1244504696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Speeder_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d745c6b10de4849a5a1501c5961308
+      internalID: -1650441793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Speeder_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a566e66e0574cf4f9a65b7ca7e0173f
+      internalID: -1088888493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_Speeder_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478fc4e165558de4da4d18d8f6421db8
+      internalID: -1243095916
       vertices: []
       indices: 
       edges: []
@@ -1384,6 +1480,7 @@ TextureImporter:
       Character_Speeder_Sheet_57: 1645868491
       Character_Speeder_Sheet_59: 1332004819
       Character_Speeder_Sheet_8: 517191814
+      Character_Speeder_Sheet_61: -1650441793
       Character_Speeder_Sheet_12: -413365640
       Character_Speeder_Sheet_20: -411100073
       Character_Speeder_Sheet_53: -2054498797
@@ -1400,12 +1497,14 @@ TextureImporter:
       Character_Speeder_Sheet_45: -1139652504
       Character_Speeder_Sheet_2: -2145409843
       Character_Speeder_Sheet_14: 55989123
+      Character_Speeder_Sheet_60: 1244504696
       Character_Speeder_Sheet_58: 178010476
       Character_Speeder_Sheet_18: 305735527
       Character_Speeder_Sheet_24: 1207484911
       Character_Speeder_Sheet_44: 852048225
       Character_Speeder_Sheet_5: 651579013
       Character_Speeder_Sheet_36: 1011197772
+      Character_Speeder_Sheet_63: -1243095916
       Character_Speeder_Sheet_6: 297118044
       Character_Speeder_Sheet_54: 2120342323
       Character_Speeder_Sheet_26: 1121758183
@@ -1427,6 +1526,7 @@ TextureImporter:
       Character_Speeder_Sheet_17: 1738482202
       Character_Speeder_Sheet_52: -1655087987
       Character_Speeder_Sheet_49: -1649381661
+      Character_Speeder_Sheet_62: -1088888493
       Character_Speeder_Sheet_27: -17301169
       Character_Speeder_Sheet_15: 1381227013
       Character_Speeder_Sheet_0: -347026566
