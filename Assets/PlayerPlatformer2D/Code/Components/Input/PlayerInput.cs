@@ -27,7 +27,6 @@ namespace PlayerPlatformer2D
 		public FrameInput frameInput = new FrameInput();
 
 		public bool inputEnabled = false;
-		public float lastTimeJumpButtonPress = 0.0f;
 	}
 
 	public class PlayerInput : MonoBehaviour
@@ -77,9 +76,6 @@ namespace PlayerPlatformer2D
 			// buttons
 			data.frameInput.buttonPress[(int)ButtonInputType.Jump]				= Input.GetKeyDown(KeyCode.Space);
 			data.frameInput.buttonPress[(int)ButtonInputType.KillCharacter]		= Input.GetKeyDown(KeyCode.LeftShift);
-
-			if (data.frameInput.buttonPress[(int)ButtonInputType.Jump])
-				data.lastTimeJumpButtonPress = Time.time;
 
 			data.frameInput.buttonHoldRaw[(int)ButtonInputType.Jump]			= Input.GetKey(KeyCode.Space);
 			data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillCharacter]	= Input.GetKey(KeyCode.LeftShift);
