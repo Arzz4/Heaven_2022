@@ -12,7 +12,8 @@ namespace PlayerPlatformer2D
 	public enum ButtonInputType
 	{
 		Jump = 0,
-		KillCharacter
+		KillCharacter,
+		KillAllCharacters
 	}
 
 	[CreateAssetMenu(fileName = "Input Bindings", menuName = "Player Platformer 2D/Input/Input Bindings", order = 1)]
@@ -21,6 +22,7 @@ namespace PlayerPlatformer2D
 		[Header(" --- Base Actions --- ")]
 		public InputAction jump = default;
 		public InputAction killCharacter = default;
+		public InputActionTuple KillAllCharacters = default;
 
 		[Header(" --- DeadZones --- ")]
 

@@ -18,5 +18,12 @@ MonoBehaviour:
   killCharacter:
     buttonType: 1
     interactionType: 0
+  KillAllCharacters:
+    action1:
+      buttonType: 7
+      interactionType: 5
+    action2:
+      buttonType: 5
+      interactionType: 5
   downAngleDeadZone: 30
   upAngleDeadZone: 30

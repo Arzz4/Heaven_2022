@@ -1,30 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PlayerPlatformer2D
 {
+	public class PlayerDeathRuntimeData
+	{
+		public enum State
+		{
+			Alive,
+			Kill,
+			KillAll
+		}
+
+		public State state = State.Alive;
+	}
+
 	public class PlayerDeath : MonoBehaviour
 	{
 		[SerializeField]
 		private PlayerRuntimeData m_RuntimeData = default;
 
 		[SerializeField]
-		private GameObject m_DeathPrefab = default;
+		private GameObject m_DeathPrefab = default; // TODO: move to PlayerUnityComponents, rename that to PlayerComponentsAndAssetReferences
+
+		public void Initialize()
+		{
+			m_RuntimeData.PlayerUnityComponentsRuntimeData.deathPrefab = m_DeathPrefab;
+			m_RuntimeData.PlayerDeathRuntimeData.state = PlayerDeathRuntimeData.State.Alive;
+		}
 
 		public bool UpdateDeathBehaviour()
 		{
+			var data = m_RuntimeData.PlayerDeathRuntimeData;
 			var frameInput = m_RuntimeData.PlayerInputRuntimeData.frameInput;
-			if (!frameInput.buttonPress[(int)ButtonInputType.KillCharacter])
-				return false;
-
-			var obj = GameObject.Instantiate(m_DeathPrefab, transform.position, Quaternion.identity);
-			var bounce = obj.GetComponent<Surface_Base>();
-			if (bounce != null)
+			if (frameInput.buttonPress[(int)ButtonInputType.KillCharacter])
 			{
-				bounce.setSourceVelocity(m_RuntimeData.PlayerPhysicsRuntimeData.velocity);
+				data.state = PlayerDeathRuntimeData.State.Kill;
 			}
-			return true;
+
+			if (frameInput.buttonPress[(int)ButtonInputType.KillAllCharacters])
+			{
+				data.state = PlayerDeathRuntimeData.State.KillAll;
+			}
+
+			return data.state != PlayerDeathRuntimeData.State.Alive;
 		}
 	}
 }

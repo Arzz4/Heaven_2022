@@ -76,9 +76,11 @@ namespace PlayerPlatformer2D
 			// buttons
 			data.frameInput.buttonPress[(int)ButtonInputType.Jump]				= Input.GetKeyDown(KeyCode.Space);
 			data.frameInput.buttonPress[(int)ButtonInputType.KillCharacter]		= Input.GetKeyDown(KeyCode.LeftShift);
+			data.frameInput.buttonPress[(int)ButtonInputType.KillAllCharacters] = Input.GetKeyDown(KeyCode.K);
 
-			data.frameInput.buttonHoldRaw[(int)ButtonInputType.Jump]			= Input.GetKey(KeyCode.Space);
-			data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillCharacter]	= Input.GetKey(KeyCode.LeftShift);
+			data.frameInput.buttonHoldRaw[(int)ButtonInputType.Jump]				= Input.GetKey(KeyCode.Space);
+			data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillCharacter]		= Input.GetKey(KeyCode.LeftShift);
+			data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillAllCharacters]	= Input.GetKey(KeyCode.K);
 
 			if (!data.frameInput.buttonHoldRaw[(int)ButtonInputType.Jump])
 			{
@@ -90,6 +92,12 @@ namespace PlayerPlatformer2D
 			{
 				data.frameInput.buttonPress[(int)ButtonInputType.KillCharacter]		= InputSystem.CheckForInput(inputBindings.killCharacter);
 				data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillCharacter]	= InputSystem.CheckForInput(inputBindings.killCharacter.buttonType, GamePadButtonInteractionType.Hold);
+			}
+
+			if(!data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillAllCharacters])
+			{
+				data.frameInput.buttonPress[(int)ButtonInputType.KillAllCharacters] = InputSystem.CheckForInput(inputBindings.KillAllCharacters);
+				data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillAllCharacters] = InputSystem.CheckForInput(inputBindings.KillAllCharacters.action1.buttonType, GamePadButtonInteractionType.Hold) && InputSystem.CheckForInput(inputBindings.KillAllCharacters.action2.buttonType, GamePadButtonInteractionType.Hold);
 			}
 		}
 
