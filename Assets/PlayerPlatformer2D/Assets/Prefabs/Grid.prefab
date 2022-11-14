@@ -2040,6 +2040,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 7207223664438779714, guid: d0a59886e79e03547b38dddd89e00402, type: 3}
   explosionRadius: 2.5
   destructableLayers: ffffffff010000000200000003000000
+  scorchSprite: {fileID: 21300000, guid: 4bc254b51bfff9f49a57f434e7dd5947, type: 3}
   gooRadius: 2.5
   numTilesToCreate: 3
   tileCreationSprite: {fileID: 0}
