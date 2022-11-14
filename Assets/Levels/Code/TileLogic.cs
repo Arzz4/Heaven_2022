@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 using UnityEngine.Tilemaps;
 
 public class TileLogic : MonoBehaviour
@@ -16,13 +15,16 @@ public class TileLogic : MonoBehaviour
 
     public float explosionRadius = 2.5f;
     public List<int> destructableLayers = new List<int>();
+
+    private Tilemap scorchTiles;
+    public Sprite scorchSprite;
+
     public float gooRadius = 2.5f;
 
     public int numTilesToCreate = 3;
     public Sprite tileCreationSprite;
 
     public float speedyRadius = 2.5f;
-
 
     private List<Tilemap> mapsToCleanOnExplosion;
     // Start is called before the first frame update
@@ -33,14 +35,20 @@ public class TileLogic : MonoBehaviour
         speedLogic = GameObject.FindObjectOfType<SpeedLogic>();
 
         mapsToCleanOnExplosion = new List<Tilemap>();
+        int foreGround = -1;
         foreach (var tilemap in GameObject.FindObjectsOfType<Tilemap>())
         {
-            if (destructableLayers.Contains(tilemap.GetComponent<TilemapRenderer>().sortingOrder))
+            int sortOrder = tilemap.GetComponent<TilemapRenderer>().sortingOrder;
+            if (destructableLayers.Contains(sortOrder))
             {
                 mapsToCleanOnExplosion.Add(tilemap);
+                if (sortOrder > foreGround)
+                {
+                    foreGround = sortOrder;
+                    scorchTiles = tilemap;
+                }
             }
         }
-
     }
         // Update is called once per frame
 
@@ -51,7 +59,7 @@ public class TileLogic : MonoBehaviour
 
     public void RemoveTiles(Vector3 pos)
     {
-        StartCoroutine(removeTiles(getTiles(explosionRadius, pos, 0.25f)));
+        StartCoroutine(removeTiles(getTiles(explosionRadius, pos, 0.25f), pos));
     }
 
     public void TintTiles(Vector3 pos)
@@ -108,7 +116,7 @@ public class TileLogic : MonoBehaviour
         return false;
     }
 
-    private IEnumerator removeTiles(List<Tuple<float, Vector3Int>> toDelete)
+    private IEnumerator removeTiles(List<Tuple<float, Vector3Int>> toDelete, Vector3 origin)
     {
         float prevDelay = 0;
         foreach (var item in toDelete)
@@ -120,6 +128,7 @@ public class TileLogic : MonoBehaviour
             if (tiles.HasTile(pos))
             {
                 ObjectPoolSystem.Instance.InstantiatePrefabWith(explosionPrefab, tiles.CellToWorld(pos) + prefabOffset, Quaternion.identity);
+
             }
             Vector3 worldPos = tiles.CellToWorld(pos);
             foreach (var tileMapToClean in mapsToCleanOnExplosion)
@@ -130,7 +139,34 @@ public class TileLogic : MonoBehaviour
                     tileMapToClean.SetTile(pos, null);
                 }
             }
+            scorchNearby(pos, origin);
             prevDelay = delay;
+        }
+    }
+
+    private void scorchNearby(Vector3Int pos, Vector3 origin)
+    {
+        scorchTile(pos, origin);
+        scorchTile(pos + Vector3Int.right, origin);
+        scorchTile(pos + Vector3Int.left, origin);
+        scorchTile(pos + Vector3Int.up, origin);
+        scorchTile(pos + Vector3Int.down, origin);
+    }
+    private void scorchTile(Vector3Int pos, Vector3 origin)
+    {
+        if (tiles.HasTile(pos))
+        {
+            Vector3 world = tiles.LocalToWorld(pos);
+            float r = getRotation(pos, Vector3.Normalize(world - origin));
+            if (r > -0.1f)
+            {
+                Vector3Int local = scorchTiles.WorldToCell(world);
+                Tile tile = ScriptableObject.CreateInstance<Tile>();
+                tile.sprite = scorchSprite;
+                tile.transform = Matrix4x4.Rotate(Quaternion.Euler(new Vector3(0, 0, r)));
+                scorchTiles.SetTile(local, tile);
+                scorchTiles.RefreshTile(local);
+            }
         }
     }
 
