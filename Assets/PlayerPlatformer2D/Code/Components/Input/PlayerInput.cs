@@ -62,18 +62,39 @@ namespace PlayerPlatformer2D
 			var inputBindings = data.inputBindings;
 
 			// axis
-			data.frameInput.leftJoystickData.rawInput = InputSystem.GetRawLeftJoystickInput();
+			float horizontal = Input.GetAxis("Horizontal");
+			float vertical = Input.GetAxis("Vertical");
+			data.frameInput.leftJoystickData.rawInput = new Vector2(horizontal, vertical);
+			
+			if(data.frameInput.leftJoystickData.rawInput.magnitude < Mathf.Epsilon)
+				data.frameInput.leftJoystickData.rawInput = InputSystem.GetRawLeftJoystickInput();
+
 			data.frameInput.leftJoystickData.magnitude = Mathf.Clamp01(data.frameInput.leftJoystickData.rawInput.magnitude);
 			data.frameInput.leftJoystickData.normalizedInput = data.frameInput.leftJoystickData.rawInput.normalized;
 
 			ApplyAngleDeadZones();
 
 			// buttons
-			data.frameInput.buttonPress[(int)ButtonInputType.Jump]				= InputSystem.CheckForInput(inputBindings.jump);
-			data.frameInput.buttonHoldRaw[(int)ButtonInputType.Jump]			= InputSystem.CheckForInput(inputBindings.jump.buttonType, GamePadButtonInteractionType.Hold);
+			data.frameInput.buttonPress[(int)ButtonInputType.Jump]				= Input.GetKeyDown(KeyCode.Space);
+			data.frameInput.buttonPress[(int)ButtonInputType.KillCharacter]		= Input.GetKeyDown(KeyCode.LeftShift);
 
-			data.frameInput.buttonPress[(int)ButtonInputType.KillCharacter]		= InputSystem.CheckForInput(inputBindings.killCharacter);
-			data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillCharacter]	= InputSystem.CheckForInput(inputBindings.killCharacter.buttonType, GamePadButtonInteractionType.Hold);
+			if (data.frameInput.buttonPress[(int)ButtonInputType.Jump])
+				data.lastTimeJumpButtonPress = Time.time;
+
+			data.frameInput.buttonHoldRaw[(int)ButtonInputType.Jump]			= Input.GetKey(KeyCode.Space);
+			data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillCharacter]	= Input.GetKey(KeyCode.LeftShift);
+
+			if (!data.frameInput.buttonHoldRaw[(int)ButtonInputType.Jump])
+			{
+				data.frameInput.buttonPress[(int)ButtonInputType.Jump]				= InputSystem.CheckForInput(inputBindings.jump);
+				data.frameInput.buttonHoldRaw[(int)ButtonInputType.Jump]			= InputSystem.CheckForInput(inputBindings.jump.buttonType, GamePadButtonInteractionType.Hold);
+			}
+
+			if(!data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillCharacter])
+			{
+				data.frameInput.buttonPress[(int)ButtonInputType.KillCharacter]		= InputSystem.CheckForInput(inputBindings.killCharacter);
+				data.frameInput.buttonHoldRaw[(int)ButtonInputType.KillCharacter]	= InputSystem.CheckForInput(inputBindings.killCharacter.buttonType, GamePadButtonInteractionType.Hold);
+			}
 		}
 
 		private void ApplyAngleDeadZones()
