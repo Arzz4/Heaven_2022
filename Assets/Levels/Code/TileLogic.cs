@@ -146,8 +146,12 @@ public class TileLogic : MonoBehaviour
             if (tiles.HasTile(pos))
             {
                 Vector3 world = tiles.LocalToWorld(pos);
-                gooLogic.createTiles(world, origin-world);
-                speedLogic.clean(world);
+                float r = getRotation(pos, Vector3.Normalize(world - origin));
+                if (r > -0.1f)
+                {
+                    gooLogic.createTiles(world,r);
+                    speedLogic.clean(world);
+                }
             }
             prevDelay = delay;
         }
@@ -165,11 +169,52 @@ public class TileLogic : MonoBehaviour
             if (tiles.HasTile(pos))
             {
                 Vector3 world = tiles.LocalToWorld(pos);
-                speedLogic.createTiles(world, origin - world);
-                gooLogic.clean(world);
+                float r = getRotation(pos, world - origin);
+                if (r > -0.1f)
+                {
+                    speedLogic.createTiles(world, r);
+                    gooLogic.clean(world);
+                }
             }
             prevDelay = delay;
         }
+    }
+
+    private float getRotation(Vector3Int pos, Vector3 direction)
+    {
+        bool isFlor = !tiles.HasTile(pos + Vector3Int.up);
+        bool isRoof = !tiles.HasTile(pos + Vector3Int.down);
+        bool isLeftWall = !tiles.HasTile(pos + Vector3Int.right);
+        bool isRightWall = !tiles.HasTile(pos + Vector3Int.left);
+
+        bool sprayRight = direction.x > 0;
+        bool sprayUp = direction.y > 0;
+
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            if (isRightWall && sprayRight) {
+                return 90;
+            } else if (isLeftWall && !sprayRight) {
+                return 270;
+            } else if (isFlor && !sprayUp) {
+                return 0;
+            } else if (isRoof && sprayUp) {
+                return 180;
+            }
+        }
+        else
+        {
+            if (isFlor && !sprayUp) {
+                return 0;
+            } else if (isRoof && sprayUp) {
+                return 180;
+            } else if (isRightWall && sprayRight) {
+                return 90;
+            } else if (isLeftWall && !sprayRight) {
+                return 270;
+            }
+        }
+        return -1;
     }
 
     private IEnumerator createTiles(Vector3 worldPosition)
