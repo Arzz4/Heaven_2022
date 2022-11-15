@@ -19,8 +19,8 @@ namespace PlayerPlatformer2D
 
 		[Header("Ground Detection")]
 		[SerializeField]
-		private Vector2 m_GroundRaycastCenterOffset = Vector2.zero;
-		public Vector2 GroundRaycastCenterOffset { get { return m_GroundRaycastCenterOffset; } }
+		private float m_GroundRaycastCenterOffsetX = 0.1f;
+		public Vector2 GroundRaycastCenterOffset { get { return new Vector2(m_GroundRaycastCenterOffsetX, 0.0f); } }
 
 		[SerializeField]
 		private float m_GroundRaycastDistance = 0.5f;

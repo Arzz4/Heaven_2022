@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PlayerPlatformer2D
 {
@@ -24,6 +21,7 @@ namespace PlayerPlatformer2D
 		public float onGroundTimestamp = 0.0f;
 		public float leftGroundTimestamp = 0.0f;
 		public GameObject groundObject = null;
+		public Vector3 groundRayHit = Vector3.zero;
 		public bool justLanded = false;
 		public bool justLeftGround = false;
 
@@ -45,47 +43,31 @@ namespace PlayerPlatformer2D
 		public void UpdateCollisions()
 		{
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
-			var collisionSettings = collisionData.settings;
-
-			// ground
 			bool wasOnGround = collisionData.onGround;
-			
-			RaycastToGround();
-			GameObject groundCollider = collisionData.groundObject;
 
-			collisionData.onStickySurface = groundCollider == null ? false : groundCollider.CompareTag("StickySurface");
-			collisionData.onSpeedySurface = groundCollider == null ? false : groundCollider.CompareTag("SpeedySurface");
-			collisionData.onBouncySurface = groundCollider == null ? false : groundCollider.CompareTag("BouncySurface");
+			UpdateGroundState();
+			UpdateEdgeState();
+			UpdateGroundSurfacesState();
+
 			collisionData.justLanded = false;
-			collisionData.justLeftGround = false;
-
 			if (!wasOnGround && collisionData.onGround)
 			{
 				collisionData.justLanded = true;
 				collisionData.onGroundTimestamp = Time.time;
 			}
 
+			collisionData.justLeftGround = false;
 			if(wasOnGround && !collisionData.onGround)
 			{
 				collisionData.justLeftGround = true;
 				collisionData.leftGroundTimestamp = Time.time;
 			}
 
-			// walls
-			Collider2D rightWallCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.RightOffset, collisionSettings.WallCollisionRadius, collisionSettings.GroundLayer);
-			Collider2D leftWallCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.LeftOffset, collisionSettings.WallCollisionRadius, collisionSettings.GroundLayer);
-
-			collisionData.onRightWall = rightWallCollider != null;
-			collisionData.onLeftWall = leftWallCollider != null;
-			collisionData.onWall = collisionData.onRightWall || collisionData.onLeftWall;
-			collisionData.wallSide = collisionData.onWall ? (collisionData.onRightWall ? -1 : 1) : 0;
-			collisionData.onStickySurface = !collisionData.onWall ? collisionData.onStickySurface : (collisionData.onRightWall ? rightWallCollider.CompareTag("StickySurface") : leftWallCollider.CompareTag("StickySurface"));
-
-			// update surface physics modification
+			UpdateWallState();
 			UpdatePhysicsChangesBasedOnSurfaces();
 		}
 
-		private void RaycastToGround()
+		private void UpdateGroundState()
 		{
 			var data = m_RuntimeData.PlayerCollisionRuntimeData;
 			var collisionSettings = data.settings;
@@ -99,21 +81,35 @@ namespace PlayerPlatformer2D
 			data.nFrameRightHits = Physics2D.RaycastNonAlloc(rightRayStartPos, Vector2.down, data.rightGroundHits, collisionSettings.GroundRaycastDistance, collisionSettings.GroundLayer);
 
 			if (data.nFrameMidHits > 0)
+			{
 				data.groundObject = data.midGroundHits[0].collider.gameObject;
+				data.groundRayHit = data.midGroundHits[0].point;
+			}
 
 			else if (data.nFrameLeftHits > 0)
+			{
 				data.groundObject = data.leftGroundHits[0].collider.gameObject;
+				data.groundRayHit = data.leftGroundHits[0].point;
+			}
 
 			else if (data.nFrameRightHits > 0)
+			{
 				data.groundObject = data.rightGroundHits[0].collider.gameObject;
-
+				data.groundRayHit = data.rightGroundHits[0].point;
+			}	
 			else
+			{
 				data.groundObject = null;
+			}
 
 			// update ground state
 			data.onGround = data.groundObject != null;
+		}
 
-			// update edge state
+		private void UpdateEdgeState()
+		{
+			var data = m_RuntimeData.PlayerCollisionRuntimeData;
+
 			if (data.onGround && data.nFrameRightHits == 0)
 				data.onEdge = true;
 
@@ -122,6 +118,30 @@ namespace PlayerPlatformer2D
 
 			else
 				data.onEdge = false;
+		}
+
+		private void UpdateGroundSurfacesState()
+		{
+			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
+
+			collisionData.onStickySurface = collisionData.onGround ? collisionData.groundObject.CompareTag("StickySurface") : false;
+			collisionData.onSpeedySurface = collisionData.onGround ? collisionData.groundObject.CompareTag("SpeedySurface") : false;
+			collisionData.onBouncySurface = collisionData.onGround ? collisionData.groundObject.CompareTag("BouncySurface") : false;
+		}
+
+		private void UpdateWallState()
+		{
+			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
+			var collisionSettings = collisionData.settings;
+
+			Collider2D rightWallCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.RightOffset, collisionSettings.WallCollisionRadius, collisionSettings.GroundLayer);
+			Collider2D leftWallCollider = Physics2D.OverlapCircle((Vector2)transform.position + collisionSettings.LeftOffset, collisionSettings.WallCollisionRadius, collisionSettings.GroundLayer);
+
+			collisionData.onRightWall = rightWallCollider != null;
+			collisionData.onLeftWall = leftWallCollider != null;
+			collisionData.onWall = collisionData.onRightWall || collisionData.onLeftWall;
+			collisionData.wallSide = collisionData.onWall ? (collisionData.onRightWall ? -1 : 1) : 0;
+			collisionData.onStickySurface = !collisionData.onWall ? collisionData.onStickySurface : (collisionData.onRightWall ? rightWallCollider.CompareTag("StickySurface") : leftWallCollider.CompareTag("StickySurface"));
 		}
 
 		private void UpdatePhysicsChangesBasedOnSurfaces()
@@ -164,17 +184,25 @@ namespace PlayerPlatformer2D
 			var collisionData = m_RuntimeData.PlayerCollisionRuntimeData;
 			var collisionSettings = collisionData.settings;
 
+			float hitRadius = 0.03f;
+
 			Gizmos.color = collisionData.nFrameMidHits == 0 ? Color.green : Color.red;
 			Vector3 midRayStartPos = transform.position + new Vector3(collisionSettings.GroundRaycastCenterOffset.x, collisionSettings.GroundRaycastCenterOffset.y, 0.0f);
 			Gizmos.DrawLine(midRayStartPos, midRayStartPos + Vector3.down * collisionSettings.GroundRaycastDistance);
+			if(collisionData.nFrameMidHits > 0)
+				Gizmos.DrawWireSphere(collisionData.midGroundHits[0].point, hitRadius);
 
 			Gizmos.color = collisionData.nFrameLeftHits == 0 ? Color.green : Color.red;
 			Vector3 leftRayStartPos = midRayStartPos + Vector3.left * collisionSettings.GroundPlanarSize * 0.5f;
 			Gizmos.DrawLine(leftRayStartPos, leftRayStartPos + Vector3.down * collisionSettings.GroundRaycastDistance);
+			if (collisionData.nFrameLeftHits > 0)
+				Gizmos.DrawWireSphere(collisionData.leftGroundHits[0].point, hitRadius);
 
 			Gizmos.color = collisionData.nFrameRightHits == 0 ? Color.green : Color.red;
 			Vector3 rightRayStartPos = midRayStartPos + Vector3.right * collisionSettings.GroundPlanarSize * 0.5f;
 			Gizmos.DrawLine(rightRayStartPos, rightRayStartPos + Vector3.down * collisionSettings.GroundRaycastDistance);
+			if (collisionData.nFrameRightHits > 0)
+				Gizmos.DrawWireSphere(collisionData.rightGroundHits[0].point, hitRadius);
 
 			Gizmos.color = collisionData.onRightWall ? Color.green : Color.red;
 			Gizmos.DrawWireSphere((Vector2)transform.position + collisionSettings.RightOffset, collisionSettings.WallCollisionRadius);

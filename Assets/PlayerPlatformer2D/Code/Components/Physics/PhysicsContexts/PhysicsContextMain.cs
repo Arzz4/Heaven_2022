@@ -42,7 +42,11 @@ namespace PlayerPlatformer2D
 
 			// physics initialization
 			rigidbody.drag = mainMotion.DefaultLinearDrag;
-			SetJumpGravityMultiplier(data.jumpSettings.HighJump.GravityMultiplierDown);
+			
+			if (m_RuntimeData.PlayerCollisionRuntimeData.onGround)
+				rigidbody.gravityScale = 0.0f;
+			else
+				SetJumpGravityMultiplier(data.jumpSettings.HighJump.GravityMultiplierDown);
 		}
 
 		public override void EndContext()
@@ -68,9 +72,6 @@ namespace PlayerPlatformer2D
 
 			// update jump state
 			UpdateJumpState();
-
-		//	if(!collisionData.onGround)
-				//Debug.Log("wall jumping? " + data.isWallJumping + " - " + m_RuntimeData.DebugRuntimeData.frameCounter);
 		}
 
 		public override void PostUpdateContext()
@@ -177,6 +178,18 @@ namespace PlayerPlatformer2D
 			// cap to max falling speed 
 			if (!collisionData.onGround)
 				rigidbody.velocity = new Vector2(rigidbody.velocity.x, Mathf.Max(-mainMotion.MaxFallSpeed, rigidbody.velocity.y));
+
+			// do not apply gravity when grounded and not jumping
+			if(data.jumpState == PhysicsContextMainRuntimeData.JumpState.None)
+			{
+				if(collisionData.onEdge)
+				{
+					rigidbody.gravityScale = 0.0f;
+					rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
+				}
+				else if(!collisionData.onStickySurface)
+					SetJumpGravityMultiplier(data.jumpSettings.HighJump.GravityMultiplierDown);
+			}
 		}
 
 		#region JUMP

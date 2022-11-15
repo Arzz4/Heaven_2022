@@ -16,9 +16,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   m_GroundCollisionRadius: 0.4
-  m_GroundRaycastCenterOffset: {x: 0.1, y: 0}
+  m_GroundRaycastCenterOffsetX: 0.1
   m_GroundRaycastDistance: 0.65
-  m_GroundPlanarSize: 1
+  m_GroundPlanarSize: 0.8
   m_WallCollisionRadius: 0.2
   m_RightOffset: {x: 0.65, y: 0.25}
   m_LeftOffset: {x: -0.45, y: 0.25}
