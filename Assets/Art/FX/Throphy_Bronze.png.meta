@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -821,7 +833,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Throphy_5: 47175313
-      Throphy_32: 529268249
       Throphy_17: 843895845
       Throphy_13: 2064598315
       Throphy_25: -123764557
@@ -842,14 +853,15 @@ TextureImporter:
       Throphy_27: 817069293
       Throphy_11: 1586802223
       Throphy_4: -48140015
-      Throphy_23: -1794437670
+      Throphy_32: 529268249
       Throphy_7: -519408144
+      Throphy_23: -1794437670
       Throphy_16: -1638622498
       Throphy_20: 1035920150
-      Throphy_18: -1883976689
       Throphy_3: -1589768159
       Throphy_6: 629835154
       Throphy_9: 1022622777
+      Throphy_18: -1883976689
       Throphy_30: -1865879675
       Throphy_26: 2097035666
       Throphy_24: -216869446
