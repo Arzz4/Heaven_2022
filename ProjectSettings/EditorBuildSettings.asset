@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/RELEASE_LEVELS/Level_Bonus.unity
     guid: 33534188dc46af34e9e9244bf784bb7e
+  - enabled: 1
+    path: Assets/Levels/DLC_LEVELS/Level_DLC_10.unity
+    guid: f4e4d937cc417f247978fd7981ebf78b
   m_configObjects: {}
