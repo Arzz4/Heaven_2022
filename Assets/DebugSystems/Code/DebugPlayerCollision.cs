@@ -25,7 +25,10 @@ namespace DebugSystems
 			ImGui.TextColored(data.onStickySurface ? Color.green : Color.red     , "On Sticky Surface?                     : " + data.onStickySurface);
 			ImGui.TextColored(data.onBouncySurface ? Color.green : Color.red     , "On Bouncy Surface?                     : " + data.onBouncySurface);
 			ImGui.TextColored(data.onSpeedySurface ? Color.green : Color.red     , "On Speedy Surface?                     : " + data.onSpeedySurface);
-			//ImGui.TextColored(data.groundObject != null ? Color.green : Color.red, "Ground Object                          : " + (data.groundObject != null ? data.groundObject.name : "NULL"));
+			ImGui.TextColored(data.onEdge ? Color.green : Color.red              , "On Edge ?                              : " + data.onEdge);
+			ImGui.TextColored(data.nFrameLeftHits > 0 ? Color.green : Color.red  , "Left Ground ?                          : " + (data.nFrameLeftHits > 0));
+			ImGui.TextColored(data.nFrameMidHits > 0 ? Color.green : Color.red   , "Mid Ground ?                           : " + (data.nFrameMidHits > 0));
+			ImGui.TextColored(data.nFrameRightHits > 0 ? Color.green : Color.red , "Right Ground                           : " + (data.nFrameRightHits > 0));
 
 			// WALL
 			ImGui.TextColored(new Vector4(0, 1, 0, 0.5f), "----------------------- ");
