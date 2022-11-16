@@ -552,8 +552,8 @@ TextureImporter:
       name: Tiles_Template_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 24
+        x: 8
+        y: 32
         width: 8
         height: 8
       alignment: 0
@@ -573,8 +573,8 @@ TextureImporter:
       name: Tiles_Template_21
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 16
+        y: 32
         width: 8
         height: 8
       alignment: 0
@@ -590,6 +590,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Tiles_Template_22
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 467a3dc193c92814196c408962e37953
+      internalID: 35531614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Template_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f655379489d824b89b971b40a8e8b5
+      internalID: 1665722213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Template_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292daa463edfc8c4ab553e2eaedb0b4a
+      internalID: -715847447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -601,8 +664,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Tiles_Template_23: 1665722213
       Tiles_Template_12: 563919417
       Tiles_Template_14: 410662651
+      Tiles_Template_22: 35531614
       Tiles_Template_15: 424443708
       Tiles_Template_16: 537983643
       Tiles_Template_3: 258633597
@@ -617,6 +682,7 @@ TextureImporter:
       Tiles_Template_21: -480705997
       Tiles_Template_6: 1727203710
       Tiles_Template_19: 181763559
+      Tiles_Template_24: -715847447
       Tiles_Template_11: -957970619
       Tiles_Template_20: -560517224
       Tiles_Template_10: -2110448099
