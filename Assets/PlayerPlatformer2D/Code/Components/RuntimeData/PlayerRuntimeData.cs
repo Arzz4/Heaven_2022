@@ -41,6 +41,7 @@ namespace PlayerPlatformer2D
 		public PlayerUnityComponentsRuntimeData PlayerUnityComponentsRuntimeData { get; } = new PlayerUnityComponentsRuntimeData();
 		public PhysicsContextMainRuntimeData PhysicsContextMainRuntimeData { get; } = new PhysicsContextMainRuntimeData();
 		public PlayerAudioRuntimeData PlayerAudioRuntimeData { get; } = new PlayerAudioRuntimeData();
+		public PlayerDeathRuntimeData PlayerDeathRuntimeData { get; } = new PlayerDeathRuntimeData();
 
 		public void Initialize()
 		{

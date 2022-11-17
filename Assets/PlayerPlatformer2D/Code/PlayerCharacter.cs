@@ -66,6 +66,7 @@ namespace PlayerPlatformer2D
 		{
 			m_RuntimeData.Initialize();
 			m_UnityComponents.Initialize();
+			m_DeathBehaviour.Initialize();
 			m_Physics.Initialize();
 			m_Input.Initialize();
 		}
@@ -75,11 +76,7 @@ namespace PlayerPlatformer2D
 			m_Input.UpdateFrameInput();
 
 			if (m_DeathBehaviour.UpdateDeathBehaviour())
-			{
-				StopPlayingWithCharacter();
-				gameObject.SetActive(false);
 				return;
-			}
 
 			m_Collision.UpdateCollisions();
 			m_Physics.PreUpdateController();

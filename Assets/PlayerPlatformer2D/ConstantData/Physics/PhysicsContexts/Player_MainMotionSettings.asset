@@ -39,7 +39,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_Acceleration: 100
-  m_Deceleration: 100
+  m_Deceleration: 200
   m_AirAcelerationMultiplierForInput: 1
   m_AirAcelerationMultiplierNoInput: 0.75
   m_AirAcelerationForWallJumping: 1

@@ -12,118 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3783140b80c1f43b68e4b7142a0a6b, type: 3}
   m_Name: Player_InputBindings
   m_EditorClassIdentifier: 
-  axisActions:
-  - inputType: 0
-    inputAction:
-      m_Name: Move
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 90318568-8933-4152-9ae7-56efb5594524
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: c2f7791d-561f-4150-9c66-7faff8ec2b6c
-        m_Path: <Gamepad>/leftStick
-        m_Interactions: 
-        m_Processors: StickDeadzone
-        m_Groups: 
-        m_Action: Move
-        m_Flags: 0
-      - m_Name: 2D Vector
-        m_Id: d6f7d8cb-1d0d-4ee5-87b5-473170ab67a4
-        m_Path: 2DVector
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Move
-        m_Flags: 4
-      - m_Name: up
-        m_Id: 6a4c23bd-49d4-479c-8638-75a507cd1ec1
-        m_Path: <Keyboard>/w
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Move
-        m_Flags: 8
-      - m_Name: down
-        m_Id: 43c8b8d6-212b-4fdd-95f3-20c7e19bda1e
-        m_Path: <Keyboard>/s
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Move
-        m_Flags: 8
-      - m_Name: left
-        m_Id: ca9dfeda-b62c-4633-b95e-ede3a19b2ee9
-        m_Path: <Keyboard>/a
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Move
-        m_Flags: 8
-      - m_Name: right
-        m_Id: dcc2388a-fde2-4563-9d05-01a914f7a4b2
-        m_Path: <Keyboard>/d
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Move
-        m_Flags: 8
-      m_Flags: 0
-  buttonActions:
-  - inputType: 0
-    inputAction:
-      m_Name: Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 337b51fc-3027-4dee-9f01-02d43c69a282
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 51fe28c2-e64e-44a2-9a14-9be61e685cd1
-        m_Path: <Gamepad>/buttonSouth
-        m_Interactions: Press(pressPoint=0.1)
-        m_Processors: 
-        m_Groups: 
-        m_Action: Input
-        m_Flags: 0
-      - m_Name: 
-        m_Id: b178ce3f-4a24-4e7e-a41b-df5e831ad9a9
-        m_Path: <Keyboard>/space
-        m_Interactions: Press(pressPoint=0.1)
-        m_Processors: 
-        m_Groups: 
-        m_Action: Input
-        m_Flags: 0
-      m_Flags: 0
-  - inputType: 1
-    inputAction:
-      m_Name: Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 337b51fc-3027-4dee-9f01-02d43c69a282
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 51fe28c2-e64e-44a2-9a14-9be61e685cd1
-        m_Path: <Gamepad>/buttonEast
-        m_Interactions: Press
-        m_Processors: 
-        m_Groups: 
-        m_Action: Input
-        m_Flags: 0
-      - m_Name: 
-        m_Id: b178ce3f-4a24-4e7e-a41b-df5e831ad9a9
-        m_Path: <Keyboard>/leftShift
-        m_Interactions: Press
-        m_Processors: 
-        m_Groups: 
-        m_Action: Input
-        m_Flags: 0
-      m_Flags: 0
-  buttonHoldThreshold: 0.2
+  singleActions:
+  - action: 0
+    keyboardKey: 76
+    gamepadKey: 19
+  - action: 1
+    keyboardKey: 5
+    gamepadKey: 20
+  comboActions:
+  - action: 2
+    keyboardKey1: 46
+    keyboardKey2: 46
+    gamepadKey1: 15
+    gamepadKey2: 16
   downAngleDeadZone: 30
   upAngleDeadZone: 30

@@ -14,6 +14,7 @@ namespace PlayerPlatformer2D
 		public PlayerPhysics physicsController = default;
 		public Animator animator = default;
 		public Transform characterArrow = default;
+		public GameObject deathPrefab = default;
 	}
 
 	public class PlayerUnityComponents : MonoBehaviour
