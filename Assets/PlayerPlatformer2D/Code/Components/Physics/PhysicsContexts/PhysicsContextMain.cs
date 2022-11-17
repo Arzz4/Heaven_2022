@@ -63,7 +63,7 @@ namespace PlayerPlatformer2D
 
 			// start jump
 			float elapsedTimeSinceGroundLeft = Time.time - collisionData.leftGroundTimestamp;
-			bool jumpInput = frameInput.buttonPress[(int)ButtonInputType.Jump];
+			bool jumpInput = frameInput.buttonPress[(int)GameActionSingleInputType.Jump];
 			bool canJumpOffGround = (!collisionData.onGround && !collisionData.onWall) && elapsedTimeSinceGroundLeft < 0.1f;
 			bool canJump = collisionData.onGround || data.onStickySurface || canJumpOffGround ;
 
@@ -121,7 +121,7 @@ namespace PlayerPlatformer2D
 			if (!data.isWallJumping)
 			{
 				bool isJumpStateGoingUp = data.jumpState == PhysicsContextMainRuntimeData.JumpState.TakingOff || (data.jumpState == PhysicsContextMainRuntimeData.JumpState.OnAir && rigidbody.velocity.y > 0);
-				bool commonValidationForStickySurfaceAction = !frameInput.buttonPress[(int)ButtonInputType.Jump] && !isJumpStateGoingUp;
+				bool commonValidationForStickySurfaceAction = !frameInput.buttonPress[(int)GameActionSingleInputType.Jump] && !isJumpStateGoingUp;
 				if ((collisionData.onWall || collisionData.onGround) && collisionData.onStickySurface && commonValidationForStickySurfaceAction)
 				{
 					rigidbody.gravityScale = 0.0f;
@@ -135,7 +135,7 @@ namespace PlayerPlatformer2D
 			{
 				if (rigidbody.velocity.y > 0)
 				{
-					if (!frameInput.buttonHoldRaw[(int)ButtonInputType.Jump] && !data.lowJump)
+					if (!frameInput.buttonHoldRaw[(int)GameActionSingleInputType.Jump] && !data.lowJump)
 					{
 						data.lowJump = true;
 						SetJumpVerticalVelocity(jumpSettings.LowJump.YVelocityMultiplierUp, true);

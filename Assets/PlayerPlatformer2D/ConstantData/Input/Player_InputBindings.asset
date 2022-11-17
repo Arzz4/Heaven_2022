@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3783140b80c1f43b68e4b7142a0a6b, type: 3}
   m_Name: Player_InputBindings
   m_EditorClassIdentifier: 
-  jump:
-    buttonType: 0
-    interactionType: 0
-  killCharacter:
-    buttonType: 1
-    interactionType: 0
-  KillAllCharacters:
-    action1:
-      buttonType: 7
-      interactionType: 5
-    action2:
-      buttonType: 5
-      interactionType: 5
+  singleActions:
+  - action: 0
+    keyboardKey: 76
+    gamepadKey: 19
+  - action: 1
+    keyboardKey: 5
+    gamepadKey: 20
+  comboActions:
+  - action: 2
+    keyboardKey1: 46
+    keyboardKey2: 46
+    gamepadKey1: 15
+    gamepadKey2: 16
   downAngleDeadZone: 30
   upAngleDeadZone: 30

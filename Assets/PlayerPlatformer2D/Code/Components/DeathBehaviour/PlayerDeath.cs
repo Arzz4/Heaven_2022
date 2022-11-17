@@ -32,12 +32,12 @@ namespace PlayerPlatformer2D
 		{
 			var data = m_RuntimeData.PlayerDeathRuntimeData;
 			var frameInput = m_RuntimeData.PlayerInputRuntimeData.frameInput;
-			if (frameInput.buttonPress[(int)ButtonInputType.KillCharacter])
+			if (frameInput.buttonPress[(int)GameActionSingleInputType.KillCharacter])
 			{
 				data.state = PlayerDeathRuntimeData.State.Kill;
 			}
 
-			if (frameInput.buttonPress[(int)ButtonInputType.KillAllCharacters])
+			if (frameInput.buttonPress[(int)GameActionMultipleInputType.KillAllCharacters])
 			{
 				data.state = PlayerDeathRuntimeData.State.KillAll;
 			}
