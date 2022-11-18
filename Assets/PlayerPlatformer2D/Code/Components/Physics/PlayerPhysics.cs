@@ -90,7 +90,7 @@ namespace PlayerPlatformer2D
 		
 			data.velocity = rigidbody.velocity;
 			data.speed = data.velocity.magnitude;
-			data.isMovingSideways = Mathf.Abs(data.velocity.x) > 0.01f;
+			data.isMovingSideways = data.controllerContextType == PhysicsContextType.Main && Mathf.Abs(data.velocity.x) > 0.01f;
 
 			if (collisionData.onRightWall && frameInput.leftJoystickData.normalizedInput.x > 0)
 				data.isMovingSideways = false;

@@ -105,13 +105,14 @@ namespace PlayerPlatformer2D
 				data.frameInput.buttonPress[i] = false;
 				data.frameInput.buttonHoldRaw[i] = false;
 			}
-
-			EnableInput();
 		}
 
 		public void UpdateFrameInput()
 		{
 			var data = m_RuntimeData.PlayerInputRuntimeData;
+
+			if (!data.inputEnabled)
+				return;
 
 			// axis
 			float horizontal = data.inControlGameInputActions.horizontal.Value;

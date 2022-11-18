@@ -16,14 +16,23 @@ namespace PlayerPlatformer2D
 
 		public override void StartContext()
 		{
+			var data = m_RuntimeData.PhysicsContextMainRuntimeData;
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
-			rigidbody.velocity = Vector2.zero;
+
+			float maxSpeed = data.jumpSettings.OverwriteMaxHorizontalSpeed ? data.jumpSettings.MaxHorizontalSpeed : data.mainSettings.MaxSpeed;
+			float maxSpeedSqr = maxSpeed * maxSpeed;
+
+			rigidbody.gravityScale = -(data.jumpSettings.HighJump.GravityMultiplierDown * maxSpeedSqr) / Physics2D.gravity.y;
 		}
 
 		public override void FixedUpdateContext()
 		{
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
-			rigidbody.velocity = new Vector2(0.0f, rigidbody.velocity.y);
+
+			if (m_RuntimeData.PlayerCollisionRuntimeData.onGround)
+				rigidbody.drag = 1000.0f;
+			else
+				rigidbody.drag = 0.0f;
 		}
 	}
 }

@@ -74,12 +74,6 @@ namespace PlayerPlatformer2D
 				StartPlayingWithPlayer(m_CurrentPlayerIndex);
 				return;
 			}
-
-			//TODO: hack to make the non-playable characters to fall fast
-			for (int i = m_CurrentPlayerIndex + 1; i < m_Players.Length; ++i)
-			{
-				m_Players[i].UpdateWhileNotPlaying();
-			}
 		}
 
 		private void StartPlayingWithPlayer(int playerIndex)

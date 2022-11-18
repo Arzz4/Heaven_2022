@@ -114,18 +114,8 @@ namespace PlayerPlatformer2D
 
 		public void StopPlayingWithCharacter()
 		{
-			this.enabled = false;
-		}
-
-		public void UpdateWhileNotPlaying()
-		{
-			m_Collision.UpdateCollisions();
-
-			// TODO: hack to make players not move infinitively by colliding with other characters !
-			if (m_RuntimeData.PlayerCollisionRuntimeData.onGround)
-				m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody.drag = 1000.0f;
-			else
-				m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody.drag = 0.0f;
+			m_Input.DisableInput();
+			m_Physics.SetContextTo(PhysicsContextType.Static);
 		}
 
 		private IEnumerator DelayToStartPlayingWithCharacter(float delay)
@@ -140,8 +130,8 @@ namespace PlayerPlatformer2D
 			if (arrowObj != null)
 				arrowObj.gameObject.SetActive(false);
 
-			m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody.drag = 0.0f;
-			this.enabled = true;
+			m_Input.EnableInput();
+			m_Physics.SetContextTo(PhysicsContextType.Main);
 		}
 	}
 }
