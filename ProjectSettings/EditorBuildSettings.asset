@@ -41,4 +41,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/RELEASE_LEVELS/Level_Bonus.unity
     guid: 33534188dc46af34e9e9244bf784bb7e
+  - enabled: 1
+    path: Assets/Levels/DLC_LEVELS/Level_DLC_10.unity
+    guid: f4e4d937cc417f247978fd7981ebf78b
+  - enabled: 1
+    path: Assets/Levels/DLC_LEVELS/Level_DLC_11.unity
+    guid: f96e7c543ae8edc4486762a92f551f99
+  - enabled: 1
+    path: Assets/Levels/DLC_LEVELS/Level_DLC_12.unity
+    guid: 2c3c25a4377885c40acde831bda40ac7
+  - enabled: 1
+    path: Assets/Levels/DLC_LEVELS/Level_DLC_13.unity
+    guid: 9951ddef447f13f4da488567bf20d645
   m_configObjects: {}
