@@ -25,18 +25,25 @@ namespace PlayerPlatformer2D
 			var rigidbody = m_RuntimeData.PlayerUnityComponentsRuntimeData.rigidBody;
 
 			if (collisionData.onGround)
+			{
 				rigidbody.drag = 1000.0f;
+			}
 			else
+			{
 				rigidbody.drag = 0.0f;
-
+			}
 
 			if (collisionData.onEdge)
 			{
 				rigidbody.gravityScale = 0.0f;
 				rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
+				rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
 			}
 			else if (!collisionData.onStickySurface)
+			{
 				SetFallGravityMultiplier();
+				rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+			}
 		}
 
 		private void SetFallGravityMultiplier()

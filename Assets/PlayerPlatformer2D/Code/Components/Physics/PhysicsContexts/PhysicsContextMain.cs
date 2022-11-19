@@ -42,7 +42,8 @@ namespace PlayerPlatformer2D
 
 			// physics initialization
 			rigidbody.drag = mainMotion.DefaultLinearDrag;
-			
+			rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
 			if (m_RuntimeData.PlayerCollisionRuntimeData.onGround)
 				rigidbody.gravityScale = 0.0f;
 			else
