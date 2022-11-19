@@ -1,28 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PlayerPlatformer2D
 {
-	[System.Serializable]
-	public class Skins
-	{
-		public Sprite[] sprites;
-	}
-
 	public class PlayerVisuals : MonoBehaviour
 	{
 		[SerializeField]
 		private SpriteRenderer m_SpriteRenderer;
 
 		[SerializeField]
-		private Skins[] m_Skins;
+		private PlayerSkinSettings m_SkinSettings; 
 
 		[SerializeField]
 		private int m_SkinIndex;
-
-		[SerializeField]
-		private string m_ReferenceSpriteName = "Character_Matter_Sheet_";
 
 		void LateUpdate()
 		{
@@ -31,13 +20,13 @@ namespace PlayerPlatformer2D
 
 		void SelectSkin()
 		{
-			if (m_SpriteRenderer.sprite.name.Contains(m_ReferenceSpriteName))
+			if (m_SpriteRenderer.sprite.name.Contains(m_SkinSettings.referenceSpriteName))
 			{
 				string spriteName = m_SpriteRenderer.sprite.name;
-				spriteName = spriteName.Replace(m_ReferenceSpriteName, "");
+				spriteName = spriteName.Replace(m_SkinSettings.referenceSpriteName, "");
 				int spriteIndex = int.Parse(spriteName);
 
-				m_SpriteRenderer.sprite = m_Skins[m_SkinIndex].sprites[spriteIndex];
+				m_SpriteRenderer.sprite = m_SkinSettings.skins[m_SkinIndex].sprites[spriteIndex];
 			}
 		}
 	}
