@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 using AudioSystems;
+using System.Collections.Generic;
 
 public class EndTrigger : MonoBehaviour
 {
@@ -23,20 +24,43 @@ public class EndTrigger : MonoBehaviour
 
 	private bool m_Loading = false;
 
+	private List<LevelSelect> otherLevels;
+
+	private void Start()
+	{
+		otherLevels = new List<LevelSelect>(FindObjectsOfType<LevelSelect>());
+	}
+
 	public void OnCharacterDead(GameObject character, int remainingCharacters)
 	{
 		if (m_Loading)
 			return;
 
-		if (IsInsideTriggerZone(character.transform.position))
+
+        if (IsInsideTriggerZone(character.transform.position))
 		{
 			PlayGoalReachedAudio();
 			SwapToWinningTexture();
 			StartNextScene();
+			return;
 		}
 
-		else if (remainingCharacters == 0)
+        foreach (var level in otherLevels)
+        {
+            if (level.IsInsideTriggerZone(character.transform.position))
+            {
+                PlayGoalReachedAudio();
+                level.Select();
+                LoadOtherScene(level);
+                return;
+            }
+        }
+
+        if (remainingCharacters == 0)
+		{
 			ResetCurrentLevel();
+		}
+
 	}
 
 	private void PlayGoalReachedAudio()
@@ -55,16 +79,24 @@ public class EndTrigger : MonoBehaviour
 	public void ResetCurrentLevel()
 	{
 		m_Loading = true;
-		Debug.Log("Reset current level " + this.GetInstanceID());
+		Debug.Log("Reset current level");
         StartCoroutine(loadLevel(SceneManager.GetActiveScene().buildIndex, levelResetDelay));
     }
 
 	public void StartNextScene()
 	{
 		m_Loading = true;
-		Debug.Log("Loading next level: " + m_NextSceneIndex + "  " + this.GetInstanceID());
+		Debug.Log("Loading next level: " + m_NextSceneIndex);
+		SaveLevelCompleted();
 		StartCoroutine(loadLevel(m_NextSceneIndex,levelSwitchDelay));
 	}
+
+    public void LoadOtherScene(LevelSelect select)
+    {
+        m_Loading = true;
+        Debug.Log("Loading other level: " + select.m_sceneIndex);
+        StartCoroutine(loadLevel(select.m_sceneIndex, levelSwitchDelay));
+    }
 
     private IEnumerator loadLevel(int index, float delay)
     {
@@ -92,5 +124,16 @@ public class EndTrigger : MonoBehaviour
 		Gizmos.matrix = transform.localToWorldMatrix;
 		Gizmos.DrawWireCube(Vector3.zero, m_TriggerSize);
 		Gizmos.matrix = Matrix4x4.identity;
+	}
+
+	private void SaveLevelCompleted()
+	{
+		PlayerPrefs.SetInt(LevelCompletedKey(SceneManager.GetActiveScene().buildIndex), 1);
+		PlayerPrefs.Save();
+	}
+
+	public static string LevelCompletedKey(int level)
+	{
+		return "level_completed_" + level;
 	}
 }
