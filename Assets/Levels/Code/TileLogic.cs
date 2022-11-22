@@ -1,9 +1,13 @@
 using GameplayUtility;
+using PlayerPlatformer2D;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.Tilemaps;
+using static UnityEditor.PlayerSettings;
 
 public class TileLogic : MonoBehaviour
 {
@@ -26,13 +30,20 @@ public class TileLogic : MonoBehaviour
 
     public float speedyRadius = 2.5f;
 
+    public float crumbleDelay = 1.0f;
+    public GameObject crumblePrefab;
+
+    public GameObject hazardPrefab;
+
     private List<Tilemap> mapsToCleanOnExplosion;
+    private HashSet<Vector3> crumbling;
     // Start is called before the first frame update
     void Start()
     {
         tiles = GetComponent<Tilemap>();
         gooLogic = GameObject.FindObjectOfType<GooLogic>();
         speedLogic = GameObject.FindObjectOfType<SpeedLogic>();
+        crumbling = new HashSet<Vector3>();
 
         mapsToCleanOnExplosion = new List<Tilemap>();
         int foreGround = -1;
@@ -50,7 +61,7 @@ public class TileLogic : MonoBehaviour
             }
         }
     }
-        // Update is called once per frame
+    // Update is called once per frame
 
     public void CreateTiles(Vector3 pos)
     {
@@ -106,7 +117,7 @@ public class TileLogic : MonoBehaviour
             {
                 Vector3Int dir = new Vector3Int(i, j);
                 Vector3Int airPos = p + dir;
-                
+
                 if (!tiles.HasTile(airPos) && Vector3.Dot(Vector3.Normalize(dir), Vector3.Normalize(origin - p)) > 0.4)
                 {
                     return true;
@@ -130,17 +141,22 @@ public class TileLogic : MonoBehaviour
                 ObjectPoolSystem.Instance.InstantiatePrefabWith(explosionPrefab, tiles.CellToWorld(pos) + prefabOffset, Quaternion.identity);
 
             }
-            Vector3 worldPos = tiles.CellToWorld(pos);
-            foreach (var tileMapToClean in mapsToCleanOnExplosion)
-            {
-                Vector3Int local = tileMapToClean.WorldToCell(worldPos);
-                if (tileMapToClean.HasTile(pos))
-                {
-                    tileMapToClean.SetTile(pos, null);
-                }
-            }
+            removeTilesAt(tiles.CellToWorld(pos));
+
             scorchNearby(pos, origin);
             prevDelay = delay;
+        }
+    }
+
+    private void removeTilesAt(Vector3 worldPos)
+    {
+        foreach (var tileMapToClean in mapsToCleanOnExplosion)
+        {
+            Vector3Int local = tileMapToClean.WorldToCell(worldPos);
+            if (tileMapToClean.HasTile(local))
+            {
+                tileMapToClean.SetTile(local, null);
+            }
         }
     }
 
@@ -185,7 +201,7 @@ public class TileLogic : MonoBehaviour
                 float r = getRotation(pos, Vector3.Normalize(world - origin));
                 if (r > -0.1f)
                 {
-                    gooLogic.createTiles(world,r);
+                    gooLogic.createTiles(world, r);
                     speedLogic.clean(world);
                 }
             }
@@ -228,25 +244,39 @@ public class TileLogic : MonoBehaviour
 
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
-            if (isRightWall && sprayRight) {
+            if (isRightWall && sprayRight)
+            {
                 return 90;
-            } else if (isLeftWall && !sprayRight) {
+            }
+            else if (isLeftWall && !sprayRight)
+            {
                 return 270;
-            } else if (isFlor && !sprayUp) {
+            }
+            else if (isFlor && !sprayUp)
+            {
                 return 0;
-            } else if (isRoof && sprayUp) {
+            }
+            else if (isRoof && sprayUp)
+            {
                 return 180;
             }
         }
         else
         {
-            if (isFlor && !sprayUp) {
+            if (isFlor && !sprayUp)
+            {
                 return 0;
-            } else if (isRoof && sprayUp) {
+            }
+            else if (isRoof && sprayUp)
+            {
                 return 180;
-            } else if (isRightWall && sprayRight) {
+            }
+            else if (isRightWall && sprayRight)
+            {
                 return 90;
-            } else if (isLeftWall && !sprayRight) {
+            }
+            else if (isLeftWall && !sprayRight)
+            {
                 return 270;
             }
         }
@@ -258,17 +288,17 @@ public class TileLogic : MonoBehaviour
         Vector3Int local = tiles.WorldToCell(worldPosition);
         createTileAt(local);
         yield return new WaitForSeconds(0.05f);
-        for (int i = 1; i <= numTilesToCreate/2; i++)
+        for (int i = 1; i <= numTilesToCreate / 2; i++)
         {
-            createTileAt(local + new Vector3Int(-i,0,0));
-            createTileAt(local + new Vector3Int(i,0,0));
+            createTileAt(local + new Vector3Int(-i, 0, 0));
+            createTileAt(local + new Vector3Int(i, 0, 0));
             yield return new WaitForSeconds(0.05f);
         }
     }
 
     private void createTileAt(Vector3Int local)
     {
-        if ( !tiles.HasTile(local))
+        if (!tiles.HasTile(local))
         {
             Tile tile = ScriptableObject.CreateInstance<Tile>();
             tile.sprite = tileCreationSprite;
@@ -298,5 +328,62 @@ public class TileLogic : MonoBehaviour
         }
         tiles.Sort((x, y) => x.Item1.CompareTo(y.Item1));
         return tiles;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        var obj = collision.gameObject;
+        if (obj.GetComponent<PlayerCharacter>() != null)
+        {
+            foreach (var contact in collision.contacts)
+            {
+                Vector3 worldPos = contact.point + 0.2f * contact.normal;
+                Debug.DrawLine(contact.point, worldPos, Color.red, 1.0f);
+
+                Vector3Int pos = tiles.WorldToCell(worldPos);
+                if (tiles.HasTile(pos))
+                {
+                    Sprite sprite = tiles.GetSprite(pos);
+                    if (sprite.name.Contains("Crumble"))
+                    {
+                        if(contact.normal.y < -0.5)
+                        {
+                            crumble(worldPos);
+                        }
+                    }
+                    else if (sprite.name.Contains("Hazard"))
+                    {
+                        hazard(collision.gameObject);
+                    }
+                }
+            }
+        }
+    }
+
+    private void hazard(GameObject obj)
+    {
+        if (obj.activeSelf)
+        {
+            obj.SetActive(false);
+            ObjectPoolSystem.Instance.InstantiatePrefabWith(hazardPrefab, obj.transform.position, Quaternion.identity);
+        }
+    }
+
+    private void crumble(Vector3 worldPosition)
+    {
+        Vector3Int pos = tiles.WorldToCell(worldPosition);
+        if (crumbling.Add(pos))
+        {
+            StartCoroutine(doCrumble(pos));
+        }
+    }
+
+    private IEnumerator doCrumble(Vector3 worldPosition)
+    {
+        yield return new WaitForSeconds(crumbleDelay);
+        removeTilesAt(worldPosition);
+        Vector3Int pos = tiles.WorldToCell(worldPosition);
+        ObjectPoolSystem.Instance.InstantiatePrefabWith(crumblePrefab, tiles.CellToWorld(pos) + prefabOffset, Quaternion.identity);
+        crumbling.Remove(pos);
     }
 }

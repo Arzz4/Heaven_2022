@@ -2043,8 +2043,11 @@ MonoBehaviour:
   scorchSprite: {fileID: 21300000, guid: 4bc254b51bfff9f49a57f434e7dd5947, type: 3}
   gooRadius: 2.5
   numTilesToCreate: 3
-  tileCreationSprite: {fileID: 0}
+  tileCreationSprite: {fileID: 1727203710, guid: 48db19ecdbda2fe4dbd9a4ea45724943, type: 3}
   speedyRadius: 2.5
+  crumbleDelay: 1
+  crumblePrefab: {fileID: 7207223664438779714, guid: d0a59886e79e03547b38dddd89e00402, type: 3}
+  hazardPrefab: {fileID: 7207223664438779714, guid: d0a59886e79e03547b38dddd89e00402, type: 3}
 --- !u!1 &31547312044510480
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,4 +2500,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3522332dcdfe0d74384a676454aeb594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: -1164492147, guid: a8a160fb15ff83548b3ee482a85288b8, type: 3}
+  sprite: {fileID: 21300000, guid: 750ce908e3777b543abe8f4fc8b3b279, type: 3}
