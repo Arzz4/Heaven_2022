@@ -1,31 +1,36 @@
 using AudioSystems;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 
 public class MuteButton : MonoBehaviour
 {
     private Button button;
-    private AudioManager audio;
+    private AudioManager audioManager;
     private string key = "GameSoundState";
+    private Image img;
+    public Sprite spriteMuted;
+    public Sprite spriteUnmuted;
 
     private void Start()
     {
         button = GetComponent<Button>();
-        audio = GameObject.FindObjectOfType<AudioManager>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
+        img = GetComponent<Image>();
         button.onClick.AddListener(OnButtonClick);
         setState(PlayerPrefs.GetInt(key, 1) == 0);
     }
 
     public void OnButtonClick()
     {
-        setState(!audio.IsMuted());
+        setState(!audioManager.IsMuted());
     }
 
     private void setState(bool muted)
     {
-        audio.SetSoundMuted(muted);
-        GetComponentInChildren<TextMeshProUGUI>().text = muted ? "Audio OFF" : "Audio ON";
+        img.sprite = muted ? spriteMuted : spriteUnmuted;
+        audioManager.SetSoundMuted(muted);
         PlayerPrefs.SetInt(key, muted ? 0 : 1);
         PlayerPrefs.Save();
     }
