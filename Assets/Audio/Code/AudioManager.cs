@@ -97,6 +97,11 @@ namespace AudioSystems
 			SetEverythingToMutedState(m_SoundMuted);
 		}
 
+		public bool IsMuted()
+		{
+			return m_SoundMuted;
+		}
+
 		public void SetGlobalSoundVolume(float aVolumeValue)
 		{
 			m_GlobalAudioVolume = aVolumeValue;

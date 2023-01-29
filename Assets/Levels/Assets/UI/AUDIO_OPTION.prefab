@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8846374350658739977}
   - component: {fileID: 6527696997293292169}
   - component: {fileID: 3027358759772932318}
+  - component: {fileID: 7078730572804088809}
   m_Layer: 5
   m_Name: AUDIO_OPTION
   m_TagString: Untagged
@@ -122,6 +123,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7078730572804088809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176203563094554978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650401822a9d5e44cac269fdc746ec2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8779103194239190742
 GameObject:
   m_ObjectHideFlags: 0
