@@ -27,20 +27,16 @@ public class TileLogic : MonoBehaviour
 
     public float speedyRadius = 2.5f;
 
-    public float crumbleDelay = 1.0f;
-    public GameObject crumblePrefab;
-
-    public GameObject hazardPrefab;
 
     private List<Tilemap> mapsToCleanOnExplosion;
-    private HashSet<Vector3> crumbling;
+
     // Start is called before the first frame update
     void Start()
     {
         tiles = GetComponent<Tilemap>();
         gooLogic = GameObject.FindObjectOfType<GooLogic>();
         speedLogic = GameObject.FindObjectOfType<SpeedLogic>();
-        crumbling = new HashSet<Vector3>();
+        
 
         mapsToCleanOnExplosion = new List<Tilemap>();
         int foreGround = -1;
@@ -145,7 +141,7 @@ public class TileLogic : MonoBehaviour
         }
     }
 
-    private void removeTilesAt(Vector3 worldPos)
+    public void removeTilesAt(Vector3 worldPos)
     {
         foreach (var tileMapToClean in mapsToCleanOnExplosion)
         {
@@ -325,62 +321,5 @@ public class TileLogic : MonoBehaviour
         }
         tiles.Sort((x, y) => x.Item1.CompareTo(y.Item1));
         return tiles;
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        var obj = collision.gameObject;
-        if (obj.GetComponent<PlayerCharacter>() != null)
-        {
-            foreach (var contact in collision.contacts)
-            {
-                Vector3 worldPos = contact.point + 0.2f * contact.normal;
-                Debug.DrawLine(contact.point, worldPos, Color.red, 1.0f);
-
-                Vector3Int pos = tiles.WorldToCell(worldPos);
-                if (tiles.HasTile(pos))
-                {
-                    Sprite sprite = tiles.GetSprite(pos);
-                    if (sprite.name.Contains("Crumble"))
-                    {
-                        if(contact.normal.y < -0.5)
-                        {
-                            crumble(worldPos);
-                        }
-                    }
-                    else if (sprite.name.Contains("Hazard"))
-                    {
-                        hazard(collision.gameObject);
-                    }
-                }
-            }
-        }
-    }
-
-    private void hazard(GameObject obj)
-    {
-        if (obj.activeSelf)
-        {
-            obj.SetActive(false);
-            ObjectPoolSystem.Instance.InstantiatePrefabWith(hazardPrefab, obj.transform.position, Quaternion.identity);
-        }
-    }
-
-    private void crumble(Vector3 worldPosition)
-    {
-        Vector3Int pos = tiles.WorldToCell(worldPosition);
-        if (crumbling.Add(pos))
-        {
-            StartCoroutine(doCrumble(pos));
-        }
-    }
-
-    private IEnumerator doCrumble(Vector3 worldPosition)
-    {
-        yield return new WaitForSeconds(crumbleDelay);
-        removeTilesAt(worldPosition);
-        Vector3Int pos = tiles.WorldToCell(worldPosition);
-        ObjectPoolSystem.Instance.InstantiatePrefabWith(crumblePrefab, tiles.CellToWorld(pos) + prefabOffset, Quaternion.identity);
-        crumbling.Remove(pos);
     }
 }
