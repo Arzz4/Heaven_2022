@@ -12965,6 +12965,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SELECT_LVL_BUTTON
       objectReference: {fileID: 0}
+    - target: {fileID: 1574280755829904986, guid: 1aa7d99aec57a4345845fbdfef881bc2, type: 3}
+      propertyPath: m_sceneIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7355705223044894751, guid: 1aa7d99aec57a4345845fbdfef881bc2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

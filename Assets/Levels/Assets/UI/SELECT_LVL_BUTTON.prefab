@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2564310170350694698}
   - component: {fileID: 4525206872296206082}
   - component: {fileID: 3408345378266882354}
+  - component: {fileID: 1574280755829904986}
   m_Layer: 5
   m_Name: SELECT_LVL_BUTTON
   m_TagString: Untagged
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1574280755829904986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271655453138277192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf98ef57fe1da24fa5f29e6a91cc233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sceneIndex: 0
 --- !u!1 &8032264302961905665
 GameObject:
   m_ObjectHideFlags: 0

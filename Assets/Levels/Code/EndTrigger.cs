@@ -98,6 +98,13 @@ public class EndTrigger : MonoBehaviour
         StartCoroutine(loadLevel(select.m_sceneIndex, levelSwitchDelay));
     }
 
+    public void LoadOtherScene(LevelSelectButton select)
+    {
+        m_Loading = true;
+        Debug.Log("Loading other level: " + select.m_sceneIndex);
+        StartCoroutine(loadLevel(select.m_sceneIndex, levelSwitchDelay));
+    }
+
     private IEnumerator loadLevel(int index, float delay)
     {
 		yield return new WaitForSeconds(delay);
