@@ -39,6 +39,7 @@ public class EndTrigger : MonoBehaviour
 
         if (IsInsideTriggerZone(character.transform.position))
 		{
+			TelemetrySystems.TelemetryManager.Instance.OnFinishedLevel(remainingCharacters);
 			PlayGoalReachedAudio();
 			SwapToWinningTexture();
 			StartNextScene();

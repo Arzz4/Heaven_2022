@@ -622,6 +622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PAUSE_MENU
       objectReference: {fileID: 0}
+    - target: {fileID: 2296810315565570077, guid: 64bf74233043eed42a8d1200fc1a4e69, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64bf74233043eed42a8d1200fc1a4e69, type: 3}
 --- !u!224 &7563563324880409433 stripped

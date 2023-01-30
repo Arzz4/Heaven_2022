@@ -8,6 +8,7 @@ namespace GameplayUtility
 	{
 		[SerializeField]
 		private float m_LifeTime = 1.0f;
+		public float LifeTime { get { return m_LifeTime; } }
 
 		private float m_StartTimestamp = 0.0f;
 

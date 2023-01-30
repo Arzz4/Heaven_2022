@@ -1,3 +1,5 @@
+using GameplayUtility;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +29,8 @@ namespace TelemetrySystems
 		private TelemetryData m_TelemetryData;
 		private bool[] m_AchievementsCheckList;
 		private int[] m_AchievementsPrefabIndexes;
+		private Queue<AchievementType> m_AchievementsQueue;
+		private float m_NextNotificationTimestamp;
 
 		private void Awake()
 		{
@@ -43,6 +47,7 @@ namespace TelemetrySystems
 			InitializeTelemetry();
 			InitializeAchievementsCheckList();
 			InitializePrefabsIndices();
+			InitializeQueue();
 
 			SceneManager.sceneLoaded += OnSceneLoaded;
 		}
@@ -53,7 +58,7 @@ namespace TelemetrySystems
 
 		private void InitializeAchievementsCheckList()
 		{
-			int nAchievements = (int) AchievementType.Count;
+			int nAchievements = (int)AchievementType.Count;
 			m_AchievementsCheckList = new bool[nAchievements];
 			for (int i = 0; i < nAchievements; ++i)
 				m_AchievementsCheckList[i] = false;
@@ -63,11 +68,17 @@ namespace TelemetrySystems
 		{
 			int nAchievements = (int)AchievementType.Count;
 			m_AchievementsPrefabIndexes = new int[nAchievements];
-			for(int i = 0, e = m_AllAchievementPrefabs.Length; i < e; ++i)
+			for (int i = 0, e = m_AllAchievementPrefabs.Length; i < e; ++i)
 			{
 				AchievementType t = m_AllAchievementPrefabs[i].GetComponent<AchievementDefinition>().AchievementType;
 				m_AchievementsPrefabIndexes[(int)t] = i;
 			}
+		}
+
+		private void InitializeQueue()
+		{
+			m_AchievementsQueue = new Queue<AchievementType>();
+			m_NextNotificationTimestamp = Time.time;
 		}
 
 		public void OnCharacterDeath()
@@ -79,6 +90,28 @@ namespace TelemetrySystems
 		{
 			return m_TelemetryData;
 		}
+		
+		public void OnFinishedLevel(int remainingCharacters)
+		{
+			if(!m_AchievementsCheckList[(int)AchievementType.PlusOneSurvivorFinish] && remainingCharacters > 0)
+			{
+				QueueTrophyNotification(AchievementType.PlusOneSurvivorFinish);
+			}
+		}
+
+		private void Update()
+		{
+			if (m_AchievementsQueue.Count == 0)
+			{
+				this.enabled = false;
+				return;
+			}
+
+			if(Time.time > m_NextNotificationTimestamp) 
+			{
+				TriggerTrophyNotification(m_AchievementsQueue.Dequeue());
+			}
+		}
 
 		private void OnSceneLoaded(Scene anScene, LoadSceneMode aMode)
 		{
@@ -86,13 +119,19 @@ namespace TelemetrySystems
 
 			if (!m_AchievementsCheckList[(int)AchievementType.NumberOfDeaths] && m_TelemetryData.numberOfDeaths >= m_Achievement_TargetNumberOfDeaths)
 			{
-				TriggerTrophyNotification(AchievementType.NumberOfDeaths);
+				QueueTrophyNotification(AchievementType.NumberOfDeaths);
 			}
 
 			if(!m_AchievementsCheckList[(int)AchievementType.ReachedHiddenLevels] && m_TelemetryData.highestLevelReached >= m_Achievement_FirstHiddenLevelIndex)
 			{
-				TriggerTrophyNotification(AchievementType.ReachedHiddenLevels);
+				QueueTrophyNotification(AchievementType.ReachedHiddenLevels);
 			}
+		}
+
+		private void QueueTrophyNotification(AchievementType aType)
+		{
+			m_AchievementsQueue.Enqueue(aType);
+			this.enabled = true;
 		}
 
 		private void TriggerTrophyNotification(AchievementType aType)
@@ -101,9 +140,13 @@ namespace TelemetrySystems
 
 			int prefabIndex = m_AchievementsPrefabIndexes[(int)aType];
 
-			var poolSystem = GameplayUtility.ObjectPoolSystem.Instance;
+			var poolSystem = ObjectPoolSystem.Instance;
 			if (poolSystem)
-				poolSystem.InstantiatePrefabWith(m_AllAchievementPrefabs[prefabIndex], Vector3.zero, Quaternion.identity);
+			{
+				GameObject throphy = poolSystem.InstantiatePrefabWith(m_AllAchievementPrefabs[prefabIndex], Vector3.zero, Quaternion.identity);
+				DontDestroyOnLoad(throphy);
+				m_NextNotificationTimestamp = Time.time + m_AllAchievementPrefabs[prefabIndex].GetComponent<ObjectLifetime>().LifeTime;
+			}
 		}
 	}
 }
