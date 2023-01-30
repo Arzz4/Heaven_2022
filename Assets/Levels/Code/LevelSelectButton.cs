@@ -23,13 +23,6 @@ public class LevelSelectButton : MonoBehaviour
         endTrigger = FindObjectOfType<EndTrigger>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnButtonClick);
-
-        String text = "Level " + m_sceneIndex;
-        if (PlayerPrefs.HasKey(EndTrigger.LevelCompletedKey(m_sceneIndex)))
-        {
-            text += " Done!";
-        }
-        GetComponentInChildren<TextMeshProUGUI>().text = text;
     }
 
     public void OnButtonClick()
