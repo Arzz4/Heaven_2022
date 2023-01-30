@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 namespace TelemetrySystems
 {
-
 	public class TelemetryData
 	{
 		public int numberOfDeaths = 0;
+		public int highestLevelReached = 0;
 	}
 
 	public class TelemetryManager : MonoBehaviour
@@ -15,14 +15,18 @@ namespace TelemetrySystems
 		public static TelemetryManager Instance { get { return m_Instance; } }
 
 		[SerializeField]
-		private int m_Achivement_TargetNumberOfDeaths = 20;
+		private GameObject[] m_AllAchievementPrefabs = default;
 
 		[SerializeField]
-		private GameObject m_Achievement_TargetNumberOfDeathsPrefab = default;
+		private int m_Achievement_TargetNumberOfDeaths = 20;
 
-		private bool m_GotAchievement_TargetNumberOfDeaths = false;
+		[SerializeField]
+		private int m_Achievement_FirstHiddenLevelIndex = 12;
 
+		// Internals 
 		private TelemetryData m_TelemetryData;
+		private bool[] m_AchievementsCheckList;
+		private int[] m_AchievementsPrefabIndexes;
 
 		private void Awake()
 		{
@@ -37,13 +41,33 @@ namespace TelemetrySystems
 			DontDestroyOnLoad(gameObject);
 
 			InitializeTelemetry();
+			InitializeAchievementsCheckList();
+			InitializePrefabsIndices();
 
 			SceneManager.sceneLoaded += OnSceneLoaded;
 		}
-
 		private void InitializeTelemetry()
 		{
 			m_TelemetryData = new TelemetryData();
+		}
+
+		private void InitializeAchievementsCheckList()
+		{
+			int nAchievements = (int) AchievementType.Count;
+			m_AchievementsCheckList = new bool[nAchievements];
+			for (int i = 0; i < nAchievements; ++i)
+				m_AchievementsCheckList[i] = false;
+		}
+
+		private void InitializePrefabsIndices()
+		{
+			int nAchievements = (int)AchievementType.Count;
+			m_AchievementsPrefabIndexes = new int[nAchievements];
+			for(int i = 0, e = m_AllAchievementPrefabs.Length; i < e; ++i)
+			{
+				AchievementType t = m_AllAchievementPrefabs[i].GetComponent<AchievementDefinition>().AchievementType;
+				m_AchievementsPrefabIndexes[(int)t] = i;
+			}
 		}
 
 		public void OnCharacterDeath()
@@ -58,14 +82,28 @@ namespace TelemetrySystems
 
 		private void OnSceneLoaded(Scene anScene, LoadSceneMode aMode)
 		{
-			if (!m_GotAchievement_TargetNumberOfDeaths && m_TelemetryData.numberOfDeaths >= m_Achivement_TargetNumberOfDeaths)
-			{
-				m_GotAchievement_TargetNumberOfDeaths = true;
+			m_TelemetryData.highestLevelReached = Mathf.Max(anScene.buildIndex, m_TelemetryData.highestLevelReached);
 
-				var poolSystem = GameplayUtility.ObjectPoolSystem.Instance;
-				if (poolSystem)
-					poolSystem.InstantiatePrefabWith(m_Achievement_TargetNumberOfDeathsPrefab, Vector3.zero, Quaternion.identity);
+			if (!m_AchievementsCheckList[(int)AchievementType.NumberOfDeaths] && m_TelemetryData.numberOfDeaths >= m_Achievement_TargetNumberOfDeaths)
+			{
+				TriggerTrophyNotification(AchievementType.NumberOfDeaths);
 			}
+
+			if(!m_AchievementsCheckList[(int)AchievementType.ReachedHiddenLevels] && m_TelemetryData.highestLevelReached >= m_Achievement_FirstHiddenLevelIndex)
+			{
+				TriggerTrophyNotification(AchievementType.ReachedHiddenLevels);
+			}
+		}
+
+		private void TriggerTrophyNotification(AchievementType aType)
+		{
+			m_AchievementsCheckList[(int)aType] = true;
+
+			int prefabIndex = m_AchievementsPrefabIndexes[(int)aType];
+
+			var poolSystem = GameplayUtility.ObjectPoolSystem.Instance;
+			if (poolSystem)
+				poolSystem.InstantiatePrefabWith(m_AllAchievementPrefabs[prefabIndex], Vector3.zero, Quaternion.identity);
 		}
 	}
 }

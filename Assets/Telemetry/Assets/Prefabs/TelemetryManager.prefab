@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb29e3b4b22588428638d22e5b2006e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Achivement_TargetNumberOfDeaths: 20
-  m_Achievement_TargetNumberOfDeathsPrefab: {fileID: 1769645672999900191, guid: 190f2a0d344533245839835d0e9ff6c8, type: 3}
+  m_AllAchievementPrefabs:
+  - {fileID: 1769645672999900191, guid: 190f2a0d344533245839835d0e9ff6c8, type: 3}
+  - {fileID: 1769645672999900191, guid: 846da556dda2bff4493e72bb92679287, type: 3}
+  - {fileID: 1769645672999900191, guid: d2dc892bd6fc39a45b06e67c1d5314e9, type: 3}
+  - {fileID: 1769645672999900191, guid: ba8be5328f1c46d4080f45ebda89ce71, type: 3}
+  m_Achievement_TargetNumberOfDeaths: 20
+  m_Achievement_FirstHiddenLevelIndex: 12
