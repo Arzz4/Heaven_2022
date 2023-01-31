@@ -1,6 +1,8 @@
+using GameplayUtility;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using XInputDotNetPure;
 
 namespace PlayerPlatformer2D
 {
@@ -18,10 +20,14 @@ namespace PlayerPlatformer2D
 		[SerializeField]
 		private UnityEvent<GameObject, int> m_OnCharacterDead = default;
 
+		private GameObject m_PauseMenuObj = null;
+
 		private void Awake()
 		{
 			for(int i = 0; i < m_Players.Length; ++i)
 				m_PlayersRuntimeData.Add(m_Players[i].GetComponent<PlayerRuntimeData>());
+
+			m_PauseMenuObj = Camera.main.GetComponent<GameObjectHolder>().GameObjectRef;
 		}
 
 		private void Start()
@@ -34,6 +40,23 @@ namespace PlayerPlatformer2D
 
 		private void LateUpdate()
 		{
+			// pause menu
+			var frameInput = m_PlayersRuntimeData[m_CurrentPlayerIndex].PlayerInputRuntimeData.frameInput;
+			if(frameInput.buttonPress[(int)GameActionSingleInputType.TogglePauseMenu])
+			{
+				m_PauseMenuObj.SetActive(!m_PauseMenuObj.activeSelf);
+				if (m_PauseMenuObj.activeSelf)
+				{
+					m_Players[m_CurrentPlayerIndex].OnPauseMenuOpen();
+				}
+				else
+				{
+					m_Players[m_CurrentPlayerIndex].OnPauseMenuClosed();
+				}
+				return;
+			}
+
+			// death handling
 			var currentPlayerDeathData = m_PlayersRuntimeData[m_CurrentPlayerIndex].PlayerDeathRuntimeData;
 			if(currentPlayerDeathData.state == PlayerDeathRuntimeData.State.Kill)
 			{

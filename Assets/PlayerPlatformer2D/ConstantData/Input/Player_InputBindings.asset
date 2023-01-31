@@ -19,8 +19,11 @@ MonoBehaviour:
   - action: 1
     keyboardKey: 5
     gamepadKey: 20
-  comboActions:
   - action: 2
+    keyboardKey: 13
+    gamepadKey: 106
+  comboActions:
+  - action: 3
     keyboardKey1: 46
     keyboardKey2: 46
     gamepadKey1: 15

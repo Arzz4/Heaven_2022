@@ -8,11 +8,12 @@ namespace PlayerPlatformer2D
 	{
 		Jump = 0,
 		KillCharacter,
+		TogglePauseMenu
 	}
 
 	public enum GameActionMultipleInputType
 	{
-		KillAllCharacters = 2,
+		KillAllCharacters = 3,
 	}
 
 	[System.Serializable]

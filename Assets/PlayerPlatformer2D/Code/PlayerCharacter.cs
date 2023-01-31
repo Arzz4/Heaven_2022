@@ -1,7 +1,6 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace PlayerPlatformer2D
 {
@@ -116,6 +115,16 @@ namespace PlayerPlatformer2D
 		{
 			m_Input.DisableInput();
 			m_Physics.SetContextTo(PhysicsContextType.Static);
+		}
+
+		public void OnPauseMenuOpen()
+		{
+			m_Physics.SetContextTo(PhysicsContextType.Static);
+		}
+
+		public void OnPauseMenuClosed()
+		{
+			m_Physics.SetContextTo(PhysicsContextType.Main);
 		}
 
 		private IEnumerator DelayToStartPlayingWithCharacter(float delay)

@@ -30,8 +30,13 @@ namespace PlayerPlatformer2D
 
 		public bool UpdateDeathBehaviour()
 		{
+			var physicsData = m_RuntimeData.PlayerPhysicsRuntimeData;
+			if (physicsData.controllerContextType == PhysicsContextType.Static)
+				return false;
+
 			var data = m_RuntimeData.PlayerDeathRuntimeData;
 			var frameInput = m_RuntimeData.PlayerInputRuntimeData.frameInput;
+			
 			if (frameInput.buttonPress[(int)GameActionSingleInputType.KillCharacter])
 			{
 				data.state = PlayerDeathRuntimeData.State.Kill;
