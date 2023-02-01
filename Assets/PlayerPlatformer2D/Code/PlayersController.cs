@@ -126,6 +126,13 @@ namespace PlayerPlatformer2D
 			{
 				bounce.setSourceVelocity(playerRuntimeData.PlayerPhysicsRuntimeData.velocity);
 			}
+
+			// make sure all objects attached on visuals are detached
+			Transform playerVisuals = player.GetComponentInChildren<Animator>().transform;
+			for(int i = playerVisuals.childCount-1; i >= 0; --i) 
+			{
+				playerVisuals.GetChild(i).SetParent(null, true);
+			}
 		}
 	}
 }

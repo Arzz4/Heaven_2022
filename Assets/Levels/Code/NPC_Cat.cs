@@ -1,4 +1,3 @@
-using PlayerPlatformer2D;
 using UnityEngine;
 
 public class NPC_Cat : MonoBehaviour
@@ -16,18 +15,39 @@ public class NPC_Cat : MonoBehaviour
 		if (!collision.CompareTag("Player"))
 			return;
 
-		GameObject playerVisuals = collision.GetComponentInChildren<PlayerVisuals>().gameObject;
-		AttachToTransform(playerVisuals.transform);
+		AttachToTransform(collision.transform);
+	}
+
+	private void Update()
+	{
+		if (m_AttachedPlayer == null)
+		{
+			return;
+		}
+
+		if(!m_AttachedPlayer.gameObject.activeSelf)
+		{
+			Detach();
+			return;
+		}
 	}
 
 	private void AttachToTransform(Transform aParent)
 	{
 		m_AttachedPlayer = aParent;
 		m_Rigidbody.simulated = false;
-		m_BoxCollider.enabled = false;
-		
-		transform.SetParent(m_AttachedPlayer);
+
+		Transform playerVisuals = aParent.GetComponentInChildren<Animator>().transform;
+		transform.SetParent(playerVisuals);
 		transform.localPosition = Vector3.zero;
 		transform.localRotation = Quaternion.identity;
+	}
+
+	private void Detach()
+	{
+		transform.SetParent(null, true);
+
+		m_AttachedPlayer = null;
+		m_Rigidbody.simulated = true;
 	}
 }
