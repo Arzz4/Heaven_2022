@@ -39,7 +39,10 @@ public class EndTrigger : MonoBehaviour
 
         if (IsInsideTriggerZone(character.transform.position))
 		{
-			TelemetrySystems.TelemetryManager.Instance.OnFinishedLevel(remainingCharacters);
+			var cat = GameObject.FindObjectOfType<NPC_Cat>();
+			bool hasCat = cat != null && IsInsideTriggerZone(cat.GetPosition());
+
+			TelemetrySystems.TelemetryManager.Instance.OnFinishedLevel(remainingCharacters, hasCat);
 			PlayGoalReachedAudio();
 			SwapToWinningTexture();
 			StartNextScene();

@@ -91,11 +91,16 @@ namespace TelemetrySystems
 			return m_TelemetryData;
 		}
 		
-		public void OnFinishedLevel(int remainingCharacters)
+		public void OnFinishedLevel(int remainingCharacters, bool hasCatWhenFinishing = false)
 		{
 			if(!m_AchievementsCheckList[(int)AchievementType.PlusOneSurvivorFinish] && remainingCharacters > 0)
 			{
 				QueueTrophyNotification(AchievementType.PlusOneSurvivorFinish);
+			}
+
+			if (!m_AchievementsCheckList[(int)AchievementType.CatPersonFinish] && hasCatWhenFinishing)
+			{
+				QueueTrophyNotification(AchievementType.CatPersonFinish);
 			}
 		}
 

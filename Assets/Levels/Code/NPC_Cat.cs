@@ -50,4 +50,9 @@ public class NPC_Cat : MonoBehaviour
 		m_AttachedPlayer = null;
 		m_Rigidbody.simulated = true;
 	}
+
+	public Vector3 GetPosition()
+	{
+		return transform.position + new Vector3 (m_BoxCollider.offset.x, m_BoxCollider.offset.y, 0.0f);
+	}
 }
