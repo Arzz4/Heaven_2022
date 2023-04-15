@@ -697,6 +697,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 680504558918730871, guid: 6ee076428f3882942bbe0597e1a3b46d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7821152413202273578, guid: 6ee076428f3882942bbe0597e1a3b46d, type: 3}
       propertyPath: m_Name
       value: Player_MONKER
@@ -765,6 +769,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6637451091428332327, guid: a9201a174850aa54499dcb12cdffe7d2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7821152413202273578, guid: a9201a174850aa54499dcb12cdffe7d2, type: 3}
       propertyPath: m_Name
       value: Player_BOMBER
@@ -8144,6 +8152,10 @@ PrefabInstance:
     - target: {fileID: 532157371125354879, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
       propertyPath: m_Name
       value: End_Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762579137314932443, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
