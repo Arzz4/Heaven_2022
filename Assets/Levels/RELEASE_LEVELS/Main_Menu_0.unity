@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button_Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 1762579137314932443, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
 --- !u!114 &199904969 stripped
@@ -530,6 +534,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9103232745925720457, guid: 9a093e3b246538e4e8ed61e0a269ff57, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a093e3b246538e4e8ed61e0a269ff57, type: 3}
 --- !u!224 &1339136014 stripped
@@ -600,6 +608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: End_Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 1762579137314932443, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 713b884d17f792b4e89e3a4ea061c12b, type: 3}
 --- !u!114 &1491809429 stripped
@@ -620,6 +632,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 680504558918730871, guid: 6ee076428f3882942bbe0597e1a3b46d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7821152413202273578, guid: 6ee076428f3882942bbe0597e1a3b46d, type: 3}
       propertyPath: m_Name
       value: Player_MONKER
