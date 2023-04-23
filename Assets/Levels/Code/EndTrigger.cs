@@ -91,7 +91,6 @@ public class EndTrigger : MonoBehaviour
 	{
 		m_Loading = true;
 		Debug.Log("Loading next level: " + m_NextSceneIndex);
-		SaveLevelCompleted();
 		StartCoroutine(loadLevel(m_NextSceneIndex,levelSwitchDelay));
 	}
 
@@ -113,7 +112,8 @@ public class EndTrigger : MonoBehaviour
     {
 		yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(index);
-    }
+		SaveLevelUnlocked(index);
+	}
 
     private bool IsInsideTriggerZone(Vector3 pos)
 	{
@@ -137,10 +137,12 @@ public class EndTrigger : MonoBehaviour
 		Gizmos.matrix = Matrix4x4.identity;
 	}
 
-	private void SaveLevelCompleted()
-	{
-		PlayerPrefs.SetInt(LevelCompletedKey(SceneManager.GetActiveScene().buildIndex), 1);
+	private void SaveLevelUnlocked(int levelIndex)
+	{	
+		PlayerPrefs.SetInt(LevelCompletedKey(levelIndex), 1);
 		PlayerPrefs.Save();
+
+		Debug.Log("saved level : " + levelIndex);
 	}
 
 	public static string LevelCompletedKey(int level)

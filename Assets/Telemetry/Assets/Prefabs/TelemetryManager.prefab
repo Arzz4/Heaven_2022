@@ -50,4 +50,4 @@ MonoBehaviour:
   - {fileID: 1769645672999900191, guid: d2dc892bd6fc39a45b06e67c1d5314e9, type: 3}
   - {fileID: 1769645672999900191, guid: ba8be5328f1c46d4080f45ebda89ce71, type: 3}
   m_Achievement_TargetNumberOfDeaths: 20
-  m_Achievement_FirstHiddenLevelIndex: 12
+  m_Achievement_FirstHiddenLevelIndex: 19

@@ -1,14 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
-using System;
-using AudioSystems;
-using Unity.VisualScripting;
-using UnityEngine.Tilemaps;
-using InterfaceMovement;
 using UnityEngine.UI;
-using Button = UnityEngine.UI.Button;
-using TMPro;
 
 public class LevelSelectButton : MonoBehaviour
 {
@@ -21,9 +12,8 @@ public class LevelSelectButton : MonoBehaviour
     public Color locked = new Color(154.0f / 255.0f, 79.0f / 255.0f, 80.0f / 255.0f);
     public Color unlocked = new Color(110.0f/255.0f, 170.0f / 255.0f, 120.0f / 255.0f);
 
-    private void Start()
+    private void OnEnable()
     {
-        endTrigger = FindObjectOfType<EndTrigger>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnButtonClick);
         transform.GetChild(0).GetComponent<Image>().color = PlayerPrefs.HasKey(EndTrigger.LevelCompletedKey(m_sceneIndex)) ? unlocked : locked;
@@ -31,6 +21,12 @@ public class LevelSelectButton : MonoBehaviour
 
     public void OnButtonClick()
     {
-        endTrigger.LoadOtherScene(this);
+        if (!PlayerPrefs.HasKey(EndTrigger.LevelCompletedKey(m_sceneIndex)))
+            return;
+
+        if (endTrigger == null)
+			endTrigger = FindObjectOfType<EndTrigger>();
+
+        endTrigger?.LoadOtherScene(this);
     }
 }
