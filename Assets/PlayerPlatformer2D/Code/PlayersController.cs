@@ -2,7 +2,6 @@ using GameplayUtility;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using XInputDotNetPure;
 
 namespace PlayerPlatformer2D
 {
