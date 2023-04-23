@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5509485676630733248}
   - component: {fileID: 1229807389494533390}
-  - component: {fileID: 5483492534296589448}
+  - component: {fileID: 5051060596249309091}
   m_Layer: 0
-  m_Name: TrophyPrefab_HiddenLevels
+  m_Name: TrophyPrefab_ReachedHiddenLevels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LifeTime: 3
---- !u!114 &5483492534296589448
+--- !u!114 &5051060596249309091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: -1287851153, guid: 984aaa37aef67654fabc7f08ca3f4f9f, type: 3}
+  m_Sprite: {fileID: 1458839655, guid: 3a261972822899c4ebdd72c0cb6b537b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,7 +155,7 @@ Animator:
   m_GameObject: {fileID: 8781246505258007335}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 383b453912d820a419f249ca99eb530a, type: 2}
+  m_Controller: {fileID: 9100000, guid: e1b9b7ac2661a00419824127dcfc88d9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

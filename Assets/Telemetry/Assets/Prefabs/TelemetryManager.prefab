@@ -46,8 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AllAchievementPrefabs:
   - {fileID: 1769645672999900191, guid: 190f2a0d344533245839835d0e9ff6c8, type: 3}
-  - {fileID: 1769645672999900191, guid: 846da556dda2bff4493e72bb92679287, type: 3}
-  - {fileID: 1769645672999900191, guid: d2dc892bd6fc39a45b06e67c1d5314e9, type: 3}
+  - {fileID: 1769645672999900191, guid: 1ff035ff2b1e81f4c81673796f08eda9, type: 3}
+  - {fileID: 1769645672999900191, guid: 63ddf0f90af26b540bb69e66e7d65c4a, type: 3}
+  - {fileID: 1769645672999900191, guid: 94003c782bad1ff4bb43521e3fa97f84, type: 3}
+  - {fileID: 1769645672999900191, guid: 98b393f9df263584bbe9419a4f0fb13f, type: 3}
   - {fileID: 1769645672999900191, guid: ba8be5328f1c46d4080f45ebda89ce71, type: 3}
   m_Achievement_TargetNumberOfDeaths: 20
   m_Achievement_FirstHiddenLevelIndex: 19
+  m_Achievement_TargetNumberOfCatsRescue: 7
+  m_Achievement_TargetHeavenLevelIndex: 30
+  m_Achievement_TargetNumberOfBlocksToDestroy: 40

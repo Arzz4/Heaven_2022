@@ -9,7 +9,7 @@ namespace TelemetrySystems
 		NumberOfDeaths = 0,
 		ReachedHiddenLevels,
 		PlusOneSurvivorFinish,
-		CatPersonFinish,
+		RescueSevenCats,
 		Destroy40Blocks,
 		ReachHeaven,
 

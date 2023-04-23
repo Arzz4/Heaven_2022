@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1229807389494533390}
   - component: {fileID: 5971193109649793247}
   m_Layer: 0
-  m_Name: TrophyPrefab_PlusOneSurvivor
+  m_Name: TrophyPrefab_RescueCats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf375fe36c63574b8a51bf4cab06dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AchievementType: 2
+  m_AchievementType: 3
 --- !u!1 &8781246505258007335
 GameObject:
   m_ObjectHideFlags: 0

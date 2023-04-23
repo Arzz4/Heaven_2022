@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5509485676630733248}
   - component: {fileID: 1229807389494533390}
-  - component: {fileID: 5971193109649793247}
+  - component: {fileID: 7071768598926291341}
   m_Layer: 0
-  m_Name: TrophyPrefab_CatPerson
+  m_Name: TrophyPrefab_40BlocksDestroyed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LifeTime: 3
---- !u!114 &5971193109649793247
+--- !u!114 &7071768598926291341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf375fe36c63574b8a51bf4cab06dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AchievementType: 3
+  m_AchievementType: 4
 --- !u!1 &8781246505258007335
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: -711025196, guid: cac37341af738f640b64519497fd91b0, type: 3}
+  m_Sprite: {fileID: -1067446479, guid: f5ca7df0d00cb9644b8444c6c78c5a07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,7 +155,7 @@ Animator:
   m_GameObject: {fileID: 8781246505258007335}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 296d682aedf5a9946ad6b0c617353915, type: 2}
+  m_Controller: {fileID: 9100000, guid: e44f27b343decf342a10736f2e26cacd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
