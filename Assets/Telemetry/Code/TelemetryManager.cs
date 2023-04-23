@@ -153,5 +153,10 @@ namespace TelemetrySystems
 				m_NextNotificationTimestamp = Time.time + m_AllAchievementPrefabs[prefabIndex].GetComponent<ObjectLifetime>().LifeTime;
 			}
 		}
+
+		public bool HasUnlockedAchievement(AchievementType aType) 
+		{
+			return m_AchievementsCheckList != null ? m_AchievementsCheckList[(int)aType] : false;
+		}
 	}
 }

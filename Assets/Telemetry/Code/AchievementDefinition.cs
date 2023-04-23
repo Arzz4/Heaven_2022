@@ -10,6 +10,8 @@ namespace TelemetrySystems
 		ReachedHiddenLevels,
 		PlusOneSurvivorFinish,
 		CatPersonFinish,
+		Destroy40Blocks,
+		ReachHeaven,
 
 		Count
 	}

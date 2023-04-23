@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TelemetrySystems;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,6 +14,9 @@ public class PauseMenuNavigation : MonoBehaviour
 	[SerializeField]
 	private Transform m_buttonsContainer = default;
 
+	[SerializeField]
+	private UITrophyUnlocked[] m_Trophies = default;
+
 	public void OnEnable()
 	{
 		int selectionIndex = SceneManager.GetActiveScene().buildIndex - 1;
@@ -20,5 +24,11 @@ public class PauseMenuNavigation : MonoBehaviour
 			selectionIndex = 0;
 
 		m_UIEventSystem.SetSelectedGameObject(m_buttonsContainer.GetChild(selectionIndex).gameObject);
+
+		for(int i = 0; i < m_Trophies.Length; i++) 
+		{
+			m_Trophies[i].UpdateUITrophy();
+		}
+
 	}
 }
