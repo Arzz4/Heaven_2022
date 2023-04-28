@@ -3,6 +3,7 @@ using PlayerPlatformer2D;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TelemetrySystems;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -123,6 +124,7 @@ public class TileLogic : MonoBehaviour
     private IEnumerator removeTiles(List<Tuple<float, Vector3Int>> toDelete, Vector3 origin)
     {
         float prevDelay = 0;
+        int tilesDeleted = 0;
         foreach (var item in toDelete)
         {
             var delay = item.Item1;
@@ -132,12 +134,16 @@ public class TileLogic : MonoBehaviour
             if (tiles.HasTile(pos))
             {
                 ObjectPoolSystem.Instance.InstantiatePrefabWith(explosionPrefab, tiles.CellToWorld(pos) + prefabOffset, Quaternion.identity);
-
+                tilesDeleted++;
             }
             removeTilesAt(tiles.CellToWorld(pos));
 
             scorchNearby(pos, origin);
             prevDelay = delay;
+        }
+        if (tilesDeleted > 0)
+        {
+            TelemetryManager.Instance.OnBlocksDestroyed(tilesDeleted);
         }
     }
 
