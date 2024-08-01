@@ -8,7 +8,7 @@ public class RippleEffect_RenderPassFeature : ScriptableRendererFeature
 	{
 		static readonly int TempTargetId = Shader.PropertyToID("_Temp_RippleBlit"); // You can name this anything you want
 
-		public RenderTargetIdentifier source;
+		public RTHandle source;
 		public RenderTargetHandle destination;
 		public int blitShaderPassIndex;
 		public FilterMode filterMode;
@@ -62,12 +62,16 @@ public class RippleEffect_RenderPassFeature : ScriptableRendererFeature
 		m_ScriptablePass = new RippleEffect_RenderPass(TheRenderPassEvent, filterMode, blitShaderPassIndex);
 	}
 
+	public override void SetupRenderPasses(ScriptableRenderer renderer, in RenderingData renderingData)
+	{
+		m_ScriptablePass.source = renderer.cameraColorTargetHandle;
+		m_ScriptablePass.destination = RenderTargetHandle.CameraTarget;
+	}
+
 	// Here you can inject one or multiple render passes in the renderer.
 	// This method is called when setting up the renderer once per-camera.
 	public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
 	{
-		m_ScriptablePass.source = renderer.cameraColorTarget;
-		m_ScriptablePass.destination = RenderTargetHandle.CameraTarget;
 		renderer.EnqueuePass(m_ScriptablePass);
 	}
 }
